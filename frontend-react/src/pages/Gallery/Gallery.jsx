@@ -455,10 +455,11 @@
  
 // export default Gallery;
 
-import { FunctionComponent, useCallback } from 'react';
+import { useCallback } from 'react';
 import styles from './Gallery.module.css';
-import '../App.css';
-
+import '../../App.css';
+import VideoBackground from '../../components/VideoBackground';
+import { BACKGROUNDS } from '../../utils/backgrounds';
 
 const Gallery = () => {
   	
@@ -468,12 +469,7 @@ const Gallery = () => {
   	
   	return (
         <>
-            <div className="video-background">
-                <video autoPlay loop muted>
-                    <source src="https://res.cloudinary.com/deecew6ga/video/upload/q_auto,f_auto/v1728732370/-1ced-4d69-b61e-4609c6ac87a6_ygzqc4.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+			<VideoBackground url = {BACKGROUNDS.Gallery} />
     		<div className={styles.gallery}>
       			<div className={styles.rectangleParent}>
         				<div className={styles.instanceChild} />

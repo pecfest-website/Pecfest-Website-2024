@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Gallery from './components/Gallery';
+import Gallery from './pages/Gallery/Gallery';
+import Events from './pages/Events/Events';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/events" element={<Events />} />
                 </Routes>
             </Router>
             
