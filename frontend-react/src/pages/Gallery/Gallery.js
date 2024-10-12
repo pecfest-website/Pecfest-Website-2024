@@ -8,7 +8,7 @@ import React from 'react';
 import VideoBackground from '../../components/VideoBackground';
 import {BACKGROUNDS} from '../../utils/backgrounds'; 
 import NavBar from '../../components/NavBar/Navbar';
-import Gallery from '../../components/Gallery/GalleryComponent';
+import GalleryComponent from '../../components/Gallery/GalleryComponent';
 const Gallery = () => {
 	const [index, setIndex] = React.useState(-1);
   

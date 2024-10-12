@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy, useRef } from 'react';
 import styles from './Gallery.module.css';
+import { media } from '../../utils/media_urls'; // Make sure this contains valid URLs for images and videos
 
 const LazyVideo = lazy(() => import('../LazyVideo/LazyVideo')); // Lazy load video component
 
@@ -8,17 +9,12 @@ const GalleryComponent = () => {
   const [modalContent, setModalContent] = useState({ src: '', type: '', alt: '' });
   const galleryRefs = useRef([]); // Store references for gallery items
 
-  // Gallery items (images and videos)
-  const galleryItems = [
-    
-  ];
-
   // Intersection Observer callback to load images/videos
   const handleIntersection = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const { index } = entry.target.dataset;
-        const item = galleryItems[index];
+        const item = media[index]; // Make sure to use the correct array
 
         if (item.type === 'image') {
           entry.target.src = item.src;
@@ -57,15 +53,19 @@ const GalleryComponent = () => {
   };
 
   // Function to close the modal
-  const closeModal = () => {
+  const closeModal = (e) => {
+    // Avoid closing modal when clicking on content inside it
+    if (e.target.className.includes(styles.modalContent)) {
+      return;
+    }
     setModalVisible(false);
     setModalContent({ src: '', type: '', alt: '' });
   };
 
   return (
     <div>
-      {/* <div className={styles.gallery}>
-        {galleryItems.map((item, index) => (
+      <div className={styles.gallery}>
+        {media.map((item, index) => (
           <div
             key={index}
             className={styles['gallery-item']}
@@ -78,12 +78,14 @@ const GalleryComponent = () => {
                 alt={item.alt}
                 style={{ width: '100%', maxWidth: '300px' }}
                 loading="lazy"
+                className={styles.galleryImage}
               />
             ) : (
               <Suspense fallback={<div>Loading video...</div>}>
                 <LazyVideo
                   data-index={index}
                   ref={(el) => (galleryRefs.current[index] = el)}
+                  className={styles.galleryVideo}
                 />
               </Suspense>
             )}
@@ -92,23 +94,25 @@ const GalleryComponent = () => {
       </div>
 
       {/* Modal */}
-      {/* {modalVisible && (
+      {modalVisible && (
         <div className={styles.modal} onClick={closeModal}>
-          <span className={styles.close} onClick={closeModal}>&times;</span>
+          <span className={styles.close} onClick={() => setModalVisible(false)}>
+            &times;
+          </span>
           {modalContent.type === 'image' ? (
             <img
-              className={styles['modal-content']}
+              className={styles['modalContent']}
               src={modalContent.src}
               alt={modalContent.alt}
             />
           ) : (
-            <video className={styles['modal-content']} controls>
+            <video className={styles['modalContent']} controls>
               <source src={modalContent.src} type="video/mp4" />
             </video>
           )}
           <div className={styles.caption}>{modalContent.alt}</div>
         </div>
-      )}  */}
+      )}
     </div>
   );
 };
