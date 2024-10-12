@@ -3,7 +3,7 @@ import styles from './Gallery.module.css';
 
 const LazyVideo = lazy(() => import('../LazyVideo/LazyVideo')); // Lazy load video component
 
-const Gallery = () => {
+const GalleryComponent = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState({ src: '', type: '', alt: '' });
   const galleryRefs = useRef([]); // Store references for gallery items
@@ -113,4 +113,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default GalleryComponent;
