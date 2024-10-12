@@ -16,6 +16,7 @@ const Gallery = () => {
       <>	
 	  	<NavBar/>
 	 	<VideoBackground url ={BACKGROUNDS.Gallery}  />
+		<Gallery/>
       	
         </>);
 };

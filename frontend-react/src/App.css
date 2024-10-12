@@ -20,3 +20,7 @@ html, body {
     font-weight: normal;
     font-style: normal;
 }
+body {
+  	margin: 0; line-height: normal;
+	font-family: "Cyber Chunk Font","Silkscreen",sans-serif;
+}
