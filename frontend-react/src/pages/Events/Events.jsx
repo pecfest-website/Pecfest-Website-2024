@@ -4,6 +4,8 @@ import styles from './Events.module.css';
 import VideoBackground from '../../components/VideoBackground';
 import { BACKGROUNDS } from '../../utils/backgrounds';
 import Navbar from '../../components/NavBar/Navbar';
+import Card from '../../components/Card/Card';
+
 
 const Events = () => {
   	const navigate = useNavigate();
@@ -16,7 +18,38 @@ const Events = () => {
   	const onEventsTextClick = useCallback(() => {
     		navigate("/");
   	}, [navigate]);
-  	
+	
+	const data = {
+			"events": [
+				{
+					"adminId": 5,
+					"description": "\nLorem ipsum dolor sit amet consectetur adipisicing elit. Eos enim ex consequatur nesciunt iste a consectetur deleniti, fugit quisquam dolor nihil ipsa, debitis sapiente rerum minus cumque libero hic excepturi ratione qui laudantium omnis quis asperiores! Mollitia nostrum numquam ipsa dolor voluptate ducimus. Rerum, praesentium! Vel, debitis nihil repellendus ad saepe nemo fuga repudiandae ducimus, quam officiis provident, autem fugiat ipsum. Quo illum a accusamus aliquid laboriosam odit nesciunt cumque repellendus doloremque unde minus, nihil pariatur veniam! Illo, eius! Soluta debitis, mollitia accusamus eveniet adipisci vero ullam dignissimos nostrum inventore incidunt nihil, fuga explicabo recusandae molestiae dolorem maiores in quam perspiciatis ducimus cumque nesciunt laborum. Commodi, modi eveniet dolorum pariatur libero quisquam sunt, eius ipsum, iusto accusantium reiciendis omnis itaque. Excepturi quaerat nobis, quas ipsum dolorem quae unde doloremque eum atque ullam rem libero est tenetur numquam voluptas, sequi exercitationem dignissimos recusandae delectus beatae. Magni eaque pariatur soluta suscipit neque. Ea, nobis? Aut dicta ratione error ex provident assumenda similique. Repellat quia ullam aliquid dolorum minima fuga exercitationem et deserunt sit nulla iste neque, quasi doloremque molestiae facilis dignissimos, vitae ut laborum. Corrupti assumenda nam ipsam voluptatem laudantium ipsa? Sequi ipsum suscipit facere voluptate eligendi itaque ea molestiae porro quae error iste accusantium aut, velit accusamus ratione dignissimos vero et quam temporibus mollitia! Exercitationem delectus saepe at minus. Iure quisquam possimus, ut a, tenetur unde aliquid, vitae eligendi rem architecto recusandae ullam aliquam laborum dolores maiores accusantium amet praesentium natus temporibus minima corrupti. Autem dolorem magni, quas maxime, in odit fugiat amet porro possimus a libero. Blanditiis velit sint esse id, alias soluta eaque voluptatibus omnis doloremque ipsa placeat. Error laudantium placeat nostrum dolor adipisci? Voluptas corporis facere soluta dolorem quasi quo odio suscipit? Itaque explicabo eveniet error officia sapiente labore! Quo sed corporis quia sequi voluptatem officiis repellendus dignissimos adipisci molestiae non? Officiis porro totam in enim, nam sit et amet quas labore, hic illum natus, nihil asperiores possimus rerum facere adipisci reprehenderit eius magni ad? Et animi omnis alias? Necessitatibus eligendi fugiat nemo, voluptatibus blanditiis corporis rem aspernatur officia cumque possimus? Repellat quos recusandae labore, placeat voluptatum iusto quas laudantium accusamus. Dignissimos deleniti quod corrupti cumque necessitatibus iusto eaque earum, consectetur modi veritatis. Commodi culpa nemo cum voluptatem animi asperiores qui ducimus! Enim sunt nesciunt hic id aliquam dicta aut, rem nihil harum accusantium minima quaerat consectetur rerum in nam nostrum fuga repellendus dolor atque, esse porro ipsam? Molestias harum incidunt nemo, optio nulla ab reprehenderit dignissimos, commodi similique a sapiente ea voluptatum, nostrum adipisci veritatis quaerat ipsam deserunt in? Officia quaerat obcaecati minus aspernatur iste est omnis, fugiat porro illum quia incidunt sint nesciunt. Illo consectetur aut quo beatae praesentium, quisquam recusandae iure excepturi adipisci rerum, dolorum similique eius aliquam! Explicabo perferendis obcaecati natus voluptates aperiam amet veritatis temporibus dolorem ullam praesentium est suscipit facere, dolor officiis rerum, deserunt similique incidunt totam. Tempore odio obcaecati inventore adipisci, praesentium enim fugit beatae tenetur cupiditate corrupti nam consequuntur facilis qui ipsa! Corrupti similique doloremque at est quas aspernatur animi?",
+					"endDate": "2028-06-03",
+					"endTime": "14:01",
+					"eventType": "MEGASHOW",
+					"haveRuleBook": false,
+					"heads": [],
+					"id": 21,
+					"image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1728761571.3796508.jpg",
+					"maxParticipants": 1,
+					"minParticipants": 1,
+					"name": "temp",
+					"participants": [],
+					"participationType": "SINGLE",
+					"paymentType": "FREE",
+					"provideAccommodation": false,
+					"registrationFee": 0.0,
+					"ruleBookLink": "NONE",
+					"startDate": "2024-05-02",
+					"startTime": "14:32",
+					"tags": [
+						"Dance"
+					],
+					"venue": "Library"
+				}
+			]
+		};
+		
   	return (
 		<>
 			<Navbar />
@@ -28,7 +61,7 @@ const Events = () => {
 						<div className={styles['event-heading']}>EVENTS</div>
 						<div className={styles['glow-border-pink']} />
 						<div className={styles['event-content']}>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nesciunt ad sequi atque ipsum aut a, fugiat cum nam nemo, fuga minima officiis non labore nihil quia in asperiores possimus suscipit? Consectetur corporis illo omnis molestiae deleniti quas possimus rerum, voluptatum qui quaerat facere assumenda impedit aliquam fuga ipsa. Fuga inventore dolores ipsum. Debitis nulla labore asperiores dolore ullam veniam placeat rem, molestiae eos magni voluptate fugiat necessitatibus accusamus excepturi cumque? Minima nulla necessitatibus, labore porro, maiores laudantium nisi facere exercitationem accusantium ipsam quam, delectus voluptas repudiandae dolorum molestiae repellendus facilis aspernatur soluta. Maiores error illum amet ea, veritatis praesentium officiis eum doloribus dicta dolor explicabo eligendi sint perspiciatis iure voluptatum nostrum iusto tempora quibusdam ut! Tempora officia at libero nemo architecto eius reiciendis molestiae quos id nisi optio perspiciatis dicta omnis magni nostrum numquam, quae dolorum ex culpa soluta saepe esse? Eligendi nam consequatur exercitationem illum esse ea earum, quas accusantium velit repellat vel quidem labore autem! Sed possimus facere optio laboriosam porro quae rem eveniet. Minima animi voluptatum vero saepe facilis. Nobis assumenda eligendi qui! Pariatur natus culpa saepe dolor ex aliquam eum amet quasi voluptas, cumque numquam, sit praesentium laudantium illo ea ab aperiam nobis eligendi nulla doloribus, unde animi. Debitis impedit dicta exercitationem eveniet accusantium alias similique quos ipsa eligendi a voluptatibus accusamus quisquam eos dolorem suscipit inventore quae totam asperiores architecto maxime, voluptatem rem temporibus, deleniti cumque? Modi cum nemo dolorem ab magni, error tempora dolores nesciunt enim eaque, accusantium veritatis deleniti. Blanditiis illum doloribus ex dignissimos perferendis sapiente quos voluptate at dolores aliquam saepe, ad porro in sit ut omnis eaque perspiciatis! Aspernatur voluptas aut molestiae exercitationem iusto odio. Facilis at aspernatur deserunt autem consequuntur ut quae eveniet obcaecati unde ipsum aliquid nobis doloremque, totam, qui nemo reiciendis. Recusandae ducimus reiciendis architecto expedita aperiam veniam ipsa, mollitia amet, sint in eveniet, ex eos non minima sapiente quas ratione adipisci. Accusantium voluptatem eligendi, laudantium ut doloribus magnam possimus doloremque itaque dolorem commodi provident quisquam, recusandae voluptatibus, illo fuga praesentium voluptate porro accusamus harum a atque earum. Praesentium suscipit similique, aliquid porro explicabo, esse excepturi impedit architecto unde provident repellendus quaerat sequi veniam non ipsum reprehenderit voluptatem deserunt minima obcaecati sit optio eius itaque. Sequi expedita adipisci commodi vero architecto voluptates suscipit harum tenetur, saepe, ut tempore, eum perferendis doloribus accusamus fugit at culpa! Totam, corporis iste ad molestiae iure quas. Eius at neque magni impedit. Harum mollitia atque impedit iure. Error quam accusamus, incidunt a ipsam natus nemo accusantium at voluptatibus nisi! Repellendus alias eveniet natus maiores! Ad autem pariatur ipsa totam! Numquam eum nulla repellendus, minima ipsum amet inventore sunt, quidem eveniet sequi quos dolore libero facilis labore nesciunt officia incidunt tempore atque iure neque earum laboriosam obcaecati. Alias aut quae, quis et laudantium vitae animi laboriosam id nesciunt perspiciatis quasi natus maxime ut eveniet similique totam eius ex incidunt fugiat expedita. Nemo quasi quo, sed consequuntur, sint illo aliquam vitae obcaecati odit, magnam dolore nihil provident suscipit ut consequatur aspernatur fuga deleniti exercitationem?</p>
+							<Card imageUrl={data.events[0].image} heading={data.events[0].name} tags={data.events[0].tags} />
 						</div>
 					</div>
 				</div>
@@ -38,3 +71,4 @@ const Events = () => {
 };
 
 export default Events;
+
