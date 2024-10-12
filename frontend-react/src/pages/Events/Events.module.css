@@ -2,7 +2,7 @@
 .events {
     position: relative;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 115px);
     overflow: hidden;
     text-align: left;
     font-size: 25px;
