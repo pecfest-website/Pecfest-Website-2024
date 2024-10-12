@@ -3,3 +3,13 @@
 body {
   	margin: 0; line-height: normal;
 }
+
+/* Hides scrollbar for the entire page */
+html, body {
+	overflow: auto;
+  }
+  
+  ::-webkit-scrollbar {
+	display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+  }
+  
