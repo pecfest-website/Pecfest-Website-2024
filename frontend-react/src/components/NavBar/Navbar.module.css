@@ -17,7 +17,7 @@
   transition: backdrop-filter 0.3s ease;
   z-index: 1;
   margin: 15px 7px;
-  font-family: "Silkscreen", sans-serif;
+  font-family: "Cyber Chunk Font","Silkscreen", sans-serif;
   font-weight: 400;
   font-style: normal;
   /* font-family: ; */
@@ -44,7 +44,7 @@
   padding: 15px 20px;
   margin: 0 5px;
   border-radius: 25px;
-  font-size: 20px;
+  font-size: 1.5rem;
   position: relative;
 }
 
