@@ -4,5 +4,5 @@ export const BACKGROUNDS = {
     Sponsors: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728751726/back_ymdle1.mp4",
     AboutUs:"https://res.cloudinary.com/dfjuxpxff/video/upload/v1728751726/back_ymdle1.mp4",
     Login: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4",
-    
+    Team: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4"
 }
