@@ -1,70 +1,172 @@
-/* Gallery.module.css */
-
-/* Style for the gallery items */
-.gallery-item {
-    border-radius: 5px;
+/* Container for the gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* Gallery item */
+  .gallery-item {
+    position: relative;
     cursor: pointer;
-    transition: 0.3s;
-    margin: 5px;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
   }
   
   .gallery-item:hover {
-    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  
+  /* Lazy loaded image */
+  .galleryImage,
+  .galleryVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   /* Modal styles */
   .modal {
-    display: none;
     position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
   }
   
   /* Modal content */
-  .modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
+  .modalContent {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
   }
   
-  /* Caption text */
+  /* Caption below the modal content */
   .caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
+    margin-top: 10px;
+    color: #f0f0f0;
     text-align: center;
-    color: #ccc;
-    padding: 10px 0;
   }
   
-  /* Close button */
+  /* Close button for the modal */
   .close {
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
+    top: 20px;
+    right: 30px;
     font-size: 40px;
     font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .close:hover {
-    color: #bbb;
+    color: #fff;
     cursor: pointer;
   }
   
-  /* 100% width on smaller screens */
-  @media only screen and (max-width: 700px) {
-    .modal-content {
-      width: 100%;
-    }
+  /* Prevent interaction with the modal content */
+  .close:hover {
+    color: #bbb;
   }
+  
+  /* Placeholder styling for lazy loading */
+  .placeholder {
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #888;
+  }
+  
+  /* Media container (for image or video) in modal */
+  .media-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Navigation buttons */
+.navButton {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    font-size: 2em;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hover effects for buttons */
+  .navButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  /* Left and right navigation positioning */
+  .navButton:first-of-type {
+    left: -60px; /* Move the button a bit away from the content */
+  }
+  
+  .navButton:last-of-type {
+    right: -60px; /* Move the button a bit away from the content */
+  }
+  
+  /* Modal Content to handle interactions */
+  .modalContent {
+    position: relative;
+    max-width: 90%;
+    max-height: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modalImage, .modalVideo {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative; /* To position text over the image */
+    width: 100%; /* Full width */
+  }
+  
+  .backgroundImage {
+    max-width: 100%; /* Responsive width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .overlayText {
+    position: absolute; /* Position text over the image */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for text size */
+    font-size: 36px; /* Adjust size as needed */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text horizontally */
+    pointer-events: none; 
+    font-family: "Cyber Chunk Font","Silkscreen", sans-serif;
+  }
+  
   

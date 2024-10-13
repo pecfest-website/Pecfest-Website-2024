@@ -332,8 +332,8 @@
 .gallery {
     width: 100%;
     position: relative;
-    height: 1022px;
-    overflow: hidden;
+    /* height: 1022pxs; */
+    overflow-x:hidden ;
     text-align: left;
     font-size: 25px;
     color: #fff;
