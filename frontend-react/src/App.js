@@ -4,7 +4,10 @@ import Gallery from './pages/Gallery/Gallery';
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
 import Sponsors from './pages/Sponsors/Sponsors';
-import Homepage from './pages/HomePage/Homepage';
+
+
+import { Login } from './pages/Login/Login';
+
 
 
 function App() {
@@ -18,6 +21,7 @@ function App() {
                     <Route path="/events" element={<Events />} />
                     <Route path="/AboutUs" element={<AboutUs />} />
                     <Route path="/sponsors" element={<Sponsors />} />
+                    <Route path="/login" element={<Login />} />
                 </Routes>
             </Router>
             
