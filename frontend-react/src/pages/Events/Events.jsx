@@ -3,6 +3,8 @@ import {useNavigate} from "react-router-dom";
 import styles from './Events.module.css';
 import VideoBackground from '../../components/VideoBackground';
 import { BACKGROUNDS } from '../../utils/backgrounds';
+import Navbar from '../../components/NavBar/Navbar';
+import Card from '../../components/Card/Card';
 
 
 const Events = () => {
@@ -16,447 +18,57 @@ const Events = () => {
   	const onEventsTextClick = useCallback(() => {
     		navigate("/");
   	}, [navigate]);
-  	
+	
+	const data = {
+			"events": [
+				{
+					"adminId": 5,
+					"description": "\nLorem ipsum dolor sit amet consectetur adipisicing elit. Eos enim ex consequatur nesciunt iste a consectetur deleniti, fugit quisquam dolor nihil ipsa, debitis sapiente rerum minus cumque libero hic excepturi ratione qui laudantium omnis quis asperiores! Mollitia nostrum numquam ipsa dolor voluptate ducimus. Rerum, praesentium! Vel, debitis nihil repellendus ad saepe nemo fuga repudiandae ducimus, quam officiis provident, autem fugiat ipsum. Quo illum a accusamus aliquid laboriosam odit nesciunt cumque repellendus doloremque unde minus, nihil pariatur veniam! Illo, eius! Soluta debitis, mollitia accusamus eveniet adipisci vero ullam dignissimos nostrum inventore incidunt nihil, fuga explicabo recusandae molestiae dolorem maiores in quam perspiciatis ducimus cumque nesciunt laborum. Commodi, modi eveniet dolorum pariatur libero quisquam sunt, eius ipsum, iusto accusantium reiciendis omnis itaque. Excepturi quaerat nobis, quas ipsum dolorem quae unde doloremque eum atque ullam rem libero est tenetur numquam voluptas, sequi exercitationem dignissimos recusandae delectus beatae. Magni eaque pariatur soluta suscipit neque. Ea, nobis? Aut dicta ratione error ex provident assumenda similique. Repellat quia ullam aliquid dolorum minima fuga exercitationem et deserunt sit nulla iste neque, quasi doloremque molestiae facilis dignissimos, vitae ut laborum. Corrupti assumenda nam ipsam voluptatem laudantium ipsa? Sequi ipsum suscipit facere voluptate eligendi itaque ea molestiae porro quae error iste accusantium aut, velit accusamus ratione dignissimos vero et quam temporibus mollitia! Exercitationem delectus saepe at minus. Iure quisquam possimus, ut a, tenetur unde aliquid, vitae eligendi rem architecto recusandae ullam aliquam laborum dolores maiores accusantium amet praesentium natus temporibus minima corrupti. Autem dolorem magni, quas maxime, in odit fugiat amet porro possimus a libero. Blanditiis velit sint esse id, alias soluta eaque voluptatibus omnis doloremque ipsa placeat. Error laudantium placeat nostrum dolor adipisci? Voluptas corporis facere soluta dolorem quasi quo odio suscipit? Itaque explicabo eveniet error officia sapiente labore! Quo sed corporis quia sequi voluptatem officiis repellendus dignissimos adipisci molestiae non? Officiis porro totam in enim, nam sit et amet quas labore, hic illum natus, nihil asperiores possimus rerum facere adipisci reprehenderit eius magni ad? Et animi omnis alias? Necessitatibus eligendi fugiat nemo, voluptatibus blanditiis corporis rem aspernatur officia cumque possimus? Repellat quos recusandae labore, placeat voluptatum iusto quas laudantium accusamus. Dignissimos deleniti quod corrupti cumque necessitatibus iusto eaque earum, consectetur modi veritatis. Commodi culpa nemo cum voluptatem animi asperiores qui ducimus! Enim sunt nesciunt hic id aliquam dicta aut, rem nihil harum accusantium minima quaerat consectetur rerum in nam nostrum fuga repellendus dolor atque, esse porro ipsam? Molestias harum incidunt nemo, optio nulla ab reprehenderit dignissimos, commodi similique a sapiente ea voluptatum, nostrum adipisci veritatis quaerat ipsam deserunt in? Officia quaerat obcaecati minus aspernatur iste est omnis, fugiat porro illum quia incidunt sint nesciunt. Illo consectetur aut quo beatae praesentium, quisquam recusandae iure excepturi adipisci rerum, dolorum similique eius aliquam! Explicabo perferendis obcaecati natus voluptates aperiam amet veritatis temporibus dolorem ullam praesentium est suscipit facere, dolor officiis rerum, deserunt similique incidunt totam. Tempore odio obcaecati inventore adipisci, praesentium enim fugit beatae tenetur cupiditate corrupti nam consequuntur facilis qui ipsa! Corrupti similique doloremque at est quas aspernatur animi?",
+					"endDate": "2028-06-03",
+					"endTime": "14:01",
+					"eventType": "MEGASHOW",
+					"haveRuleBook": false,
+					"heads": [],
+					"id": 21,
+					"image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1728761571.3796508.jpg",
+					"maxParticipants": 1,
+					"minParticipants": 1,
+					"name": "temp",
+					"participants": [],
+					"participationType": "SINGLE",
+					"paymentType": "FREE",
+					"provideAccommodation": false,
+					"registrationFee": 0.0,
+					"ruleBookLink": "NONE",
+					"startDate": "2024-05-02",
+					"startTime": "14:32",
+					"tags": [
+						"Dance"
+					],
+					"venue": "Library"
+				}
+			]
+		};
+		
   	return (
 		<>
-			<VideoBackground url={BACKGROUNDS.Events} />
-    		<div className={styles.events}>
-      			<div className={styles.rectangleParent}>
-        				<div className={styles.instanceChild} />
-        				<div className={styles.aboutParent}>
-          					<div className={styles.about} onClick={onAboutTextClick}>About</div>
-          					<div className={styles.competitions} onClick={onAboutTextClick}>Competitions</div>
-          					<div className={styles.events1} onClick={onEventsTextClick}>Events</div>
-          					<div className={styles.sponsors} onClick={onAboutTextClick}>Sponsors</div>
-          					<div className={styles.schedules} onClick={onAboutTextClick}>Schedules</div>
-          					<div className={styles.team} onClick={onAboutTextClick}>Team</div>
-          					<div className={styles.gallery} onClick={onAboutTextClick}>Gallery</div>
-          					<div className={styles.brochure}>Brochure</div>
-          					<div className={styles.contact} onClick={onAboutTextClick}>Contact</div>
-          					<div className={styles.loginIn}>Login In</div>
-        				</div>
-        				<div className={styles.groupParent}>
-          					<div className={styles.groupContainer}>
-            						<div className={styles.groupContainer}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-            						<div className={styles.groupParent1}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-          					</div>
-          					<div className={styles.groupParent1}>
-            						<div className={styles.groupContainer}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-            						<div className={styles.groupParent1}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-          					</div>
-        				</div>
-        				<div className={styles.groupParent5}>
-          					<div className={styles.groupContainer}>
-            						<div className={styles.groupContainer}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-            						<div className={styles.groupParent1}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-          					</div>
-          					<div className={styles.groupParent1}>
-            						<div className={styles.groupContainer}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-            						<div className={styles.groupParent1}>
-              							<div className={styles.rectangleGroup}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleContainer}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent1}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent2}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent3}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-              							<div className={styles.rectangleParent4}>
-                								<div className={styles.groupChild} />
-                								<div className={styles.groupItem} />
-                								<div className={styles.groupInner} />
-                								<div className={styles.rectangleDiv} />
-                								<div className={styles.groupChild1} />
-                								<div className={styles.groupChild2} />
-              							</div>
-            						</div>
-          					</div>
-        				</div>
-      			</div>
-      			<div className={styles.eventBorder1}>
-        				<div className={styles.eventBorder1Child} />
-        				{/* <img className={styles.groupIcon} alt="" src="Group.svg" />? */}
-        				{/* <img className={styles.groupIcon2} alt="" src="Group.svg" /> */}
-        				<div className={styles.event}>EVENT</div>
-      			</div>
-    		</div>
+			<Navbar />
+			<div>
+				<VideoBackground url={BACKGROUNDS.Events} />
+				<div className={styles.events}>
+					<div className={styles['shadow-region']}>
+						<div className={styles['glow-border-blue']} />
+						<div className={styles['event-heading']}>EVENTS</div>
+						<div className={styles['glow-border-pink']} />
+						<div className={styles['event-content']}>
+							<Card imageUrl={data.events[0].image} heading={data.events[0].name} tags={data.events[0].tags} />
+						</div>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 };
 
 export default Events;
+

@@ -1,6 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cyber+Chunk+Font:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+body {
+  	margin: 0; line-height: normal;
+}
+
+/* Hides scrollbar for the entire page */
+html, body {
+	overflow: auto;
+  }
+  
+  ::-webkit-scrollbar {
+	display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+  }
+  
 @font-face {
     font-family: 'Cyber Chunk Font';
     src: url('./components/NavBar/CyberChunkFont.otf') format('opentype');
