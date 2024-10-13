@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./Events.module.css";
 import VideoBackground from "../../components/VideoBackground";
@@ -7,6 +7,7 @@ import Navbar from "../../components/NavBar/Navbar";
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
 import EventCard from "../../components/EventCard/EventCard";
+import axios from "axios";
 
 const defaultOptions = {
   loop: true,
@@ -18,9 +19,10 @@ const defaultOptions = {
 };
 
 const Events = ({ isJamming, setIsJamming }) => {
-  const navigate = useNavigate();
-  const [active, setIsActive] = useState("mega shows");
 
+  const navigate = useNavigate();
+  const [active, setIsActive] = useState("MEGASHOW");
+  const [events, setEvents] = useState([]);
   const onAboutTextClick = useCallback(() => {
     // Add your code here
   }, []);
@@ -29,36 +31,47 @@ const Events = ({ isJamming, setIsJamming }) => {
     navigate("/");
   }, [navigate]);
 
-  const data = {
-    events: [
+  const getEvents = async () => {
+    let data = [];
+    const res = await axios.post(
+      "https://api.pecfest.org/event/list",
       {
-        adminId: 5,
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos enim ex consequatur nesciunt iste a consectetur deleniti...",
-        endDate: "2028-06-03",
-        endTime: "14:01",
-        eventType: "MEGASHOW",
-        haveRuleBook: false,
-        heads: [],
-        id: 21,
-        image:
-          "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1728761571.3796508.jpg",
-        maxParticipants: 1,
-        minParticipants: 1,
-        name: "Temp Event",
-        participants: [],
-        participationType: "SINGLE",
-        paymentType: "FREE",
-        provideAccommodation: false,
-        registrationFee: 0.0,
-        ruleBookLink: "NONE",
-        startDate: "2024-05-02",
-        startTime: "14:32",
-        tags: ["Dance"],
-        venue: "Library",
+        filters: {
+          eventType: "MEGASHOW",
+        },
       },
-    ],
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    // console.log(res);
+    if (res.data.statusCode === 200) {
+      data = res.data.data.events;
+    }
+    const res2 = await axios.post(
+      "https://api.pecfest.org/event/list",
+      {
+        filters: { eventType: "WORKSHOP" },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(res2);
+    if (res2.data.statusCode === 200) {
+      data = [...data, ...res2.data.data.events];
+    }
+    setEvents(data);
   };
+  useEffect(() => {
+    getEvents();
+  }, []);
+
+  //   console.log(events)
 
   return (
     <>
@@ -73,21 +86,21 @@ const Events = ({ isJamming, setIsJamming }) => {
             <div>
               <NavLink
                 className={`${styles["event-sub-heading"]} ${
-                  active !== "mega shows" ? styles["isNotActive"] : ""
+                  active !== "MEGASHOW" ? styles["isNotActive"] : ""
                 }`}
                 to="#"
                 onClick={() => {
-                  setIsActive("mega shows");
+                  setIsActive("MEGASHOW");
                 }}
               >
                 MEGA SHOWS
               </NavLink>
               <NavLink
                 className={`${styles["event-sub-heading"]} ${
-                  active !== "workshops" ? styles["isNotActive"] : ""
+                  active !== "WORKSHOP" ? styles["isNotActive"] : ""
                 }`}
                 onClick={() => {
-                  setIsActive("workshops");
+                  setIsActive("WORKSHOP");
                 }}
                 to="#"
               >
@@ -95,11 +108,18 @@ const Events = ({ isJamming, setIsJamming }) => {
               </NavLink>
             </div>
             <div className={styles["event-content"]}>
-              <EventCard
-                name={data.events[0].name}
-                photo={data.events[0].image}
-                tags={data.events[0].tags}
-              />
+              {events.map(
+                (event) =>
+                  event.eventType === active && (
+                    <EventCard
+                      name={event.name}
+                      photo={event.image}
+                      tags={event.tags}
+                      key={event.name}
+					  id={event.id}
+                    />
+                  )
+              )}
             </div>
           </div>
         </div>

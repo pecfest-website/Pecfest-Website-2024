@@ -1,10 +1,23 @@
 import React from 'react'
 import { FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaTag } from 'react-icons/fa';
 import { PiTagSimple } from 'react-icons/pi';
+import { useNavigate } from 'react-router-dom';
 
-function EventCard({ name, committee, photo, tags,onClickFunc }) {
+function EventCard({ name, committee, photo, tags,id}) {
+    const navigate = useNavigate();
     return (
-        <div style={{ width: 322, height: 322, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex',cursor:"pointer" }} onClick={onClickFunc}>
+        <div
+        style={{
+            width: 322,
+            height: 322,
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            display: 'inline-flex',
+            cursor: 'pointer',
+        }}
+        onClick={() => navigate(`/events/${id}`)}
+    >
             <div style={{ width: 322, height: 322, position: 'relative' }}>
 
                 <div style={{ width: 121.51, height: 24.30, left: 100.25, top: 221.75, position: 'absolute', opacity: 0.50, mixBlendMode: 'multiply', background: 'radial-gradient(100.14% 100.13% at -64007.74% -79284.44%, black 0%, #242424 6%, #575757 16%, #848484 26%, #AAAAAA 37%, #C9C9C9 48%, #E0E0E0 59%, #F1F1F1 71%, #FBFBFB 84%, white 100%)' }}></div>
@@ -129,7 +142,7 @@ margin-left: 10px;
                             <span className="committee-text" style={{ fontSize: '0.8rem', marginBottom: '10px' }}>{committee}</span> {/* Committee */}
                         </div>
                         <div className="social-icons" style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                            {tags.map((tag)=><><FaTag/>tag</>)}
+                            {tags.map((tag)=><><FaTag/>{tag}</>)}
                         </div>
                     </div>
                 </div>
