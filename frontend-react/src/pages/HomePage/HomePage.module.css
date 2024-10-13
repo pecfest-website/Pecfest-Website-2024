@@ -1,13 +1,15 @@
 
 .events {
     position: relative;
-    width: 100%;
-    height: calc(100vh - 115px);
+    width: 70%;
+    height: 50vh;
     overflow: hidden;
     text-align: left;
     font-size: 25px;
     color: #fff;
     font-family: 'Cyber Chunk Font';
+    border-radius: 30px;
+    margin: auto;
 }
 .shadow-region {
     width: 100%;
@@ -29,7 +31,18 @@
 }
 
 .event-content {
+    margin-top: 20px;
     overflow: scroll;
+    font-family:"Silkscreen", sans-serif;;
+    color: #fbff00;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .glow-border-blue {
@@ -75,3 +88,20 @@ font-family: "Silkscreen", sans-serif;;
     text-shadow: 0;
     border: 0;
 }
+
+
+.blinker {
+    animation: blinker 500ms ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes blinker {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  

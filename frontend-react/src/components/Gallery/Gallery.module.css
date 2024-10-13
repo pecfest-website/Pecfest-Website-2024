@@ -148,25 +148,30 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     position: relative; /* To position text over the image */
-    width: 100%; /* Full width */
+    width: 100%; 
+    /*Full width*/
   }
   
   .backgroundImage {
     max-width: 100%; /* Responsive width */
-    height: auto; /* Maintain aspect ratio */
+    height: auto; 
+    scale: 2;
+    /* Maintain aspect ratio */
   }
   
   .overlayText {
+    scale: 2;
     position: absolute; /* Position text over the image */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust for text size */
-    font-size: 36px; /* Adjust size as needed */
+    font-size: 24px; /* Adjust size as needed */
     color: white; /* Text color */
     font-weight: bold; /* Bold text */
     text-align: center; /* Center the text horizontally */
-    pointer-events: none; 
-    font-family: "Cyber Chunk Font","Silkscreen", sans-serif;
+    pointer-events: none; /* Prevent mouse events on the text */
+  font-family: "Cyber Chunk Font","Silkscreen", sans-serif;;
   }
+  
   
   

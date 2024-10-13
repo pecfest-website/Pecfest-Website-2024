@@ -10,8 +10,8 @@ const NavBar = () => {
         <NavLink  to="/AboutUs">About</NavLink>
         <NavLink  to="#about">Developers</NavLink>
         <NavLink  to="#competitions">Competitions</NavLink>
-        <NavLink  to="#events">Events</NavLink>
-        <NavLink  to="#sponsors">Sponsors</NavLink>
+        <NavLink  to="/events">Events</NavLink>
+        <NavLink  to="/sponsors">Sponsors</NavLink>
       </div>
       <img src="logo.png" alt="Logo" className={styles.logo} /> {/* Update with your logo path */}
       <div className={styles.linksRight}>

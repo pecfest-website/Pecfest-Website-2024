@@ -89,11 +89,13 @@ const GalleryComponent = () => {
   }, [modalVisible]);
 
   return (
-    <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
-       <div className={styles.container}>
+    <>
+    <div className={styles.container}>
       <img src="Vector.svg" alt="Gallery Background" className={styles.backgroundImage} />
       <div className={styles.overlayText}>GALLERY</div>
     </div>
+    <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+       
       <div className={styles.gallery}>
         {media.map((item, index) => (
           <div
@@ -149,6 +151,7 @@ const GalleryComponent = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
