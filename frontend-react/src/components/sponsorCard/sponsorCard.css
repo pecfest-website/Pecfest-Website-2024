@@ -1,0 +1,26 @@
+.card{
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 10px;
+}
+.image-preview{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    
+}
+.category-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category {
+    margin-top: 20px;
+    font-size: 45px;
+    text-align: center;
+    color: white;
+    font-family: 'Labrada';
+    font-weight: 500;
+    word-wrap: break-word;
+}
