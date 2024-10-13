@@ -10,7 +10,19 @@ import {BACKGROUNDS} from '../../utils/backgrounds';
 import NavBar from '../../components/NavBar/Navbar';
 import GalleryComponent from '../../components/Gallery/GalleryComponent';
 import HexagonCard from '../../components/Cards/ImageVideoCard';
-const Gallery = () => {
+
+
+import Lottie from "react-lottie";
+import animationData from "../../utils/Transparent vivbing.json";
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+const Gallery = ({isJamming,setIsJamming}) => {
 	const [index, setIndex] = React.useState(-1);
 	const [items]= useState(media)
   	
@@ -22,7 +34,39 @@ const Gallery = () => {
 		<div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
 			<GalleryComponent/>
     </div>
-      	
+	<div
+        style={{
+          position: "fixed",
+          zIndex: 1,
+          left: 0,
+          bottom: 0,
+          cursor: "pointer",
+        }}
+        onClick={() => setIsJamming((prev) => !prev)} 
+      >
+        {isJamming ? (
+          <Lottie
+            options={defaultOptions}
+            height={200}
+            width={200}
+            // Wrap in an arrow function
+          />
+        ) : (
+          <h2
+            style={{
+              color: "#fbff00",
+              position: "fixed",
+              bottom: "50px",
+              left: "50px",
+              fontFamily: "Cyber Chunk Font",
+              fontSize: "1.2rem",
+            }}
+      // Wrap in an arrow function
+          >
+            Jam?
+          </h2>
+        )}
+      </div>
         </>);
 };
 

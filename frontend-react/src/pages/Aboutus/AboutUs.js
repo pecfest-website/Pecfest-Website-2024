@@ -9,7 +9,18 @@ import Instagram from "../../utils/images/Layer 8.png";
 import Facebook from "../../utils/images/Layer 6.png";
 import Youtube from "../../utils/images/Layer 2.png";
 import Anchor from "../../utils/images/Layer 3.png";
-export const AboutUs = () => {
+
+import Lottie from "react-lottie";
+import animationData from "../../utils/Transparent vivbing.json";
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+export const AboutUs = ({isJamming,setIsJamming}) => {
 
   const data = [
     { src: Events, num: "50k+", title: "Footfall" },
@@ -89,7 +100,39 @@ Embrace the future where tradition meets innovation, and creativity knows no lim
                 </div>
             ))}
         </div>
-  
+        <div
+        style={{
+          position: "fixed",
+          zIndex: 1,
+          left: 0,
+          bottom: 0,
+          cursor: "pointer",
+        }}
+        onClick={() => setIsJamming((prev) => !prev)} 
+      >
+        {isJamming ? (
+          <Lottie
+            options={defaultOptions}
+            height={200}
+            width={200}
+            // Wrap in an arrow function
+          />
+        ) : (
+          <h2
+            style={{
+              color: "#fbff00",
+              position: "fixed",
+              bottom: "50px",
+              left: "50px",
+              fontFamily: "Cyber Chunk Font",
+              fontSize: "1.2rem",
+            }}
+      // Wrap in an arrow function
+          >
+            Jam?
+          </h2>
+        )}
+      </div>
       </>
     );
   };

@@ -5,7 +5,17 @@ import VideoBackground from '../../components/VideoBackground'
 import { BACKGROUNDS } from '../../utils/backgrounds'
 import { coreTeam } from '../../utils/teamData'
 
-function Team() {
+import Lottie from "react-lottie";
+import animationData from "../../utils/Transparent vivbing.json";
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+function Team({setIsJamming,isJamming}) {
     const renderTeamSection = (role) => {
         return coreTeam[role].map((member) => (
           <TeamCard
@@ -21,6 +31,7 @@ function Team() {
         ));
       };
     return (
+      <>
         <div>
       <NavBar />
       <VideoBackground url={BACKGROUNDS.Team} />
@@ -49,6 +60,40 @@ function Team() {
         </div>
       </div>
     </div>
+         <div
+         style={{
+           position: "fixed",
+           zIndex: 1,
+           left: 0,
+           bottom: 0,
+           cursor: "pointer",
+         }}
+         onClick={() => setIsJamming((prev) => !prev)} 
+       >
+         {isJamming ? (
+           <Lottie
+             options={defaultOptions}
+             height={200}
+             width={200}
+             // Wrap in an arrow function
+           />
+         ) : (
+           <h2
+             style={{
+               color: "#fbff00",
+               position: "fixed",
+               bottom: "50px",
+               left: "50px",
+               fontFamily: "Cyber Chunk Font",
+               fontSize: "1.2rem",
+             }}
+       // Wrap in an arrow function
+           >
+             Jam?
+           </h2>
+         )}
+       </div>
+       </>
 
     )
 }

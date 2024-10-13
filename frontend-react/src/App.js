@@ -1,29 +1,52 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery from './pages/Gallery/Gallery';
+import Homepage from './pages/HomePage/Homepage'
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
 import Sponsors from './pages/Sponsors/Sponsors';
+import EventDetail from './pages/EventsDetail/EventDetail';
 import Team from './pages/Team/Team';
-import Homepage from './pages/HomePage/Homepage';
 import { Login } from './pages/Login/Login';
+import { useState } from 'react';
 import { Signup } from './pages/Signup/Signup';
 
+const music = new Audio(
+    "https://firebasestorage.googleapis.com/v0/b/react-trial-cef8c.appspot.com/o/Heuse%20%26%20Zeus%20x%20Crona%20-%20Pill%20(feat.%20Emma%20Sameth)%20%5BNCS%20Release%5D.mp3?alt=media&token=6385b144-d0e9-4438-bf47-456c671265a0"
+  );
 
 function App() {
+    const [isJamming, setJamming]=useState(false);
+
+    const setIsJamming =()=>{
+    
+            setJamming((prevState) => {
+              if (prevState === false) {
+                music.play();
+              } else {
+                console.log("ran");
+                music.pause();
+              }
+              return !prevState;
+            });
+
+    }
     return (
         <div className="App" >
             
             <Router>
                 <Routes>
-                    <Route path="/" element={<Homepage />} />
-                    <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/events" element={<Events />} />
-                    <Route path="/AboutUs" element={<AboutUs />} />
-                    <Route path="/sponsors" element={<Sponsors />} />
-                    <Route path="/team" element={<Team />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<Signup />} />
+
+                    <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } />
+                    <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    <Route path="/events/:id" element={<EventDetail />} />
+                    <Route path="/AboutUs" element={<AboutUs  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
+                    <Route path="/sponsors" element={<Sponsors  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
+                    <Route path="/team" element={<Team isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    <Route path="/login" element={<Login isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    <Route path="/signup" element={<Signup isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    
                 </Routes>
             </Router>
             
