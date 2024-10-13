@@ -4,6 +4,7 @@ import Gallery from './pages/Gallery/Gallery';
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
 import Sponsors from './pages/Sponsors/Sponsors';
+import Team from './pages/Team/Team';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/events" element={<Events />} />
                     <Route path="/AboutUs" element={<AboutUs />} />
                     <Route path="/sponsors" element={<Sponsors />} />
+                    <Route path="/team" element={<Team />} />
                 </Routes>
             </Router>
             
