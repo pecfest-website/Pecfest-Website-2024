@@ -1,28 +1,28 @@
 import React, { useState, useEffect, Suspense, lazy, useRef } from 'react';
 import styles from './Gallery.module.css';
-import { media } from '../../utils/media_urls'; // Make sure this contains valid URLs for images and videos
+import { media } from '../../utils/media_urls';
 
-const LazyVideo = lazy(() => import('../LazyVideo/LazyVideo')); // Lazy load video component
+const LazyVideo = lazy(() => import('../LazyVideo/LazyVideo'));
 
 const GalleryComponent = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalContent, setModalContent] = useState({ src: '', type: '', alt: '' });
-  const galleryRefs = useRef([]); // Store references for gallery items
+  const [currentIndex, setCurrentIndex] = useState(null); // Track current item index
+  const galleryRefs = useRef([]);
 
   // Intersection Observer callback to load images/videos
   const handleIntersection = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const { index } = entry.target.dataset;
-        const item = media[index]; // Make sure to use the correct array
+        const item = media[index];
 
         if (item.type === 'image') {
           entry.target.src = item.src;
         } else if (item.type === 'video') {
           entry.target.querySelector('source').src = item.src;
-          entry.target.load(); // Load video when in view
+          entry.target.load();
         }
-        observer.unobserve(entry.target); // Stop observing once loaded
+        observer.unobserve(entry.target);
       }
     });
   };
@@ -42,34 +42,66 @@ const GalleryComponent = () => {
     });
 
     return () => {
-      observer.disconnect(); // Clean up observer on unmount
+      observer.disconnect();
     };
   }, []);
 
-  // Function to show the modal
-  const showModal = (item) => {
-    setModalContent(item);
+  // Show modal and set the current index
+  const showModal = (index) => {
+    setCurrentIndex(index);
     setModalVisible(true);
   };
 
-  // Function to close the modal
-  const closeModal = (e) => {
-    // Avoid closing modal when clicking on content inside it
-    if (e.target.className.includes(styles.modalContent)) {
-      return;
-    }
+  // Close modal
+  const closeModal = () => {
     setModalVisible(false);
-    setModalContent({ src: '', type: '', alt: '' });
+    setCurrentIndex(null);
   };
 
+  // Navigate to the next item
+  const showNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % media.length);
+  };
+
+  // Navigate to the previous item
+  const showPrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + media.length) % media.length);
+  };
+
+  // Keyboard event listener
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (modalVisible) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'ArrowRight') {
+          showNext();
+        } else if (e.key === 'ArrowLeft') {
+          showPrev();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [modalVisible]);
+
   return (
-    <div>
+    <>
+    <div className={styles.container}>
+      <img src="Vector.svg" alt="Gallery Background" className={styles.backgroundImage} />
+      <div className={styles.overlayText}>GALLERY</div>
+    </div>
+    <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+       
       <div className={styles.gallery}>
         {media.map((item, index) => (
           <div
             key={index}
             className={styles['gallery-item']}
-            onClick={() => showModal(item)}
+            onClick={() => showModal(index)}
           >
             {item.type === 'image' ? (
               <img
@@ -94,26 +126,32 @@ const GalleryComponent = () => {
       </div>
 
       {/* Modal */}
-      {modalVisible && (
+      {modalVisible && currentIndex !== null && (
         <div className={styles.modal} onClick={closeModal}>
-          <span className={styles.close} onClick={() => setModalVisible(false)}>
+          <span className={styles.close} onClick={closeModal}>
             &times;
           </span>
-          {modalContent.type === 'image' ? (
-            <img
-              className={styles['modalContent']}
-              src={modalContent.src}
-              alt={modalContent.alt}
-            />
-          ) : (
-            <video className={styles['modalContent']} controls>
-              <source src={modalContent.src} type="video/mp4" />
-            </video>
-          )}
-          <div className={styles.caption}>{modalContent.alt}</div>
+
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.navButton} onClick={showPrev}>&lt;</button>
+            {media[currentIndex].type === 'image' ? (
+              <img
+                src={media[currentIndex].src}
+                alt={media[currentIndex].alt}
+                className={styles.modalImage}
+              />
+            ) : (
+              <video className={styles.modalVideo} controls>
+                <source src={media[currentIndex].src} type="video/mp4" />
+              </video>
+            )}
+            <button className={styles.navButton} onClick={showNext}>&gt;</button>
+          </div>
+          <div className={styles.caption}>{media[currentIndex].alt}</div>
         </div>
       )}
     </div>
+    </>
   );
 };
 

@@ -24,12 +24,21 @@ export const AboutUs = () => {
               About
             </div>
             <div className="text-gray-200 px-[60px] tracking-wide text-lg pt-4 text-justify items-center">
-              Judson Elevating the spirit of innovation and artistic expression, PECFEST 2023 embraces cutting-edge technology. As the paramount annual extravaganza of North India, PECFEST is a dynamic convergence of creativity, intellect, and pure enjoyment. What truly sets us apart is our unwavering commitment to pushing boundaries.
+          
+            Dive into PECFEST 2024: The Techno-Cultural Revolution!
+
+Step into a neon-infused world where innovation meets artistic expression. PECFEST 2024 is your ticket to an electrifying experience that blends cutting-edge tech with vibrant culture.
+
+Join over 50,000 creators and dreamers as we shatter conventions. Get inspired by visionary talks, lose yourself in mind-blowing performances, and connect with a diverse community that thrives on passion.
+
+Embrace the future where tradition meets innovation, and creativity knows no limits. Are you ready to ride the wave of inspiration at PECFEST 2024?
+
+
             </div>
           </div>
   
           {/* Pink Div */}
-          <div className="absolute z-10 top-[198px] h-[290px] w-[880px] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-4">
+          <div className="absolute z-10 top-[198px] h-[350px] w-[880px] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-4">
            
           </div>
   
