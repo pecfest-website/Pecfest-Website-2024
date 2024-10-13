@@ -4,12 +4,10 @@ import Gallery from './pages/Gallery/Gallery';
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
 import Sponsors from './pages/Sponsors/Sponsors';
-
 import Team from './pages/Team/Team';
 import Homepage from './pages/HomePage/Homepage';
-
 import { Login } from './pages/Login/Login';
-
+import { Signup } from './pages/Signup/Signup';
 
 
 function App() {
@@ -25,6 +23,7 @@ function App() {
                     <Route path="/sponsors" element={<Sponsors />} />
                     <Route path="/team" element={<Team />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                 </Routes>
             </Router>
             

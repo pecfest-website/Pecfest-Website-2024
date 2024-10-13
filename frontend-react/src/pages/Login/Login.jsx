@@ -27,8 +27,8 @@ export const Login = () => {
                 localStorage.setItem("token", response.data.data.token); 
                 navigate(-1);  
             } else {
-                toast.error("Invalid credentials. Please try again.", {
-                    position: 'top-center', // You can change the position
+                toast.error(`${response.data.message}`, {
+                    position: 'top-right', // You can change the position
                     autoClose: 5000, // Toast disappears after 5 seconds
                     hideProgressBar: false, // Show or hide the progress bar
                     closeOnClick: true, // Close the toast when clicked
@@ -40,7 +40,7 @@ export const Login = () => {
         } catch (error) {
             console.error("Login failed:", error);
             toast.error("An error occurred. Please try again later.", {
-                position: 'top-center', // You can change the position
+                position: 'top-right', // You can change the position
                 autoClose: 5000, // Toast disappears after 5 seconds
                 hideProgressBar: false, // Show or hide the progress bar
                 closeOnClick: true, // Close the toast when clicked
@@ -82,7 +82,6 @@ export const Login = () => {
                     <div className="text-gray-200 px-[60px] tracking-wide text-lg pt-4">
                         <input
                             type="password"
-                            
                             onChange={(e) => {
                                 setPassword(e.target.value);
                             }}
@@ -96,6 +95,10 @@ export const Login = () => {
                             onClick={() => handleLogin()}
                         >Login</button>
                     </div>
+                    <div className="text-gray-200 px-[60px] tracking-wide text-lg font-thin pt-4 w-full flex items-center justify-center">
+                        New to PECFEST?  <div className="pl-1 hover:underline" onClick={()=>navigate("/signup")}>Create Account</div>
+                    </div>
+                    
                 </div>
                 {/* Pink Div */}
                 <div className="absolute z-10 top-[198px] h-[290px] w-[880px] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-4">
