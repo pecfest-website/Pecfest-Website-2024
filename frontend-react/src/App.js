@@ -5,7 +5,8 @@ import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
 import Sponsors from './pages/Sponsors/Sponsors';
 
-
+import Team from './pages/Team/Team';
+import Homepage from './pages/HomePage/Homepage';
 import { Login } from './pages/Login/Login';
 
 
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/events" element={<Events />} />
                     <Route path="/AboutUs" element={<AboutUs />} />
                     <Route path="/sponsors" element={<Sponsors />} />
+                    <Route path="/team" element={<Team />} />
                     <Route path="/login" element={<Login />} />
                 </Routes>
             </Router>
