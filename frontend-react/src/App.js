@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AboutUs } from './pages/aboutus';
 import { Login } from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute';  // Import the protected route component
+import { Signup } from './pages/signup';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         </video>
         <Routes>
           {/* Public Route */}
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Signup />} />
 
           {/* Protected Route */}
           <Route
