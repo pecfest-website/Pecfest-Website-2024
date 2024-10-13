@@ -29,7 +29,14 @@
 }
 
 .event-content {
+    margin-top: 100px;
     overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .glow-border-blue {

@@ -17,9 +17,9 @@ const NavBar = () => {
       </div>
       <img src="logo.png" alt="Logo" className={styles.logo} /> {/* Update with your logo path */}
       <div className={styles.linksRight}>
-      <NavLink  to="#sponsors">Sponsors</NavLink>
+      
         <NavLink  to="#schedule">Schedule</NavLink>
-        <NavLink  to="#team">Team</NavLink>
+        <NavLink  to="/team">Team</NavLink>
         <NavLink  to="/gallery">Gallery</NavLink>
         <NavLink to="#brochure">Brochure</NavLink>
         <NavLink to="#contact">Contact</NavLink>
