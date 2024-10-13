@@ -1,0 +1,108 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Narnoor&display=swap");
+
+@font-face {
+    font-family: caribbean;
+    src: url("/assets/fonts/scb/Skullsandcrossbones.ttf");
+} */
+
+.about {
+    /* background-image: url("/assets/images/compressed/about.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    /* font-family: caribbean; */
+    padding-top: 70px;
+}
+
+.aboutHeading {
+    align-items: center;
+    color: white;
+    display: flex;
+    font-size: 4rem;
+    justify-content: center;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    padding: 20px 0;
+    position: relative;
+    width: 100vw;
+    z-index: 0;
+    text-shadow: 5px 5px 5px #000;
+    font-family: caribbean;
+}
+
+.aboutMain {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 4rem auto;
+    text-align: center;
+    width: 70vw;
+    padding: 2rem;
+    border-radius: 20px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    /* font-family: caribbean; */
+}
+
+.aboutBoxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 auto 10vh;
+    width: 70vw;
+    margin-top: 10rem;
+}
+
+.aboutBox {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    backdrop-filter: blur(8px);
+}
+
+.aboutIcon {
+    object-fit: contain;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.aboutNum {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 0.8rem;
+    font-family: caribbean;
+    color: white;
+}
+
+.aboutTitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    color: white;
+    /* font-family: caribbean; */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+    .aboutMain {
+        margin: 20px auto;
+        width: 90vw;
+    }
+    .aboutBoxes {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+}
