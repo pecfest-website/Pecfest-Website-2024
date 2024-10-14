@@ -1,45 +1,42 @@
-// NavBar.jsx
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
-// import 
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   return (
-    <nav className={styles.nav}>
-      <div className={styles.linksLeft}>
-        <NavLink  to="/AboutUs">About</NavLink>
-        <NavLink  to="#about">Developers</NavLink>
-        <NavLink  to="#competitions">Competitions</NavLink>
-
-        <NavLink  to="/events">Events</NavLink>
-        <NavLink  to="/sponsors">Sponsors</NavLink>
-
-      </div>
-      <img src="logo.png" alt="Logo" className={styles.logo} /> {/* Update with your logo path */}
-      <div className={styles.linksRight}>
-      
-        <NavLink  to="#schedule">Schedule</NavLink>
-        <NavLink  to="/team">Team</NavLink>
-        <NavLink  to="/gallery">Gallery</NavLink>
-        <NavLink to="#brochure">Brochure</NavLink>
-        <NavLink to="#contact">Contact</NavLink>
-        <NavLink to="/login">Login</NavLink>
+    <>
+      <nav className={styles.nav}>
+          <NavLink to="/AboutUs">About</NavLink>
+          <NavLink to="#about">Developers</NavLink>
+          <NavLink to="#competitions">Competitions</NavLink>
+          <NavLink to="/events">Events</NavLink>
+          <NavLink to="/sponsors">Sponsors</NavLink>
+        <img src="logo.png" alt="Logo" className={styles.logo} />
+          <NavLink to="#schedule">Schedule</NavLink>
+          <NavLink to="/team">Team</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
+          <NavLink to="#brochure">Brochure</NavLink>
+          <NavLink to="#contact">Contact</NavLink>
+          <NavLink to="/login">Login</NavLink>
       </nav>
+
       <nav className={`${isOpen ? styles.mini : styles.miniNav}`}>
         <img src="logo.png" alt="Logo" className={styles.img} />
         {isOpen ? (
           <></>
-        ) : (<button onClick={toggleMenu} className={styles.hamburger}>
-          ☰
-        </button>
+        ) : (
+          <button onClick={toggleMenu} className={styles.hamburger}>
+            ☰
+          </button>
         )}
 
-        <div className={`${isOpen ? styles.active : styles.links}`} >
+        <div className={`${isOpen ? styles.active : styles.links}`}>
           <button onClick={toggleMenu} className={styles.hamburg}>
             ×
           </button>
