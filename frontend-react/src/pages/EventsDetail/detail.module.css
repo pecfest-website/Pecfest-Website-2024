@@ -1,96 +1,162 @@
-.background {
-    height: 100vh;
-}
 
-.main {
-    display: flex;
-    height: 100%;
+.events {
+    position: relative;
     width: 100%;
-    align-items: center;
-    justify-content: space-between;
+    height: calc(100vh - 115px);
+    /* height: 100%; */
+    overflow: hidden;
+    text-align: left;
+    font-size: 25px;
+    color: #fff;
     font-family: 'Cyber Chunk Font';
+    position: fixed;
 }
-
-.details {
-    width: 50%;
+.shadow-region {
+    width: 100%;
     height: 100%;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
-    gap: 10px;
     flex-direction: column;
-    backdrop-filter: blur(8px);
+    align-items: center;
+    margin-top: 0;
 }
 
-.details h1 {
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-weight: 800;
-    font-family: caribbean, "sans-serif";
+.event-heading {
+    font-size: 3rem;
+    color: #fbff00;
+    font-family: 'Cyber Chunk Font';
+    margin: 5px;
+    
+    
+}
+
+.event-content {
+    margin-top: 50px;
+    overflow: auto; /* Changed from scroll to auto */
+    display: flex;
+    flex-wrap: wrap; /* Prevents wrapping */
+    align-items: flex-start;
+    justify-content: space-between; /* Adds space between items */
+    gap: 20px; /* Adjusted gap */
+    color: #f5f852;
+    font-family: "Silkscreen", sans-serif;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.event-content > div:first-child {
+    flex: 1; /* Allows the first div to take up available space */
+    max-width: 50%; /* Limits the max width */
+}
+
+.event-content > div:last-child {
+    flex: 1; /* Allows the second div to take up available space */
+    max-width: 50%; /* Limits the max width */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+
+.glow-border-blue {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border: 2px solid rgb(84, 211, 253);
+    box-shadow: 0 0 15px 2px rgba(84, 211, 253, 0.75);
+}
+
+.glow-border-pink {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border: 2px solid rgb(192, 35, 207);
+    box-shadow: 0 0 15px 2px rgba(192, 35, 207, 0.75);
+}
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    background-color: black;
+}
+
+.event-sub-heading{
+    font-size: 1.5rem;
+    color: #fbff00;
+    margin: 15px 20px;
+    position: relative;
+    top: 20px;
     padding: 5px;
+font-family: "Silkscreen", sans-serif;;
+ border-bottom: solid #fbff00;
+ z-index: 1;
+ text-shadow: 0.3cm #fbff00;
 }
 
-.tag_badges {
+.isNotActive{
+    color: #fbff00 ;
+    opacity: 70%;
+    /* text-decoration: none; */
+    text-shadow: 0;
+    border: 0;
+}
+.event-content h1{
+    font-size: 2rem;
+    /* margin: ; */
+}
+.eventInfo{
     display: flex;
-    gap: 5px;
+    flex-direction: row;
+    gap: 10px;
+    margin: 10px;
+    font-size: 1.3rem;
+    align-items: center;
 }
 
-.details__info {
+
+.event-content {
+    margin-top: 100px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    color: #f5f852;
+    font-family: "Silkscreen", sans-serif;
+    width: 100%;
+}
+
+/* Style for larger screens */
+.event-content > div:first-child {
+    flex: 1;
+    max-width: 50%;
+}
+
+.event-content > div:last-child {
+    flex: 1;
+    max-width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 5px;
 }
 
-.details__info__line {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-}
 
-.line {
-    margin-top: 20px;
-    border-bottom: 3px solid black;
-}
+/* Responsive styling for mobile devices */
+@media (max-width: 768px) {
+    .event-content {
+        flex-direction: column; /* Stack vertically */
+        gap: 10px;
+        align-items: center; /* Adjust gap between items */
+    }
 
-.description {
-    overflow-y: scroll;
-    flex: 1;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+   
+    .event-content > div {
+        max-width: 100%; /* Full width on mobile */
+        width: 100%;
+    }
 
-.poster {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-items: start;
-    align-items: center;
-}
-
-.poster img {
-  height: 100% !important;
-  width: 100% !important;
-  aspect-ratio: 1/1 !important;
-  object-fit: contain !important;
-}
-
-.errorText {
-    color: red;
-    font-weight: 600;
-    font-size: 14px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-@media screen and (max-width: 1000px) {
-  .main {
-    flex-direction: column-reverse;
-    overflow-y: scroll;
-  }
-
-  .details {
-    width: 90%;
-  }
-  .poster {
-    width: 90%;
-  }
+    .infoCont{
+        text-align: center;
+    }
 }

@@ -10,17 +10,22 @@ const NavBar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <>
-      <nav className={styles.nav}>
-        <NavLink to="/AboutUs">About</NavLink>
-        <NavLink to="#about">Developers</NavLink>
-        <NavLink to="#competitions">Competitions</NavLink>
-        <NavLink to="/events">Events</NavLink>
-        <NavLink to="/sponsors">Sponsors</NavLink>
-        <img src="logo.png" alt="Logo" className={styles.logo} />
-        <NavLink to="#schedule">Schedule</NavLink>
-        <NavLink to="/team">Team</NavLink>
-        <NavLink to="/gallery">Gallery</NavLink>
+    <nav className={styles.nav}>
+      <div className={styles.linksLeft}>
+        <NavLink  to="/AboutUs">About</NavLink>
+        <NavLink  to="#about">Developers</NavLink>
+        <NavLink  to="#competitions">Competitions</NavLink>
+
+        <NavLink  to="/events">Events</NavLink>
+        <NavLink  to="/sponsors">Sponsors</NavLink>
+
+      </div>
+      <img src="logo.png" alt="Logo" className={styles.logo} /> {/* Update with your logo path */}
+      <div className={styles.linksRight}>
+      
+        <NavLink  to="#schedule">Schedule</NavLink>
+        <NavLink  to="/team">Team</NavLink>
+        <NavLink  to="/gallery">Gallery</NavLink>
         <NavLink to="#brochure">Brochure</NavLink>
         <NavLink to="#contact">Contact</NavLink>
         <NavLink to="/login">Login</NavLink>

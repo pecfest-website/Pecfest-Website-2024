@@ -40,7 +40,7 @@ function App() {
                     <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } />
                     <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
-                    <Route path="/events/:id" element={<EventDetail />} />
+                    <Route path="/events/:id" element={<EventDetail  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/AboutUs" element={<AboutUs  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/sponsors" element={<Sponsors  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/team" element={<Team isJamming={isJamming} setIsJamming={setIsJamming} />} />
