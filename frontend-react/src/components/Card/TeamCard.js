@@ -120,8 +120,7 @@ margin-left: 10px;
                         // Full height of the container
                     }}>
                         <div style={{
-                            display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center',  // Vertically center
-                            alignItems: 'center',
+                            display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center',
                         }}>
 
                             <span className="name-text" style={{ fontWeight: 'bold', marginTop: '10px' }}>{name}</span> {/* Name */}

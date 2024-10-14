@@ -92,7 +92,7 @@ Embrace the future where tradition meets innovation, and creativity knows no lim
             {data.map((item, index) => (
                 <div className={`${styles.aboutBox} glassmorphism`} key={index}>
                     <img
-                    src={item.src} />
+                    src={item.src} alt="Not available" />
                     <div className={styles.aboutNum}>{item.num}</div>
                     <div className={styles.aboutTitle}>
                         {item.title}
