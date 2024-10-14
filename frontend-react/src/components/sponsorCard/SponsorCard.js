@@ -1,5 +1,5 @@
 import React from 'react'
-import './sponsorCard.css'
+import './sponsorCard.module.css'
 
 export default function SponsorCard({ category }) {
   return (

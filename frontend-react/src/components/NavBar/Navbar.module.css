@@ -1,6 +1,5 @@
 .nav {
-  position: fixed;
-  width: 98vw;
+
   display: flex;
   flex-wrap: wrap;
   align-items: center;

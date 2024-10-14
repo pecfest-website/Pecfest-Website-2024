@@ -1,9 +1,7 @@
-
 .events {
     position: relative;
     width: 100%;
     height: calc(100vh - 115px);
-    /* height: 100%; */
     overflow: hidden;
     text-align: left;
     font-size: 25px;
@@ -11,6 +9,7 @@
     font-family: 'Cyber Chunk Font';
     position: fixed;
 }
+
 .shadow-region {
     width: 100%;
     height: 100%;
@@ -26,37 +25,34 @@
     color: #fbff00;
     font-family: 'Cyber Chunk Font';
     margin: 5px;
-    
-    
 }
 
 .event-content {
     margin-top: 50px;
-    overflow: auto; /* Changed from scroll to auto */
+    overflow: auto; 
     display: flex;
-    flex-wrap: wrap; /* Prevents wrapping */
+    flex-wrap: nowrap;
     align-items: flex-start;
-    justify-content: space-between; /* Adds space between items */
-    gap: 20px; /* Adjusted gap */
+    justify-content: space-between; 
+    gap: 20px; 
     color: #f5f852;
     font-family: "Silkscreen", sans-serif;
-    width: 100%;
-    padding-left: 40px;
+  
+   
 }
 
 .event-content > div:first-child {
-    flex: 1; /* Allows the first div to take up available space */
-    max-width: 50%; /* Limits the max width */
+
+  
 }
 
 .event-content > div:last-child {
-    flex: 1; /* Allows the second div to take up available space */
-    max-width: 50%; /* Limits the max width */
+    flex: 1;
+    
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 }
-
 
 .glow-border-blue {
     width: 100%;
@@ -81,31 +77,31 @@
     background-color: black;
 }
 
-.event-sub-heading{
+.event-sub-heading {
     font-size: 1.5rem;
     color: #fbff00;
     margin: 15px 20px;
     position: relative;
     top: 20px;
     padding: 5px;
-font-family: "Silkscreen", sans-serif;;
- border-bottom: solid #fbff00;
- z-index: 1;
- text-shadow: 0.3cm #fbff00;
+    font-family: "Silkscreen", sans-serif;
+    border-bottom: solid #fbff00;
+    z-index: 1;
+    text-shadow: 0.3cm #fbff00;
 }
 
-.isNotActive{
-    color: #fbff00 ;
+.isNotActive {
+    color: #fbff00;
     opacity: 70%;
-    /* text-decoration: none; */
     text-shadow: 0;
     border: 0;
 }
-.event-content h1{
+
+.event-content h1 {
     font-size: 2rem;
-    /* margin: ; */
 }
-.eventInfo{
+
+.eventInfo {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -113,7 +109,6 @@ font-family: "Silkscreen", sans-serif;;
     font-size: 1.3rem;
     align-items: center;
 }
-
 
 .event-content {
     margin-top: 100px;
@@ -131,32 +126,93 @@ font-family: "Silkscreen", sans-serif;;
 /* Style for larger screens */
 .event-content > div:first-child {
     flex: 1;
-    max-width: 50%;
+    padding: 20px;
 }
 
 .event-content > div:last-child {
     flex: 1;
-    max-width: 50%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: center;
 }
-
 
 /* Responsive styling for mobile devices */
 @media (max-width: 768px) {
-    .event-content {
-        flex-direction: column; /* Stack vertically */
-        gap: 10px;
-        align-items: center; /* Adjust gap between items */
-    }
-
-   
-    .event-content > div {
-        max-width: 100%; /* Full width on mobile */
-        width: 100%;
-    }
-
-    .infoCont{
+    .event-heading {
+        font-size: 2.2rem; /* Adjust heading size for tablets */
         text-align: center;
+        margin-top: 20px;
+    }
+
+    .event-sub-heading {
+        font-size: 1.3rem; /* Adjust sub-heading size */
+        margin: 10px 0;
+        text-align: center; /* Center text on mobile */
+    }
+
+    .event-content {
+        flex-direction: column; /* Stack items vertically */
+        gap: 15px; /* Smaller gap between items */
+        align-items: center; /* Center items */
+        /* Reduce padding */
+        margin-top: 40px;
+    }
+
+    .event-content > div {
+     
+ 
+    }
+
+    .infoCont {
+        text-align: center;
+        
+    }
+
+    .glow-border-blue, .glow-border-pink {
+        height: 2px;
+        box-shadow: 0 0 10px 1px rgba(84, 211, 253, 0.75); /* Reduced shadow intensity for mobile */
+    }
+
+    .navbar {
+        height: 45px;
+    }
+}
+
+/* Styling for small mobile devices */
+@media (max-width: 480px) {
+    .event-heading {
+        font-size: 1.8rem; /* Further reduce heading size for small screens */
+        margin-top: 10px;
+    }
+
+    .event-sub-heading {
+        font-size: 1.1rem; /* Smaller sub-heading */
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .event-content {
+        flex-direction: column; /* Stack items */
+        align-items: center;
+        
+        margin-top: 20px;
+         /* Smaller gap */
+    }
+
+    .event-content > div {
+        max-width: 100%;
+        width: 100%;
+       
+    }
+
+    .eventInfo {
+        font-size: 1rem;
+        
+    }
+
+    .navbar {
+        height: 40px;
     }
 }
