@@ -15,7 +15,7 @@ const NavBar = () => {
         <NavLink  to="/sponsors">Sponsors</NavLink>
 
       </div>
-      <img src="logo.png" alt="Logo" className={styles.logo} /> {/* Update with your logo path */}
+      <img src="logo.png" alt="Logo" className={styles.logo} /> 
       <div className={styles.linksRight}>
       
         <NavLink  to="#schedule">Schedule</NavLink>
