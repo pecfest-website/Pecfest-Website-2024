@@ -8,14 +8,14 @@ import SponsorCard from "../../components/sponsorCard/SponsorCard";
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
 const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-export default function Sponsors({isJamming,setIsJamming}) {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+export default function Sponsors({ isJamming, setIsJamming }) {
   const [data, setData] = useState([]);
 
   const fetchSponsors = async () => {
@@ -45,7 +45,6 @@ export default function Sponsors({isJamming,setIsJamming}) {
   }, []);
   return (
     <>
-    <div>
       <NavBar />
       <VideoBackground
         url={BACKGROUNDS.Sponsors}
@@ -59,27 +58,24 @@ export default function Sponsors({isJamming,setIsJamming}) {
           zIndex: "-1",
         }}
       />
-      <div
-        style={{
-          display: "flex",
-          height: "80vh",
-          width: "100%",
-          overflow: "hidden",
-          position: "relative",
-        }}
-      >
-        <div
-          style={{
-            width: "25%",
-            height: "90%",
-            marginTop: "30px",
-            marginLeft: "100px",
-            opacity: 0.5,
-            background: "black",
-            borderRadius: 85,
-            padding: "30px", // Removed the backdropFilter from this div
-          }}
-        >
+
+      <div style={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "space-around",
+        overflow: "hidden"
+      }}>
+
+        <div className="hidden xl:block" style={{
+          marginTop: "15vh",
+          width: "25vw",
+          background: "rgba(0, 0, 0, 0.5)",
+          backdropFilter: "blur(10px)",
+          border: "2px solid white",
+          borderRadius: "15px",
+          padding: "20px",
+        }}>
           <div
             style={{
               color: "#fbff00",
@@ -99,7 +95,7 @@ export default function Sponsors({isJamming,setIsJamming}) {
               height: "100%",
               textAlign: "justify",
               color: "white",
-              fontSize: 27,
+              fontSize: "2vw",
               fontFamily: "Judson",
               fontWeight: "700",
               wordWrap: "break-word",
@@ -114,19 +110,13 @@ export default function Sponsors({isJamming,setIsJamming}) {
           </div>
         </div>
 
-        <div
-          style={{
-            width: "55%",
-            overflowY: "auto",
-            paddingTop: "150px",
-            marginLeft: "100px",
-            marginRight: "100px",
-            background: "transparent",
-            padding: "30px",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-        >
+
+        <div style={{
+          marginTop: "15vh",
+          height: "80vh",
+          background: "transparent",
+          overflow: "auto",
+        }}>
           {Array.isArray(data?.sponsers) && data.sponsers.length > 0 ? (
             data.sponsers.map((category, index) => (
               <SponsorCard key={index} category={category} />
@@ -135,9 +125,9 @@ export default function Sponsors({isJamming,setIsJamming}) {
             <p>No sponsors available.</p>
           )}
         </div>
+
       </div>
-    </div>
-    <div
+      <div
         style={{
           position: "fixed",
           zIndex: 1,
@@ -145,14 +135,14 @@ export default function Sponsors({isJamming,setIsJamming}) {
           bottom: 0,
           cursor: "pointer",
         }}
-        onClick={() => setIsJamming((prev) => !prev)} 
+        onClick={() => setIsJamming((prev) => !prev)}
       >
         {isJamming ? (
           <Lottie
             options={defaultOptions}
             height={200}
             width={200}
-            // Wrap in an arrow function
+          // Wrap in an arrow function
           />
         ) : (
           <h2
@@ -164,9 +154,8 @@ export default function Sponsors({isJamming,setIsJamming}) {
               fontFamily: "Cyber Chunk Font",
               fontSize: "1.2rem",
             }}
-      // Wrap in an arrow function
+          // Wrap in an arrow function
           >
-            Jam?
           </h2>
         )}
       </div>

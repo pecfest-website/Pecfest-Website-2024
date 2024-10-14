@@ -55,16 +55,16 @@ export const Login = () => {
         <>
         <VideoBackground url={BACKGROUNDS.Login} />
         <ToastContainer />
-        <div className="relative w-full h-screen">
+        <div className="relative w-full h-screen overflow-hidden">
             <NavBar />
             <div className="flex flex-col justify-center items-center backdrop-blur-sm">
                 {/* Blue Div */}
-                <div className="absolute flex justify-center items-center z-10 h-[348.75px] w-[1302.126px] backdrop-blur-sm bg-black/40 top-[170px] border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
+                <div className="absolute flex justify-center items-center z-10 h-[44vh] w-[85vw] backdrop-blur-sm bg-black/40 top-[170px] border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
                 </div>
                 {/* Yellow Div */}
-                <div className="backdrop-blur-sm bg-black/40 absolute z-10 top-[132px] h-[40px] w-[800px] border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] p-4">
+                <div className=" backdrop-blur-sm bg-black/40 absolute z-10 top-[17vh] h-[5vh] w-[52vw] border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] p-4">
                 </div>
-                <div className="backdrop-blur-sm bg-black/30 absolute z-20 top-[198px] h-[290px] w-[800px] border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] p-4 flex flex-col items-center">
+                <div className="backdrop-blur-sm bg-black/30 absolute z-20 top-[25.5vh] h-[40vh] w-[52vw] border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] p-4 flex flex-col items-center">
                 <div className="text-[#FBFF00] text-justify text-[52px] font-normal leading-none shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
                     <p style={{ fontFamily: 'Cyber Chunk Font' }}>LOGIN</p>
                 </div>
@@ -76,7 +76,7 @@ export const Login = () => {
                                 setusername(e.target.value);
                             }}
                             placeholder="Enter your username"
-                            className="w-[400px] h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent placeholder-gray-600 z-30"
+                            className="w-[30vw] h-[4vh] p-4 text-black text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent placeholder-gray-600 z-30"
                         />
                     </div>
                     <div className="text-gray-200 px-[60px] tracking-wide text-lg pt-4">
@@ -86,37 +86,37 @@ export const Login = () => {
                                 setPassword(e.target.value);
                             }}
                             placeholder="Enter your password"
-                            className="w-[400px] h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent placeholder-gray-600 z-30"
+                            className="w-[30vw] h-[4vh] p-4 text-black text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent placeholder-gray-600 z-30"
                         />
                     </div>
                     <div className="text-gray-200 px-[60px] tracking-wide text-lg pt-4">
                         <button
-                            className="w-[200px] h-[30px] hover:scale-110 text-gray-600 bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent z-30 items-center"
+                            className="w-[18vw] h-[4vh] hover:scale-110 text-gray-600 bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent z-30 items-center"
                             onClick={() => handleLogin()}
                         >Login</button>
                     </div>
-                    <div className="text-gray-200 px-[60px] tracking-wide text-lg font-thin pt-4 w-full flex items-center justify-center">
+                    <div className="text-gray-200 tracking-wide text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-thin pt-4 w-full flex flex-wrap items-center justify-center">
                         New to PECFEST?  <div className="pl-1 hover:underline" onClick={()=>navigate("/signup")}>Create Account</div>
                     </div>
                     
                 </div>
                 {/* Pink Div */}
-                <div className="absolute z-10 top-[198px] h-[290px] w-[880px] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-4">
+                <div className="absolute z-10 top-[25.5vh] h-[36vh] w-[58vw] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-4">
                 </div>
                 {/* Pink Circles */}
-                <div className="absolute z-20">
-                    <div className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '250px', right: '480px', position: 'absolute' }} />
-                    <div className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '315px', right: '480px', position: 'absolute' }} />
-                    <div className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '380px', right: '480px', position: 'absolute' }} />
+                <div className="absolute z-20 hidden xl:block">
+                    <div className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '32vh', right: '32vw', position: 'absolute' }} />
+                    <div className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '41vh', right: '32vw', position: 'absolute' }} />
+                    <div className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '50vh', right: '32vw', position: 'absolute' }} />
                 </div>
                 {/* Yellow Circles */}
-                <div className="absolute z-20">
-                    <div className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]" style={{ top: '250px', right: '540px', position: 'absolute' }} />
-                    <div className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]" style={{ top: '315px', right: '540px', position: 'absolute' }} />
-                    <div className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]" style={{ top: '380px', right: '540px', position: 'absolute' }} />
+                <div className="absolute z-20 hidden xl:block">
+                    <div className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]" style={{ top: '32vh', right: '36vw', position: 'absolute' }} />
+                    <div className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]" style={{ top: '41vh', right: '36vw', position: 'absolute' }} />
+                    <div className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]" style={{ top: '50vh', right: '36vw', position: 'absolute' }} />
                 </div>
                 {/* Large Yellow Circle */}
-                <div className="absolute z-20 right-[155px] top-[275px] h-[150px] w-[150px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"></div>
+                <div className="absolute z-20 right-[10vw] top-[35vh] h-[10vw] w-[10vw] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] hidden xl:block"></div>
             </div>
         </div>
         </>

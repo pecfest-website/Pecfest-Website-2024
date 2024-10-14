@@ -15,8 +15,9 @@ export default function SponsorCard({ category }) {
                                 src={sponsor.link}
                                 alt={`Sponsor for ${category.name}`}
                                 style={{
-                                    objectFit: "scale-down",
-                                    margin: '5px'
+                                    objectFit: "contain",
+                                    margin: '5px',
+                                    height: "200px"
                                 }}
                                 height={200}
                                 width={200}

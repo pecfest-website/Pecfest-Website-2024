@@ -86,13 +86,13 @@ export const Signup = () => {
             <Navbar />
             <div className="relative flex flex-col justify-center items-center h-full backdrop-blur-sm z-10 overflow-hidden">
                 {/* First larger Yellow Div */}
-                <div className="absolute top-[18%] w-[80%] md:w-[60%] lg:w-[60%] h-[64%] bg-black/40 border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"></div>
+                <div className="absolute top-[13vh] w-[70vw] md:w-[60%] lg:w-[60%] h-[63vh] bg-black/40 border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"></div>
                 {/* Second Yellow Div */}
-                <div className="absolute top-[9.5%] w-[80%] md:w-[60%] lg:w-[60%] h-[40px] bg-black/40 border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"></div>
+                <div className="absolute top-[5vh] w-[70%] md:w-[60%] lg:w-[60%] h-[39px] bg-black/40 border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"></div>
                 {/* Blue Div */}
-                <div className="relative flex justify-center items-center h-[70%] w-[90%] md:w-[90%] lg:w-[90%] bg-black/40 border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
+                <div className="absolute top-[9.5vh] flex justify-center items-center h-[70%] w-[90%] md:w-[90%] lg:w-[90%] bg-black/40 border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
                     {/* Login Form */}
-                    <div className="relative z-20 w-full flex flex-col items-center top-0">
+                    <div className="relative z-20 w-[80%] flex flex-col items-center top-0">
                         <div className="text-[#FBFF00] text-[36px] md:text-[42px] lg:text-[36px] font-normal leading-none shadow-sm translate-y-[-18px]">
                             SIGNUP
                         </div>
@@ -172,39 +172,39 @@ export const Signup = () => {
                     </div>
                 </div>
                 {/* Pink Rectangle */}
-                <div className="absolute z-10 top-[18%] w-[60%] md:w-[60%] lg:w-[65%] h-[64%] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] bg-transparent"></div>
+                <div className="absolute z-10 top-[12.5vh] w-[70%] md:w-[60%] lg:w-[65%] h-[64%] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] bg-transparent"></div>
                 {/* Small Pink Circles */}
-                <div className="absolute z-20 top-[20%] left-[11%] h-[60%]">
+                <div className="absolute z-20 top-[20%] left-[11%] h-[60%] hidden xl:block">
                     <div
                         className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]"
-                        style={{ top: '32%', right: '35%', position: 'absolute' }}
+                        style={{ top: '20%', right: '35%', position: 'absolute' }}
                     />
                     <div
                         className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]"
-                        style={{ top: '47%', right: '35%', position: 'absolute' }}
+                        style={{ top: '37.5%', right: '35%', position: 'absolute' }}
                     />
                     <div
                         className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]"
-                        style={{ top: '62%', right: '35%', position: 'absolute' }}
+                        style={{ top: '55%', right: '35%', position: 'absolute' }}
                     />
                 </div>
                 {/* Small Yellow Circles */}
-                <div className="absolute z-20 top-[20%] left-[15%] h-[60%]">
+                <div className="absolute z-20 top-[20%] left-[15%] h-[60%] hidden xl:block">
                     <div
                         className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"
-                        style={{ top: '32%', right: '32%', position: 'absolute' }}
+                        style={{ top: '20%', right: '32%', position: 'absolute' }}
                     />
                     <div
                         className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"
-                        style={{ top: '47%', right: '32%', position: 'absolute' }}
+                        style={{ top: '37.5%', right: '32%', position: 'absolute' }}
                     />
                     <div
                         className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"
-                        style={{ top: '62%', right: '32%', position: 'absolute' }}
+                        style={{ top: '55%', right: '32%', position: 'absolute' }}
                     />
                 </div>
                 {/* Large Yellow Circle */}
-                <div className="absolute z-20 right-[6.5%] top-[40%] md:top-[38%] h-[150px] w-[150px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] "></div>
+                <div className="hidden xl:block absolute z-20 right-[6.5%] top-[35%] h-[140px] w-[140px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] "></div>
             </div>
         </div>
     );
