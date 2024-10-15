@@ -104,3 +104,23 @@ font-family: "Silkscreen", sans-serif;;
       opacity: 0;
     }
   }
+
+  .logo { 
+    height: 240px;
+    width: auto;
+  }
+  
+
+  @media  (max-width:950px) {
+        .event-content img{
+            height: 100px;
+        }
+  }
+  @media  (max-width:700px) {
+        .event-content img{
+            height: 100px;
+        }
+        .events{
+            height: 70vh;
+        }
+  }

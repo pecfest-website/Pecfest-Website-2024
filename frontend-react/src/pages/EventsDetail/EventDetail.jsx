@@ -38,6 +38,8 @@ const defaultOptions = {
 };
 const EventDetail = ({ isJamming, setIsJamming }) => {
   const { id } = useParams();
+
+  
   const navigate = useNavigate();
   const [event, setEvent] = useState({});
 
@@ -233,7 +235,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
                       {<Link to={event.ruleBookLink}>Rule Book</Link>}
                     </div>
                   )}
-                  <Button>Register</Button>
+                  <button className={styles['submit-button']} onClick={()=>(navigate("/events/register/"+id))}> Register</button>
                   <hr style={{width:"100%"}}></hr>
                   <p style={{fontSize:"1.2rem", marginTop:"10px"}}>{event.description}</p>
                 </div>
@@ -243,7 +245,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
         </div>
         <div
           style={{
-            position: "fixed",
+            position: "absolute",
             zIndex: 1,
             left: 0,
             bottom: 0,
@@ -257,7 +259,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
             <h2
               style={{
                 color: "#fbff00",
-                position: "fixed",
+                position: "absolute",
                 bottom: "50px",
                 left: "50px",
                 fontFamily: "Cyber Chunk Font",

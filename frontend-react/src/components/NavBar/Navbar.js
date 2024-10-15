@@ -17,7 +17,7 @@ const NavBar = () => {
           <NavLink to="#competitions">Competitions</NavLink>
           <NavLink to="/events">Events</NavLink>
           <NavLink to="/sponsors">Sponsors</NavLink>
-        <img src="logo.png" alt="Logo" className={styles.logo} />
+        <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.logo} />
           <NavLink to="#schedule">Schedule</NavLink>
           <NavLink to="/team">Team</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
@@ -27,7 +27,7 @@ const NavBar = () => {
       </nav>
 
       <nav className={`${isOpen ? styles.mini : styles.miniNav}`}>
-        <img src="logo.png" alt="Logo" className={styles.img} />
+        <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.img} />
         {isOpen ? (
           <></>
         ) : (

@@ -35,10 +35,7 @@ const Homepage = ({ isJamming, setIsJamming }) => {
 
       return () => clearTimeout(timeout);
     } else {
-      setTimeout(() => {
-        setIndex(0);
-        setDisplayText("");
-      }, 1000);
+      
     }
   }, [index, p]); // Re-run the effect whenever the index changes
 
@@ -59,7 +56,7 @@ const Homepage = ({ isJamming, setIsJamming }) => {
             <div className={styles["event-heading"]}>Welcome</div>
             <div className={styles["glow-border-pink"]} />
             <div className={styles["event-content"]}>
-              <img src="logo.png" style={{ height:"240px", width:"auto" }} />
+              <img src="logo.png" className={styles.logo}  />
               <div>
                 {displayText}
                 {<Blinker />}
@@ -70,7 +67,7 @@ const Homepage = ({ isJamming, setIsJamming }) => {
       </div>
       <div
         style={{
-          position: "fixed",
+          position: "absolute",
           zIndex: 1,
           left: 0,
           bottom: 0,
@@ -89,7 +86,7 @@ const Homepage = ({ isJamming, setIsJamming }) => {
           <h2
             style={{
               color: "#fbff00",
-              position: "fixed",
+              position: "absolute",
               bottom: "50px",
               left: "50px",
               fontFamily: "Cyber Chunk Font",

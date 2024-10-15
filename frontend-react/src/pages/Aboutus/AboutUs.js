@@ -102,7 +102,7 @@ Embrace the future where tradition meets innovation, and creativity knows no lim
         </div>
         <div
         style={{
-          position: "fixed",
+          position: "absolute",
           zIndex: 1,
           left: 0,
           bottom: 0,
@@ -121,7 +121,7 @@ Embrace the future where tradition meets innovation, and creativity knows no lim
           <h2
             style={{
               color: "#fbff00",
-              position: "fixed",
+              position: "absolute",
               bottom: "50px",
               left: "50px",
               fontFamily: "Cyber Chunk Font",

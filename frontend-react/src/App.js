@@ -39,14 +39,15 @@ function App() {
                 <Routes>
 
                     <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } />
-                    <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    {/* <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events/:id" element={<EventDetail  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
-                    <Route path="/AboutUs" element={<AboutUs  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
-                    <Route path="/sponsors" element={<Sponsors  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
-                    <Route path="/team" element={<Team isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    {/* <Route path="/AboutUs" element={<AboutUs  isJamming={isJamming} setIsJamming={setIsJamming}/>} /> */}
+                    {/* <Route path="/sponsors" element={<Sponsors  isJamming={isJamming} setIsJamming={setIsJamming}/>} /> */}
+                    {/* <Route path="/team" element={<Team isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/login" element={<Login isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/signup" element={<Signup isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    <Route path="/events/register/:id" element={<EventRegistrationForm isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     
                     
                 </Routes>

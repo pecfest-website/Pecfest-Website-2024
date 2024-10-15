@@ -4,9 +4,26 @@ import styles from "./RegistrationForm.module.css"; // Import the CSS module
 import VideoBackground from "../../components/VideoBackground"; // Importing dynamic background
 import NavBar from "../../components/NavBar/Navbar"; // Importing NavBar
 import { BACKGROUNDS } from "../../utils/backgrounds"; // If you have specific backgrounds
+import { useNavigate, useParams } from "react-router-dom";
 
-const EventRegistrationForm = ({ eventId }) => {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Lottie from "react-lottie";
+import animationData from "../../utils/Transparent vivbing.json";
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+const EventRegistrationForm = ({isJamming,setIsJamming}) => {
   // State to hold event details
+  const navigate = useNavigate();
+  const params = useParams();
+  let eventId= params.id;
+  console.log(params);
   const [eventDetails, setEventDetails] = useState(null);
   const [accommodation, setAccommodation] = useState(false);
   const [teamName, setTeamName] = useState("");
@@ -15,7 +32,11 @@ const EventRegistrationForm = ({ eventId }) => {
   const [paymentId, setPaymentId] = useState("");
   const [billAddress, setBillAddress] = useState("");
   const [paymentProof, setPaymentProof] = useState(null);
-
+  console.log(eventDetails);
+  let token = localStorage.getItem("token");
+  if(!token){
+    navigate("/login");
+  }
   // Fetch event data from the API when the component mounts
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -41,7 +62,7 @@ const EventRegistrationForm = ({ eventId }) => {
           setAccommodation(event.provideAccommodation);  // Set initial accommodation state
           if (event.participationType === "TEAM") {
             setTeamSize(event.minParticipants);  // Set minimum team size
-            setMembers(new Array(event.minParticipants).fill({ username: "" }));
+            setMembers(new Array(event.minParticipants-1).fill({ username: "" }));
           }
         } else {
           console.error(`Event not found for ID: ${eventId}. Check if the eventId exists in the API response.`);
@@ -65,7 +86,7 @@ const EventRegistrationForm = ({ eventId }) => {
       setMembers([...members, { username: "" }]);
       setTeamSize(teamSize + 1);
     } else {
-      alert(`Maximum team size of ${eventDetails.maxParticipants} members reached.`);
+      toast.info(`Maximum team size of ${eventDetails.maxParticipants} members reached.`);
     }
   };
 
@@ -74,16 +95,16 @@ const EventRegistrationForm = ({ eventId }) => {
       setMembers(members.filter((_, index) => index !== indexToDelete));
       setTeamSize(teamSize - 1);
     } else {
-      alert(`Minimum team size of ${eventDetails.minParticipants} members required.`);
+      toast.info(`Minimum team size of ${eventDetails.minParticipants} members required.`);
     }
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     // Submit logic here
     console.log({
       eventId,
-      accommodation,
+      accommodation: accommodation==true?1:0,
       teamName,
       teamSize,
       members,
@@ -91,6 +112,23 @@ const EventRegistrationForm = ({ eventId }) => {
       billAddress,
       paymentProof,
     });
+
+    const response = await axios.post("https://api.pecfest.org/event/register",{
+      eventId,  
+      accomodation: accommodation==true?1:0,
+      teamName,
+      teamSize,
+      members,
+      paymentId,
+      billAddress,
+      paymentProof
+    },{
+      headers:{
+        "Token":`Bearer ${token}`
+      }
+    })
+    console.log(response);
+    
   };
 
   // Show loading or error state if the event details are not loaded
@@ -105,7 +143,7 @@ const EventRegistrationForm = ({ eventId }) => {
 
       {/* Adding the NavBar with fixed positioning */}
       <NavBar />
-
+      <ToastContainer/>
       {/* Form Container */}
       <div className={styles["form-container"]}>
         <div className={styles["shadow-region"]}>
@@ -113,13 +151,13 @@ const EventRegistrationForm = ({ eventId }) => {
 
           <form onSubmit={handleFormSubmit} className={styles["form-content"]}>
             <div className={styles["checkbox-container"]}>
-              <input
+             <> <input
                 type="checkbox"
                 checked={accommodation}
                 onChange={(e) => setAccommodation(e.target.checked)}
                 className="form-checkbox"
               />
-              <label className={styles["checkbox-label"]}>Accommodation required?</label>
+              <label className={styles["checkbox-label"]}>Accommodation required?</label></>
             </div>
 
             {/* If the event is a team event, render team-related fields */}
@@ -220,6 +258,38 @@ const EventRegistrationForm = ({ eventId }) => {
             </button>
           </form>
         </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          zIndex: 1,
+          left: 0,
+          bottom: 0,
+          cursor: "pointer",
+        }}
+        onClick={() => setIsJamming((prev) => !prev)}
+      >
+        {isJamming ? (
+          <Lottie
+            options={defaultOptions}
+            height={200}
+            width={200}
+          // Wrap in an arrow function
+          />
+        ) : (
+          <h2
+            style={{
+              color: "#fbff00",
+              position: "absolute",
+              bottom: "50px",
+              left: "50px",
+              fontFamily: "Cyber Chunk Font",
+              fontSize: "1.2rem",
+            }}
+          // Wrap in an arrow function
+          >
+          </h2>
+        )}
       </div>
     </>
   );

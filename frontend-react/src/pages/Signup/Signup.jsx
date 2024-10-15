@@ -6,8 +6,17 @@ import { BACKGROUNDS } from "../../utils/backgrounds";
 import Navbar from "../../components/NavBar/Navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-export const Signup = () => {
+import Lottie from "react-lottie";
+import animationData from "../../utils/Transparent vivbing.json";
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+export const Signup = ({isJamming,setIsJamming}) => {
     
     const initialState = {
         name: "",
@@ -50,6 +59,7 @@ export const Signup = () => {
         console.log(input);
         try {
             const response = await axios.post("https://api.pecfest.org/user/create", input);
+            console.log(response);
             if (response.data.statusCode===200) {
                 const data = response.data.data;
                 localStorage.setItem("token", response.data.data.token); 
@@ -80,6 +90,7 @@ export const Signup = () => {
     }
     
     return (
+        <>
         <div className="relative w-full h-screen overflow-hidden">
             <VideoBackground url = {BACKGROUNDS.Signup} />
             <ToastContainer />
@@ -207,5 +218,38 @@ export const Signup = () => {
                 <div className="hidden xl:block absolute z-20 right-[6.5%] top-[35%] h-[140px] w-[140px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] "></div>
             </div>
         </div>
+        <div
+        style={{
+          position: "absolute",
+          zIndex: 1,
+          left: 0,
+          bottom: 0,
+          cursor: "pointer",
+        }}
+        onClick={() => setIsJamming((prev) => !prev)}
+      >
+        {isJamming ? (
+          <Lottie
+            options={defaultOptions}
+            height={200}
+            width={200}
+          // Wrap in an arrow function
+          />
+        ) : (
+          <h2
+            style={{
+              color: "#fbff00",
+              position: "absolute",
+              bottom: "50px",
+              left: "50px",
+              fontFamily: "Cyber Chunk Font",
+              fontSize: "1.2rem",
+            }}
+          // Wrap in an arrow function
+          >
+          </h2>
+        )}
+      </div>
+        </>
     );
 };

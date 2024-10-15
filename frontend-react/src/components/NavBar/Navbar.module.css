@@ -67,6 +67,8 @@
 
 @media (max-width: 950px) {
   .nav {
+    /* display: none; */
+    position: absolute;
     display: none;
   }
 }
@@ -93,7 +95,8 @@
 }
 
 .miniNav {
-  position: fixed;
+  position: relative;
+  margin-bottom: 10px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -172,4 +175,5 @@
   .miniNav {
     display: none;
   }
+ 
 }

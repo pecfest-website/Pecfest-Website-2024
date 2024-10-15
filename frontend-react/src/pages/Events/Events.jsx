@@ -178,7 +178,7 @@ const Events = ({ isJamming, setIsJamming }) => {
       </div>
       <div
         style={{
-          position: "fixed",
+          position: "absolute",
           zIndex: 1,
           left: 0,
           bottom: 0,
@@ -192,7 +192,7 @@ const Events = ({ isJamming, setIsJamming }) => {
           <h2
             style={{
               color: "#fbff00",
-              position: "fixed",
+              position: "absolute",
               bottom: "50px",
               left: "50px",
               fontFamily: "Cyber Chunk Font",
