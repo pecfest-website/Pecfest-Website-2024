@@ -62,11 +62,14 @@
 .aboutBox {
     align-items: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     margin: 2rem;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15%;
     width: 300px;
+    border-width: 2px;
+    border-color: white;
     backdrop-filter: blur(8px);
 }
 

@@ -5,16 +5,20 @@
     justify-content: center;
     padding: 20px;
     gap: 30px;
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 2%;
+    width: 90%;
 }
 
 .postsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 25px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
 }
 
+/* Modal Styling */
 .modal {
     position: fixed;
     top: 0;
@@ -26,6 +30,7 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    padding: 10px; /* Ensure modal has some space around it on small screens */
 }
 
 .modalContent {
@@ -33,15 +38,16 @@
     background: white;
     border-radius: 8px;
     padding: 20px;
-    max-width: 600px; /* Limit the modal width */
+    max-width: 600px;
     width: 90%;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .modalImage,
 .modalVideo {
     max-width: 100%;
-    height: auto; /* Allow height to adjust based on width */
+    height: auto;
     border-radius: 8px;
 }
 
@@ -51,6 +57,7 @@
     color: #333;
 }
 
+/* Close Button */
 .close {
     position: absolute;
     top: 10px;
@@ -58,4 +65,48 @@
     font-size: 24px;
     color: white;
     cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .galleryContainer {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .postsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .modalContent {
+        max-width: 90%;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .caption {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .galleryContainer {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .postsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .modalContent {
+        max-width: 95%;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .caption {
+        font-size: 12px;
+    }
 }

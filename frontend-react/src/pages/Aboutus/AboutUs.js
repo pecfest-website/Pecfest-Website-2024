@@ -36,7 +36,7 @@ export const AboutUs = ({isJamming,setIsJamming}) => {
         <>  
         <NavBar/>
             <VideoBackground url={BACKGROUNDS.AboutUs}/>
-        <div className="flex flex-col justify-center items-center backdrop-blur-sm h-[400px]">
+        <div className="flex flex-col justify-center items-center backdrop-blur-sm h-[400px] rounded-md">
           {/* Blue Div */}
           <div className="absolute flex justify-center items-center z-10 h-[348.75px] w-[1302.126px] backdrop-blur-sm bg-black/40 top-[170px] border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
             
