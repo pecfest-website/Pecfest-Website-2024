@@ -29,11 +29,14 @@
 .event-content {
     margin-top: 100px;
     overflow: scroll;
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 60px;
     gap: 80px;
 }
 
@@ -61,7 +64,7 @@
 }
 
 .event-sub-heading {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #fbff00;
     margin: 15px 20px;
     position: relative;
