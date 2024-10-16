@@ -3,7 +3,7 @@ import { AboutUs } from './pages/aboutus';
 import { Login } from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute';  // Import the protected route component
 import { Signup } from './pages/signup';
-
+import { TryPage } from './pages/try';
 function App() {
   return (
     <Router>
@@ -28,6 +28,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AboutUs />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/try"
+            element={
+              <ProtectedRoute>
+                <TryPage />
               </ProtectedRoute>
             }
           />
