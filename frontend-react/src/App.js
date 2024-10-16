@@ -11,6 +11,9 @@ import { Login } from './pages/Login/Login';
 import { useState } from 'react';
 import { Signup } from './pages/Signup/Signup';
 import EventRegistrationForm from './pages/RegistrationForm/RegistrationForm';
+// import Loading from './compoments/Loading';
+import Landing from './pages/Landing/Landing';
+
 
 const music = new Audio(
     "https://firebasestorage.googleapis.com/v0/b/react-trial-cef8c.appspot.com/o/Heuse%20%26%20Zeus%20x%20Crona%20-%20Pill%20(feat.%20Emma%20Sameth)%20%5BNCS%20Release%5D.mp3?alt=media&token=6385b144-d0e9-4438-bf47-456c671265a0"
@@ -38,7 +41,8 @@ function App() {
             <Router>
                 <Routes>
 
-                    <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } />
+                    <Route path="/" element={<Landing/> } />
+                    {/* <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } /> */}
                     {/* <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events/:id" element={<EventDetail  isJamming={isJamming} setIsJamming={setIsJamming}/>} />

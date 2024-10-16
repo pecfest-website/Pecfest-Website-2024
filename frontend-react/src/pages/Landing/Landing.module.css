@@ -1,0 +1,126 @@
+
+.events {
+    position: relative;
+    width: 70%;
+    height: 50vh;
+    overflow: hidden;
+    text-align: left;
+    font-size: 25px;
+    color: #fff;
+    font-family: 'Cyber Chunk Font';
+    border-radius: 30px;
+    margin: auto;
+}
+.shadow-region {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.68);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+}
+
+.event-heading {
+    font-size: 3rem;
+    color: #fbff00;
+    font-family: 'Cyber Chunk Font';
+    margin: 5px;
+    
+    
+}
+
+.event-content {
+    margin-top: 20px;
+    overflow: scroll;
+    font-family:"Silkscreen", sans-serif;;
+    color: #fbff00;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.glow-border-blue {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border: 2px solid rgb(84, 211, 253);
+    box-shadow: 0 0 15px 2px rgba(84, 211, 253, 0.75);
+}
+
+.glow-border-pink {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border: 2px solid rgb(192, 35, 207);
+    box-shadow: 0 0 15px 2px rgba(192, 35, 207, 0.75);
+}
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    background-color: black;
+}
+
+.event-sub-heading{
+    font-size: 1.5rem;
+    color: #fbff00;
+    margin: 15px 20px;
+    position: relative;
+    top: 20px;
+    padding: 5px;
+font-family: "Silkscreen", sans-serif;;
+ border-bottom: solid #fbff00;
+ z-index: 1;
+ text-shadow: 0.3cm #fbff00;
+}
+
+.isNotActive{
+    color: #fbff00 ;
+    opacity: 70%;
+    /* text-decoration: none; */
+    text-shadow: 0;
+    border: 0;
+}
+
+
+.blinker {
+    animation: blinker 500ms ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes blinker {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .logo { 
+    height: 240px;
+    width: auto;
+  }
+  
+
+  @media  (max-width:950px) {
+        .event-content img{
+            height: 100px;
+        }
+  }
+  @media  (max-width:700px) {
+        .event-content img{
+            height: 100px;
+        }
+        .events{
+            height: 70vh;
+        }
+  }
