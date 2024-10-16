@@ -34,7 +34,12 @@ function App() {
     }
     return (
         <div className="App" >
-            
+            <div className="video-background">
+                <video autoPlay loop muted>
+                    <source src="https://res.cloudinary.com/deecew6ga/video/upload/v1728732370/-1ced-4d69-b61e-4609c6ac87a6_ygzqc4.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <Router>
                 <Routes>
 
