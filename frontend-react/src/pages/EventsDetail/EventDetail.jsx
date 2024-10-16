@@ -181,35 +181,6 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
       ? "1 member"
       :  event?.minParticipants !==  event?.maxParticipants ?`${event?.minParticipants} - ${event?.maxParticipants} members` :`${event.minParticipants} members`;
 
-      
-const tempData = {
-    "adminId": 5,
-    "description": "jdflkaj",
-    "endDate": "2024-10-26",
-    "endTime": "11:29",
-    "eventType": "MEGASHOW",
-    "haveRuleBook": false,
-    "heads": [],
-    "id": 25,
-    "image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1729058031.4249218.jpg",
-    "maxParticipants": 1,
-    "minParticipants": 1,
-    "name": "help",
-    "participants": [],
-    "participationType": "SINGLE",
-    "paymentType": "FREE",
-    "provideAccommodation": false,
-    "registrationFee": 0.0,
-    "ruleBookLink": "NONE",
-    "startDate": "2024-10-19",
-    "startTime": "11:28",
-    "tags": [
-        "Hardware"
-    ],
-    "venue": "kljasfdlka"
-};
-if(Object.keys(event).length === 0) setEvent(tempData);
-
   return (
     <>
         <NavBar />
@@ -309,58 +280,10 @@ if(Object.keys(event).length === 0) setEvent(tempData);
                       Register
                     </div>
                     <hr style={{width:"100%"}}></hr>
-                    {/* <p style={{fontSize:"1.2rem", marginTop:"10px"}}>{event.description}</p> */}
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* <div className={styles["shadow-region"]}>
-              <div className={styles["event-content"]}>
-                <div style={{display:"flex",justifyContent:"center",width:"100%"}}>
-                  <img
-                    src={event.image}
-                    alt="Event"
-                    style={{ maxHeight: "calc(100vh - 320px)", width: "auto"}}
-                  />
-                </div>
-                <div style={{display:"flex",flexDirection:"column", flexWrap:"nowrap", alignItems:"flex-start", width:"100%"}} className={styles.infoCont}>
-                
-                  <h1>{event.name}</h1>
-                  <div className={styles.eventInfo}>
-                    <FaCalendar /> {formatDate()}
-                  </div>
-                  <div className={styles.eventInfo}>
-                    <FaClock /> {formatTime()}
-                  </div>
-                  <div className={styles.eventInfo}>
-                    <FaLocationArrow /> {event.venue}
-                  </div>
-                  {event?.heads?.map((head) => {
-                    return (
-                      <div className={styles.eventInfo} key={head.name}>
-                        <FaUser /> {head.name} - {head.phoneNumber}
-                      </div>
-                    );
-                  })}
-                  <div className={styles.eventInfo}>
-                    {" "}
-                    <FaUserFriends />
-                    {participantText}
-                  </div>
-                  {event.haveRuleBook && (
-                    <div className={styles.eventInfo}>
-                      {" "}
-                      <FaBook />
-                      {<Link to={event.ruleBookLink}>Rule Book</Link>}
-                    </div>
-                  )}
-                  <button className={styles['submit-button']} onClick={()=>(navigate("/events/register/"+id))}> Register</button>
-                  <hr style={{width:"100%"}}></hr>
-                  <p style={{fontSize:"1.2rem", marginTop:"10px"}}>{event.description}</p>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
         <div
