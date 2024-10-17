@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
 import { IoIosArrowForward } from "react-icons/io";
+import { MdDoneAll } from "react-icons/md";
 
 import {
   FaBook,
@@ -173,9 +174,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
       navigate("/login");
     }
   };
-
-  console.log(event);
-  console.log(event.heads);
+  
   const participantText =
     event?.minParticipants === 1 && event?.maxParticipants === 1
       ? "1 member"
@@ -275,10 +274,19 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
                       <p className={styles.description} >{event.description}</p>
                       </>)
                     }
-                    <div className={styles.button} onClick={()=>(navigate("/events/register/"+id))}> 
-                      <div className={styles.icon}><IoIosArrowForward /></div> 
-                      Register
-                    </div>
+                    {
+                      event.participated === false ? (
+                        <div className={styles.button} onClick={()=>(navigate("/events/register/"+id))}> 
+                          <div className={styles.icon}><IoIosArrowForward /></div> 
+                          Register
+                        </div>
+                      ) : (
+                        <div className={styles.button} style={{backgroundColor: "#28a745"}} onClick={()=>{}}> 
+                          <div className={styles.tickIcon}><MdDoneAll /></div> 
+                          Already registered...
+                        </div>
+                      )
+                    }
                     <hr style={{width:"100%"}}></hr>
                   </div>
                 </div>
