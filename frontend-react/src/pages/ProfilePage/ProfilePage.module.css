@@ -1,0 +1,161 @@
+.profileBackground {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Cyber Chunk Font';
+  }
+  
+  /* Navbar at the top */
+  .navbarContainer {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    z-index: 10;
+    background-color: black;
+  }
+  
+  /* Main Grid Container */
+  .mainContainer {
+    display: grid;
+    grid-template-columns: 200px 1.5fr; /* Increased right side width */
+    grid-gap: 15px; /* Gap between the profile/events and main content */
+    width: 90%;
+    margin-top: 60px; /* Increased space between navbar and content */
+    align-items: start; /* Align items to the start (top) */
+  }
+  
+  /* Left Side: Profile Picture and Event Reminder */
+  .leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will align the profile picture and reminder box vertically */
+    gap: 15px; /* Reduced gap between profile picture and events */
+  }
+  
+  .profilePicture {
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+  
+  .eventsContainer {
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0.68);
+    box-shadow: 0 0 15px 2px rgba(192, 35, 207, 0.75);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .eventsContainer h2 {
+    font-size: 1rem; /* Reduced font size */
+    color: #fbff00;
+  }
+  
+  .eventList {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 0.9rem; /* Reduced font size for event list */
+    font-family: "Silkscreen", sans-serif;
+    color: #fbff00;
+  }
+  
+  .eventList li {
+    margin-bottom: 5px; /* Reduced spacing between event items */
+    text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
+  }
+  
+  /* Right Side: Main Content with Tabs */
+  .rightSide {
+    width: 100%; /* Set to full width of its grid column */
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.68);
+    padding: 20px; /* Slightly increased padding */
+    border-radius: 10px;
+  }
+  
+  .tabContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.68);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px; /* Increased margin between tabs and content */
+  }
+  
+  .tabContainer button {
+    padding: 8px 16px; /* Slightly increased padding for the buttons */
+    color: #fbff00;
+    font-family: 'Cyber Chunk Font';
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-shadow: 0.1cm #fbff00;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .tabContainer button:hover {
+    color: rgb(84, 211, 253);
+    text-shadow: 0 0 10px rgba(84, 211, 253, 0.75);
+  }
+  
+  .active {
+    color: rgb(192, 35, 207);
+    text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
+  }
+  
+  .detailsPanel {
+    width: 100%;
+    padding: 15px; /* Slightly increased padding for more content space */
+    color: #fbff00;
+    font-family: "Silkscreen", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 950px) {
+    .profilePicture {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .mainContainer {
+      grid-template-columns: 1fr; /* On smaller screens, make it a single column */
+      grid-gap: 20px;
+    }
+  
+    .rightSide {
+      width: 100%;
+    }
+  
+    .eventsContainer {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .profilePicture {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .tabContainer button {
+      font-size: 12px;
+    }
+  
+    .eventList li {
+      font-size: 1rem;
+    }
+  }
+  
