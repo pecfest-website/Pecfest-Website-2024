@@ -16,7 +16,7 @@ const NavBar = () => {
           <NavLink to="#about">Developers</NavLink>
           <NavLink to="#competitions">Competitions</NavLink>
           <NavLink to="/events">Events</NavLink>
-          <NavLink to="/sponsors">Sponsors</NavLink>
+          <NavLink to="/sponsor">Sponsors</NavLink>
         <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.logo} />
           <NavLink to="#schedule">Schedule</NavLink>
           <NavLink to="/team">Team</NavLink>
@@ -44,7 +44,7 @@ const NavBar = () => {
           <NavLink onClick={toggleMenu} to="#about">Developers</NavLink>
           <NavLink onClick={toggleMenu} to="#competitions">Competitions</NavLink>
           <NavLink onClick={toggleMenu} to="/events">Events</NavLink>
-          <NavLink onClick={toggleMenu} to="/sponsors">Sponsors</NavLink>
+          <NavLink onClick={toggleMenu} to="/sponsor">Sponsors</NavLink>
           <NavLink onClick={toggleMenu} to="#schedule">Schedule</NavLink>
           <NavLink onClick={toggleMenu} to="/team">Team</NavLink>
           <NavLink onClick={toggleMenu} to="/gallery">Gallery</NavLink>
