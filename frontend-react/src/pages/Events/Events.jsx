@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Events.module.css";
 import VideoBackground from "../../components/VideoBackground";
 import { BACKGROUNDS } from "../../utils/backgrounds";
@@ -19,13 +19,27 @@ const defaultOptions = {
 };
 
 const Events = ({ isJamming, setIsJamming }) => {
-
-  const [active, setIsActive] = useState("MEGASHOW");
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  const queryParams = new URLSearchParams(location.search);
+  const defaultEvent = queryParams.get('default') || 'MEGASHOW'; 
+  
+  const [active, setIsActive] = useState(defaultEvent);
+  
   const [events, setEvents] = useState({
     MEGASHOW: [],
     WORKSHOP: []
   });
-
+  
+  console.log(defaultEvent + " " + active);
+  
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("default", active);
+    navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
+  }, [active, location.pathname, location.search, navigate]);
+  
   const getEvents = async () => {
     let data = [];
     const res = await axios.post(
@@ -56,7 +70,6 @@ const Events = ({ isJamming, setIsJamming }) => {
         },
       }
     );
-    console.log(res2);
     if (res2.data.statusCode === 200) {
       data.WORKSHOP = res2.data.data.events;
     }
@@ -152,7 +165,6 @@ const Events = ({ isJamming, setIsJamming }) => {
                 WORKSHOPS
               </NavLink>
             </div>
-            {console.log(events)}
             <div className={styles["event-content"]}>
               {events[`${active}`].map(
                 (event) =>
