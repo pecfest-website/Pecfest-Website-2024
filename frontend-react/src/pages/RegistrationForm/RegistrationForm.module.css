@@ -18,6 +18,10 @@
     list-style-type: none;
   }
   
+  .checkbox-label {
+    margin-left: 3px;
+  }
+  
   .navbar ul li {
     padding: 10px;
     color: white;

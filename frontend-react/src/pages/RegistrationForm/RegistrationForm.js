@@ -151,13 +151,15 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
 
           <form onSubmit={handleFormSubmit} className={styles["form-content"]}>
             <div className={styles["checkbox-container"]}>
-             <> <input
-                type="checkbox"
-                checked={accommodation}
-                onChange={(e) => setAccommodation(e.target.checked)}
-                className="form-checkbox"
-              />
-              <label className={styles["checkbox-label"]}>Accommodation required?</label></>
+              <> 
+                <input
+                  type="checkbox"
+                  checked={accommodation}
+                  onChange={(e) => setAccommodation(e.target.checked)}
+                  className="form-checkbox"
+                />
+                <label className={styles["checkbox-label"]}>Accommodation required?</label>
+              </>
             </div>
 
             {/* If the event is a team event, render team-related fields */}
