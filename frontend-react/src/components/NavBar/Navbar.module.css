@@ -1,5 +1,4 @@
 .nav {
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -15,8 +14,12 @@
   font-family: "Cyber Chunk Font", "Silkscreen", sans-serif;
   font-weight: 400;
   font-style: normal;
+  position: fixed;
+  width: 99vw;
 }
-
+.hgt{
+  height: 80px;
+}
 .logo {
   height: 60px;
   width: 60px;
