@@ -75,7 +75,7 @@ export default function Sponsor({ isJamming, setIsJamming }) {
                             <div className="hidden xl:block" style={{ width: '100%', height: '100%', position: 'absolute', zIndex: "40" }}>
                                 <img style={{ width: 150, height: 60, right: -20, top: 10, position: 'absolute' }} src={star} />
                             </div>
-                            <div className="overflow-auto w-full p-4 flex flex-col items-center relative h-[25000vh] top-[0vh] z-50">
+                            <div className="overflow-auto w-full p-1 flex flex-col items-center relative h-[25000vh] top-[0vh] z-50">
                                 {Array.isArray(data?.sponsers) && data.sponsers.length > 0 ? (
                                     data.sponsers.map((category, index) => (
                                         <SponsorCard key={index} category={category} />
@@ -88,7 +88,7 @@ export default function Sponsor({ isJamming, setIsJamming }) {
 
                         </div>
                         {/* Pink Div */}
-                        <div className="absolute z-10 top-[20vh] h-[50vh] w-[58vw] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-4">
+                        <div className="absolute z-10 top-[20vh] h-[50vh] w-[58vw] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-2">
 
                         </div>
                         {/* Pink Circles */}

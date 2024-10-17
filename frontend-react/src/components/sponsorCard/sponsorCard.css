@@ -6,13 +6,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 30px;
     
 }
 .category-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .category {
@@ -25,3 +25,9 @@
     word-wrap: break-word;
     font-family:'Cyber Chunk Font' ;
 }
+
+@media screen and (max-width: 748px) {
+    .category{
+        font-size: 30px;
+    }
+  }
