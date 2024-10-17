@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Gallery from './pages/Gallery/Gallery';
+// import Gallery from './pages/Gallery/Gallery';
 import Homepage from './pages/HomePage/Homepage'
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
@@ -34,18 +34,19 @@ function App() {
     }
     return (
         <div className="App" >
-            {/* <div className="video-background">
+            <div className="video-background">
                 <video autoPlay loop muted>
                     <source src="https://res.cloudinary.com/deecew6ga/video/upload/v1728732370/-1ced-4d69-b61e-4609c6ac87a6_ygzqc4.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-            </div> */}
+            </div>
             <Router>
                 <Routes>
 
                     <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } />
                     {/* <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    {/* <Route path="/events?default=:option" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events/:id" element={<EventDetail  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/AboutUs" element={<AboutUs  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/sponsor" element={<Sponsor  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
