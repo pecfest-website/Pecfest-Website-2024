@@ -1,5 +1,5 @@
 .card{
-    background-color: rgba(255, 255, 255, 0.2);
+    /* background-color: rgba(255, 255, 255, 0.2); */
     margin: 10px;
 }
 .image-preview{
@@ -19,8 +19,9 @@
     margin-top: 20px;
     font-size: 45px;
     text-align: center;
-    color: white;
+    color: rgb(251,255,0);
     font-family: 'Labrada';
     font-weight: 500;
     word-wrap: break-word;
+    font-family:'Cyber Chunk Font' ;
 }

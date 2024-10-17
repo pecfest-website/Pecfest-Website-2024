@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./detail.module.css";
-import {
-  Button,
-
-} from "@mui/material";
+import { NavLink } from "react-router-dom";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
@@ -19,6 +16,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
+import { IoIosArrowForward } from "react-icons/io";
+
 import {
   FaBook,
   FaCalendar,
@@ -38,10 +37,9 @@ const defaultOptions = {
 };
 const EventDetail = ({ isJamming, setIsJamming }) => {
   const { id } = useParams();
-
-  
   const navigate = useNavigate();
   const [event, setEvent] = useState({});
+  const [active, setIsActive] = useState("DETAILS");
 
   const fetchData = async (eventId) => {
     const url = "https://api.pecfest.org/event/detail";
@@ -59,10 +57,11 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
 
       if (res.statusCode === 200) {
         toast.success("Success");
+        console.log(res?.data);
         setEvent(res?.data);
       } else {
         toast.error(res?.message, {
-          position: "top-center", // You can change the position
+          position: "top-right", // You can change the position
           autoClose: 5000, // Toast disappears after 5 seconds
           hideProgressBar: false, // Show or hide the progress bar
           closeOnClick: true, // Close the toast when clicked
@@ -74,7 +73,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
     } catch (error) {
       console.error("Error posting event:", error);
       toast.error("Error Occured! Try again later", {
-        position: "top-center", // You can change the position
+        position: "top-right", // You can change the position
         autoClose: 5000, // Toast disappears after 5 seconds
         hideProgressBar: false, // Show or hide the progress bar
         closeOnClick: true, // Close the toast when clicked
@@ -170,7 +169,6 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
   const alreadyRegistered = event?.participated ?? false;
   const handleRegister = () => {
     const token = localStorage.getItem("token");
-
     if (!token) {
       navigate("/login");
     }
@@ -195,49 +193,94 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
               <div className={styles["glow-border-blue"]} />
               <div className={styles["event-heading"]}>{event.name}</div>
               <div className={styles["glow-border-pink"]} />
-
-              <div className={styles["event-content"]}>
-                <div style={{display:"flex",justifyContent:"center",width:"100%"}}>
+            </div>
+            
+            
+            
+            <div className={styles['shadow-region-pink']}>
+              
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div className={styles['image-container']}>
                   <img
                     src={event.image}
                     alt="Event"
                     style={{ maxHeight: "calc(100vh - 320px)", width: "auto"}}
                   />
                 </div>
-                <div style={{display:"flex",flexDirection:"column", flexWrap:"nowrap", alignItems:"flex-start", width:"100%"}} className={styles.infoCont}>
-                
-                  <h1>{event.name}</h1>
-                  <div className={styles.eventInfo}>
-                    <FaCalendar /> {formatDate()}
+                <div className={styles['event-details']}>
+                  <div className={styles['path']}>
+                    <div style={{ color: '#fbff00' }} className={styles.underline} onClick={() => navigate("/events")}>Events</div>
+                    {">"}
+                    <div className={styles.underline} onClick={() => navigate(`/events?default=${event.eventType}`)}>{event.eventType}</div>
+                    {">"}
+                    <div>{event.name}</div>
                   </div>
-                  <div className={styles.eventInfo}>
-                    <FaClock /> {formatTime()}
+                  <div >
+                    <NavLink
+                      className={`${styles["event-sub-heading"]} ${active !== "DETAILS" ? styles["isNotActive"] : ""
+                        }`}
+                      to="#"
+                      onClick={() => {
+                        setIsActive("DETAILS");
+                      }}
+                    >
+                      DETAILS
+                    </NavLink>
+                    <NavLink
+                      className={`${styles["event-sub-heading"]} ${active !== "DESCRIPTION" ? styles["isNotActive"] : ""
+                        }`}
+                      onClick={() => {
+                        setIsActive("DESCRIPTION");
+                      }}
+                      to="#"
+                    >
+                      DESCRIPTION
+                    </NavLink>
                   </div>
-                  <div className={styles.eventInfo}>
-                    <FaLocationArrow /> {event.venue}
-                  </div>
-                  {event?.heads?.map((head) => {
-                    return (
-                      <div className={styles.eventInfo} key={head.name}>
-                        <FaUser /> {head.name} - {head.phoneNumber}
-                      </div>
-                    );
-                  })}
-                  <div className={styles.eventInfo}>
-                    {" "}
-                    <FaUserFriends />
-                    {participantText}
-                  </div>
-                  {event.haveRuleBook && (
-                    <div className={styles.eventInfo}>
-                      {" "}
-                      <FaBook />
-                      {<Link to={event.ruleBookLink}>Rule Book</Link>}
+                  
+                  <div style={{display:"flex",flexDirection:"column", flexWrap:"nowrap", alignItems:"flex-start", width:"40vw", overflow:"scroll"}} className={styles.infoCont}>
+                    {
+                      active === 'DETAILS' ? (
+                      <>
+                        <div className={styles.eventInfo}>
+                          <FaCalendar /> {formatDate()}
+                        </div>
+                        <div className={styles.eventInfo}>
+                          <FaClock /> {formatTime()}
+                        </div>
+                        <div className={styles.eventInfo}>
+                          <FaLocationArrow /> {event.venue}
+                        </div>
+                        {event?.heads?.map((head) => {
+                          return (
+                            <div className={styles.eventInfo} key={head.name}>
+                              <FaUser /> {head.name} - {head.phoneNumber}
+                            </div>
+                          );
+                        })}
+                        <div className={styles.eventInfo}>
+                          {" "}
+                          <FaUserFriends />
+                          {participantText}
+                        </div>
+                        {event.haveRuleBook && (
+                          <div className={styles.eventInfo}>
+                            {" "}
+                            <FaBook />
+                            {<Link to={event.ruleBookLink}>Rule Book</Link>}
+                          </div>
+                        )}
+                      </>) : 
+                      (<>
+                      <p className={styles.description} >{event.description}</p>
+                      </>)
+                    }
+                    <div className={styles.button} onClick={()=>(navigate("/events/register/"+id))}> 
+                      <div className={styles.icon}><IoIosArrowForward /></div> 
+                      Register
                     </div>
-                  )}
-                  <button className={styles['submit-button']} onClick={()=>(navigate("/events/register/"+id))}> Register</button>
-                  <hr style={{width:"100%"}}></hr>
-                  <p style={{fontSize:"1.2rem", marginTop:"10px"}}>{event.description}</p>
+                    <hr style={{width:"100%"}}></hr>
+                  </div>
                 </div>
               </div>
             </div>

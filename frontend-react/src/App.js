@@ -1,16 +1,16 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Gallery from './pages/Gallery/Gallery';
+// import Gallery from './pages/Gallery/Gallery';
 import Homepage from './pages/HomePage/Homepage'
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
-import Sponsors from './pages/Sponsors/Sponsors';
 import EventDetail from './pages/EventsDetail/EventDetail';
 import Team from './pages/Team/Team';
 import { Login } from './pages/Login/Login';
 import { useState } from 'react';
 import { Signup } from './pages/Signup/Signup';
 import EventRegistrationForm from './pages/RegistrationForm/RegistrationForm';
+import Sponsor from './pages/Sponsors/Sponsor';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 const music = new Audio(
@@ -35,17 +35,17 @@ function App() {
     }
     return (
         <div className="App" >
-            
             <Router>
                 <Routes>
 
                     <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } />
                     {/* <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    {/* <Route path="/events?default=:option" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events/:id" element={<EventDetail  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/AboutUs" element={<AboutUs  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
-                    {/* <Route path="/sponsors" element={<Sponsors  isJamming={isJamming} setIsJamming={setIsJamming}/>} /> */}
-                    {/* <Route path="/team" element={<Team isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
+                    <Route path="/sponsor" element={<Sponsor  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
+                    <Route path="/team" element={<Team isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/login" element={<Login isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/signup" element={<Signup isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events/register/:id" element={<EventRegistrationForm isJamming={isJamming} setIsJamming={setIsJamming} />} />
