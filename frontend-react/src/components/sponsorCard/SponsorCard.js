@@ -1,5 +1,5 @@
 import React from 'react'
-import './sponsorCard.module.css'
+import './sponsorCard.css'
 
 export default function SponsorCard({ category }) {
   return (
@@ -17,7 +17,7 @@ export default function SponsorCard({ category }) {
                                 style={{
                                     objectFit: "contain",
                                     margin: '5px',
-                                    height: "200px"
+                                    height: "250px"
                                 }}
                                 height={200}
                                 width={200}

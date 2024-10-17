@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,26 +8,36 @@ const NavBar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/');
+  };
 
   return (
     <>
       <nav className={styles.nav}>
-          <NavLink to="/AboutUs">About</NavLink>
-          <NavLink to="#about">Developers</NavLink>
-          <NavLink to="#competitions">Competitions</NavLink>
-          <NavLink to="/events">Events</NavLink>
-          <NavLink to="/sponsor">Sponsors</NavLink>
-        <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.logo} />
-          <NavLink to="#schedule">Schedule</NavLink>
-          <NavLink to="/team">Team</NavLink>
-          <NavLink to="/gallery">Gallery</NavLink>
-          <NavLink to="#brochure">Brochure</NavLink>
-          <NavLink to="#contact">Contact</NavLink>
-          <NavLink to="/login">Login</NavLink>
+        <NavLink to="/AboutUs">About</NavLink>
+        <NavLink to="#about">Developers</NavLink>
+        <NavLink to="#competitions">Competitions</NavLink>
+        <NavLink to="/events">Events</NavLink>
+        <NavLink to="/sponsor">Sponsors</NavLink>
+        <img className={styles.logo}
+          onClick={handleLogoClick}
+          style={{ cursor: 'pointer' }} 
+          src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" 
+           />
+        <NavLink to="#schedule">Schedule</NavLink>
+        <NavLink to="/team">Team</NavLink>
+        <NavLink to="/gallery">Gallery</NavLink>
+        <NavLink to="#brochure">Brochure</NavLink>
+        <NavLink to="#contact">Contact</NavLink>
+        <NavLink to="/login">Login</NavLink>
       </nav>
 
       <nav className={`${isOpen ? styles.mini : styles.miniNav}`}>
-        <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.img} />
+        <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.img} onClick={handleLogoClick}
+          style={{ cursor: 'pointer' }} />
         {isOpen ? (
           <></>
         ) : (
