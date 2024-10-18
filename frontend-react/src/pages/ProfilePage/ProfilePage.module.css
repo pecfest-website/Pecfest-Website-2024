@@ -1,3 +1,4 @@
+/* Profile Background */
 .profileBackground {
   position: relative;
   width: 100%;
@@ -22,13 +23,13 @@
 /* Main Grid Container */
 .mainContainer {
   display: grid;
-  grid-template-columns: 200px 1.5fr; /* Left side and right side grid layout */
-  grid-gap: 15px; /* Gap between the profile/events and main content */
+  grid-template-columns: 200px 1fr;
+  grid-gap: 15px;
   width: 90%;
-  margin-top: 60px; /* Space between navbar and content */
+  margin-top: 60px;
   align-items: start;
-  min-height: calc(100vh - 60px); /* Ensure the container takes full height minus navbar */
-  padding-bottom: 20px; /* Add padding at the bottom for some breathing room */
+  min-height: calc(100vh - 60px);
+  padding-bottom: 20px;
 }
 
 /* Left Side: Profile Picture and Event Reminder */
@@ -36,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; /* Gap between profile picture and events */
+  gap: 15px;
 }
 
 .profilePicture {
@@ -78,25 +79,24 @@
   color: #fbff00;
   text-decoration: none;
   font-family: "Silkscreen", sans-serif;
-  text-shadow: 0 0 10px rgba(251, 255, 0, 0.75); /* Initial glow */
-  transition: text-shadow 0.3s ease, color 0.3s ease; /* Smooth transition */
+  text-shadow: 0 0 10px rgba(251, 255, 0, 0.75);
+  transition: text-shadow 0.3s ease, color 0.3s ease;
 }
 
 .eventLink:hover {
-  color: rgb(84, 211, 253); /* Change color on hover */
-  text-shadow: 0 0 20px rgba(84, 211, 253, 0.75), 0 0 30px rgba(84, 211, 253, 0.75); /* Stronger glow on hover */
+  color: rgb(84, 211, 253);
+  text-shadow: 0 0 20px rgba(84, 211, 253, 0.75), 0 0 30px rgba(84, 211, 253, 0.75);
 }
 
 /* Right Side: Main Content with Tabs */
 .rightSide {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.68);
   padding: 20px;
   border-radius: 10px;
   height: 100%;
-  margin-bottom: 20px; /* Added margin at the bottom for spacing */
+  margin-bottom: 20px;
 }
 
 /* Tabs Styling */
@@ -105,7 +105,7 @@
   justify-content: space-around;
   padding: 10px;
   border-radius: 10px;
-  margin-bottom: 15px; /* Space between tabs and content */
+  margin-bottom: 15px;
 }
 
 .tabContainer button {
@@ -136,128 +136,154 @@
   color: #fbff00;
   font-family: "Silkscreen", sans-serif;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   margin-top: 20px;
-  flex-grow: 1; /* Allows this panel to expand and fill available space */
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
+/* Table Wrapper */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Registrations Table Styling */
+.registrationsTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+.registrationsTable th, .registrationsTable td {
+  border: 1px solid #fbff00;
+  padding: 10px;
+  color: #fbff00;
+  font-family: 'Silkscreen', sans-serif;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.registrationsTable th {
+  background-color: rgba(192, 35, 207, 0.75);
+}
+
+.registrationsTable td {
+  vertical-align: top;
+}
+
+/* Team Details Container */
+.teamDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Show Team Button */
+.showTeamButton {
+  background-color: #fbff00;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+  align-self: flex-start;
+}
+
+/* Team List */
+.teamList {
+  list-style-type: none;
+  padding-left: 0;
+  color: #fbff00;
+  margin-top: 10px;
+}
+
+.teamList li {
+  margin-bottom: 5px;
+}
+
+/* Invited Item Styling */
 .invitedItem {
   display: flex;
-  justify-content: space-between; /* Align event details to the left and buttons to the right */
-  align-items: flex-start; /* Align items to the top */
-  margin-bottom: 15px; /* Space between items */
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 10px;
 }
 
-/* Event details on the left */
+/* Event Details */
 .eventDetails {
   color: #fbff00;
   font-family: "Silkscreen", sans-serif;
-  flex-grow: 1; /* Allow event details to take up available space */
+  flex-grow: 1;
 }
 
-/* Status text below event and team name */
+/* Status Text */
 .status {
   color: #fbff00;
-  margin-top: 10px; /* Space between the event details and status */
+  margin-top: 10px;
   font-size: 14px;
 }
 
-/* Button container for alignment */
+/* Button Container */
 .buttonContainer {
   display: flex;
-  justify-content: flex-end; /* Align buttons to the right */
-  gap: 10px; /* Space between buttons */
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-/* Glow effect for the "Show Team Members" button */
-.toggleButton {
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #fbff00;
-  font-family: 'Cyber Chunk Font';
-  border: 2px solid #fbff00;
-  border-radius: 5px;
-  cursor: pointer;
-  text-shadow: 0 0 10px rgba(251, 255, 0, 0.75); /* Initial glow */
-  transition: all 0.3s ease; /* Smooth transition */
-}
-
-.toggleButton:hover {
-  background-color: rgba(84, 211, 253, 0.2); /* Add a background color on hover */
-  color: rgb(84, 211, 253); /* Change text color */
-  text-shadow: 0 0 20px rgba(84, 211, 253, 0.75), 0 0 30px rgba(84, 211, 253, 0.75); /* Stronger glow on hover */
-  box-shadow: 0 0 15px rgba(84, 211, 253, 0.75); /* Add box shadow glow */
-}
-
-/* Button Styling for Accept/Reject */
+/* Accept/Reject Button Styling */
 .acceptButton, .rejectButton {
-  padding: 8px 16px; /* Adds padding for better appearance */
-  font-family: 'Cyber Chunk Font'; /* Keep consistent font */
+  padding: 8px 16px;
+  font-family: 'Cyber Chunk Font';
   font-size: 14px;
   border: none;
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Accept Button Styling */
 .acceptButton {
-  background-color: #28a745; /* Green for accept */
+  background-color: #28a745;
   color: white;
 }
 
 .acceptButton:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838;
 }
 
-/* Reject Button Styling */
 .rejectButton {
-  background-color: #dc3545; /* Red for reject */
+  background-color: #dc3545;
   color: white;
 }
 
 .rejectButton:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333;
 }
 
-/* Responsive adjustments */
-@media (max-width: 950px) {
-  .profilePicture {
-    width: 100px;
-    height: 100px;
-  }
-
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
   .mainContainer {
-    grid-template-columns: 1fr; /* Single-column layout for smaller screens */
-    grid-gap: 20px;
+    grid-template-columns: 1fr;
   }
 
+  .leftSide,
   .rightSide {
     width: 100%;
   }
 
-  .eventsContainer {
-    width: 100%;
-  }
-}
-
-@media (max-width: 700px) {
-  .profilePicture {
-    width: 80px;
-    height: 80px;
-  }
-
-  .tabContainer button {
+  .registrationsTable th, .registrationsTable td {
     font-size: 12px;
-  }
-
-  .eventList li {
-    font-size: 1rem;
+    padding: 8px;
   }
 }

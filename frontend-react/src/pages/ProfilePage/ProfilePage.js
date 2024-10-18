@@ -206,45 +206,52 @@ const ProfilePage = () => {
             )}
 
             {tab === "registrations" && (
-              <div>
-                {sampleResponse.acceptedAndParticipantEvents.map((event, index) => (
-                  <div key={index} style={{ marginBottom: "20px" }}>
-                    <p>
-                      <strong>Event Name:</strong>{" "}
-                      <Link to={`/events/${event.eventId}`} className={styles.eventLink}>
-                        {event.eventName}
-                      </Link>
-                    </p>
-                    <p>
-                      <strong>Event Type:</strong> {event.eventType === "TEAM" ? "Team Event" : "Individual Event"}
-                    </p>
-                    {event.eventType === "TEAM" && (
-                      <>
-                        <p>
-                          <strong>Team Name:</strong> {event.teamName}
-                        </p>
-                        <p>
-                          <strong>Team Size:</strong> {event.teamSize}
-                        </p>
-                        <button
-                          onClick={() => toggleTeamMembers(event.eventId)}
-                          className={styles.toggleButton}
-                        >
-                          {showTeamMembers[event.eventId] ? "Hide Team Members" : "Show Team Members"}
-                        </button>
-                        {showTeamMembers[event.eventId] && (
-                          <ul>
-                            {event.acceptedMembers.map((member, idx) => (
-                              <li key={idx}>
-                                {member.name} - {member.email} (Contact: {member.contact})
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </>
-                    )}
-                  </div>
-                ))}
+              <div className={styles.tableWrapper}>
+                <table className={styles.registrationsTable}>
+                  <thead>
+                    <tr>
+                      <th>Event Name</th>
+                      <th>Event Type</th>
+                      <th>Team Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sampleResponse.acceptedAndParticipantEvents.map((event, index) => (
+                      <tr key={index}>
+                        <td>
+                          <Link to={`/events/${event.eventId}`} className={styles.eventLink}>
+                            {event.eventName}
+                          </Link>
+                        </td>
+                        <td>{event.eventType === "TEAM" ? "Team Event" : "Individual Event"}</td>
+                        <td>
+                          {event.eventType === "TEAM" ? (
+                            <div className={styles.teamDetailsContainer}>
+                              <span>{event.teamName}</span>
+                              <button
+                                onClick={() => toggleTeamMembers(event.eventId)}
+                                className={styles.showTeamButton}
+                              >
+                                {showTeamMembers[event.eventId] ? "Hide Team" : "Show Team"}
+                              </button>
+                              {showTeamMembers[event.eventId] && (
+                                <ul className={styles.teamList}>
+                                  {event.acceptedMembers.map((member, idx) => (
+                                    <li key={idx}>
+                                      {member.name} - {member.email} (Contact: {member.contact})
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
+                          ) : (
+                            "N/A"
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             )}
 
