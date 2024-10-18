@@ -19,7 +19,7 @@ const NavBar = () => {
       <nav className={styles.nav}>
         <NavLink to="/AboutUs">About</NavLink>
         <NavLink to="#about">Developers</NavLink>
-        <NavLink to="#competitions">Competitions</NavLink>
+        <NavLink to="/competitions">Competitions</NavLink>
         <NavLink to="/events">Events</NavLink>
         <NavLink to="/sponsor">Sponsors</NavLink>
         <img className={styles.logo}
