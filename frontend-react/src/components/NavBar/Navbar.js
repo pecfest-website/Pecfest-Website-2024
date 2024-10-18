@@ -18,7 +18,7 @@ const NavBar = () => {
     <>
       <nav className={styles.nav}>
         <NavLink to="/AboutUs">About</NavLink>
-        <NavLink to="#about">Developers</NavLink>
+        <NavLink to="/developers">Developers</NavLink>
         <NavLink to="#competitions">Competitions</NavLink>
         <NavLink to="/events">Events</NavLink>
         <NavLink to="/sponsor">Sponsors</NavLink>
@@ -31,7 +31,7 @@ const NavBar = () => {
         <NavLink to="/team">Team</NavLink>
         <NavLink to="/gallery">Gallery</NavLink>
         <NavLink to="#brochure">Brochure</NavLink>
-        <NavLink to="#contact">Contact</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
         <NavLink to="/login">Login</NavLink>
       </nav>
 
@@ -59,7 +59,7 @@ const NavBar = () => {
           <NavLink onClick={toggleMenu} to="/team">Team</NavLink>
           <NavLink onClick={toggleMenu} to="/gallery">Gallery</NavLink>
           <NavLink onClick={toggleMenu} to="#brochure">Brochure</NavLink>
-          <NavLink onClick={toggleMenu} to="#contact">Contact</NavLink>
+          <NavLink onClick={toggleMenu} to="/contact">Contact</NavLink>
           <NavLink onClick={toggleMenu} to="/login">Login</NavLink>
         </div>
       </nav>
