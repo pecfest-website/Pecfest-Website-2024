@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import styles from '../../components/VideoBackground.module.css';
 import { NavLink as BaseNavLink } from "react-router-dom";
 import button_img_1 from "../../utils/images/button1.png"
+import button_img2 from "../../utils/images/Asset 3-8_PNG.png"
 
 const Landing = () => {
   const [vidIndex, setVidIndex] = useState(0);
@@ -49,7 +50,7 @@ const Landing = () => {
             <ButtonContainer>
               <ImageDiv>
                 <NavLink to="/AboutUs">
-                <ImgStyled src={button_img_1}></ImgStyled>
+                <ImgStyled src={button_img2}></ImgStyled>
               </NavLink></ImageDiv>
               
             </ButtonContainer>
@@ -113,7 +114,7 @@ const InnerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 23vh;
+  height: 20vh;
   width: 100%;
   background-color:'transparent';
   
