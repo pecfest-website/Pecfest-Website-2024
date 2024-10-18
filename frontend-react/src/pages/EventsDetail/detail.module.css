@@ -20,6 +20,40 @@
     margin-top: 0;
 }
 
+.shadow-region-pink {
+    background-color: rgba(204, 107, 143, 0.6);
+    width: 80vw;
+    height: calc(80vh - 50px);
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70vh;
+}
+
+.path {
+    font-size: 2.3vw;
+    font-family: 'Cyber Chunk Font';
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.underline:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 .event-heading {
     font-size: 3rem;
     color: #fbff00;
@@ -41,10 +75,10 @@
    
 }
 
-.event-content > div:first-child {
+/* .event-content > div:first-child {
 
   
-}
+} */
 
 .event-content > div:last-child {
     flex: 1;
@@ -80,16 +114,69 @@
 .event-sub-heading {
     font-size: 1.5rem;
     color: #fbff00;
-    margin: 15px 20px;
-    position: relative;
-    top: 20px;
+    margin: 10px 15px;
+    /* position: relative;
+    top: 20px; */
     padding: 5px;
-    font-family: "Silkscreen", sans-serif;
+    /* font-family: "Silkscreen", sans-serif; */
     border-bottom: solid #fbff00;
     z-index: 1;
     text-shadow: 0.3cm #fbff00;
 }
 
+.description {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    padding: 10px;
+    width: 40vw;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: scroll;
+    height: min(70vh, 550px);
+}
+
+.button {
+    padding: 12px 15px;
+    margin: 10px auto 2px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    cursor: pointer;
+    color: black;
+    background-color: #cc6b8f;
+    gap: 3px;
+}
+.icon {
+    width: min-content;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    >svg {
+        color: black;
+    }
+}
+.tickIcon {
+    width: min-content;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5px;
+    background-color: #28a745;
+    >svg {
+        color: white;
+    }
+}
 .isNotActive {
     color: #fbff00;
     opacity: 70%;
@@ -170,10 +257,10 @@
         margin-top: 40px;
     }
 
-    .event-content > div {
+    /* .event-content > div {
      
  
-    }
+    } */
 
     .infoCont {
         text-align: center;
