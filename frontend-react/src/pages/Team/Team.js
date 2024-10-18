@@ -106,7 +106,7 @@ function Team({ setIsJamming, isJamming }) {
 const styles = {
   title: {
     color: 'white',
-    fontSize: '4rem',
+    fontSize: '3.5rem',
     marginBottom: '40px', // Adjust this to add more space below the title
   },
   cardContainer: {

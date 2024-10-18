@@ -28,8 +28,8 @@ function TeamCard({ name, committee, instagram, linkedin, photo, email, contact 
   const motionMatchMedia = window.matchMedia("(prefers-reduced-motion)");
 
   if (!motionMatchMedia.matches) {
-      card.addEventListener("mousemove", handleHover);
-      card.addEventListener("mouseleave", resetStyles);
+      card?.addEventListener("mousemove", handleHover);
+      card?.addEventListener("mouseleave", resetStyles);
   }
   
   return (
