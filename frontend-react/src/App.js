@@ -13,6 +13,7 @@ import EventRegistrationForm from './pages/RegistrationForm/RegistrationForm';
 import Sponsor from './pages/Sponsors/Sponsor';
 // import Loading from './compoments/Loading';
 import Landing from './pages/Landing/Landing';
+import { useGlobalContext } from './Context/globalContext';
 
 
 const music = new Audio(
@@ -21,6 +22,8 @@ const music = new Audio(
 
 function App() {
     const [isJamming, setJamming]=useState(false);
+    const global = useGlobalContext()
+    console.log(global)
 
     const setIsJamming =()=>{
     

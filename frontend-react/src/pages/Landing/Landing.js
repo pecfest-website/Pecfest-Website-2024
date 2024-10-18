@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react";
+
+import React from 'react'
 import vid1 from "../../utils/vid/land1.mp4";
 import vid2 from "../../utils/vid/land2.mp4";
 import styled from 'styled-components';
+import { useGlobalContext } from '../../Context/globalContext'
 
 //replace with links in backgrounds.landing1 2
 // const videoIntro = "https://www.w3schools.com/tags/movie.mp4";
@@ -9,17 +12,21 @@ import styled from 'styled-components';
 import styles from '../../components/VideoBackground.module.css';
 import { NavLink as BaseNavLink } from "react-router-dom";
 import button_img_1 from "../../utils/images/button1.png"
-import button_img1 from "../../utils/images/login_resized.png"
+import button_img1 from "../../utils/images/aboutus.png"
 import button_img2 from "../../utils/images/events.png"
-import button_img3 from "../../utils/images/schedule.png"
-import button_img4 from "../../utils/images/aboutus.png"
-import button_img5 from "../../utils/images/sponsors.png"
-import button_img6 from "../../utils/images/contact.png"
+import button_img3 from "../../utils/images/contact.png"
+import button_img4 from "../../utils/images/gallery.png"
+import button_img5 from "../../utils/images/teams.png"
+import button_img6 from "../../utils/images/sponsors.png"
 
 // ADD OR CHANGE LINKS SPONSOR AND SCHEDULE
 
 
 const Landing = () => {
+  const {handleSetHomeLoad, homeload} = useGlobalContext();
+  useEffect(()=>{
+    handleSetHomeLoad()
+  },[])
   const [vidIndex, setVidIndex] = useState(0);
   const ref = useRef(null);
   useEffect(() => {
@@ -32,7 +39,7 @@ const Landing = () => {
     <>
       <div className={styles['video-background']}>
       <video
-        style={{ display: vidIndex === 1 ? "none" : "block" }}
+        style={{ display: vidIndex === 1 && homeload === false? "none" : "block" }}
         src={vid1}
         autoPlay
         muted
@@ -57,7 +64,7 @@ const Landing = () => {
           <InnerContainer2>
             <ButtonContainer>
               <ImageDiv>
-                <NavLink to="/Login">
+                <NavLink to="/AboutUs">
                 <ImgStyled src={button_img1}></ImgStyled>
               </NavLink></ImageDiv>
               
@@ -73,7 +80,7 @@ const Landing = () => {
               <ImageOuterDiv>
               <ImageDiv>
 
-                <NavLink to="/#schedule">
+                <NavLink to="/contact">
                 <ImgStyled src={button_img3}></ImgStyled>
               </NavLink></ImageDiv>
               </ImageOuterDiv>
@@ -81,13 +88,13 @@ const Landing = () => {
             <ButtonContainer2>
             <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/AboutUs">
+                <NavLink to="/gallery">
                 <ImgStyled src={button_img4}></ImgStyled>
               </NavLink></ImageDiv>
               </ImageOuterDiv>
               <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/sponsor">
+                <NavLink to="/team">
                 <ImgStyled src={button_img5}></ImgStyled>
               </NavLink></ImageDiv>
               </ImageOuterDiv>
@@ -95,7 +102,7 @@ const Landing = () => {
             <ButtonContainer>
               <ImageDiv>
 
-                  <NavLink to="/#contact">
+                  <NavLink to="/sponsor">
                   <ImgStyled src={button_img6}></ImgStyled>
                 </NavLink></ImageDiv>
             </ButtonContainer>
