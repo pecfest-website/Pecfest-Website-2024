@@ -2,6 +2,8 @@ import React from 'react'
 import './sponsorCard.css'
 
 export default function SponsorCard({ category }) {
+
+    
   return (
     <div className='card'>
       <div className='category-container'>

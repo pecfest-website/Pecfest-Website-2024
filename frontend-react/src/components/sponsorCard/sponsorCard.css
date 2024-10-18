@@ -6,22 +6,28 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 30px;
     
 }
 .category-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .category {
-    margin-top: 20px;
     font-size: 45px;
     text-align: center;
     color: rgb(251,255,0);
     font-family: 'Labrada';
     font-weight: 500;
     word-wrap: break-word;
-    font-family:'Cyber Chunk Font' ;
+    font-family:'Cyber Chunk Font';
+    position: sticky;
 }
+
+@media screen and (max-width: 748px) {
+    .category{
+        font-size: 30px;
+    }
+  }

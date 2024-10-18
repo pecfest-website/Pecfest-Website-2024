@@ -54,9 +54,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 0 auto 10vh;
+    margin: 0 auto 1vh;
     width: 70vw;
-    margin-top: 10rem;
+    margin-top: -10rem;
 }
 
 .aboutBox {

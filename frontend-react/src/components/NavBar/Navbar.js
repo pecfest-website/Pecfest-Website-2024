@@ -63,6 +63,7 @@ const NavBar = () => {
           <NavLink onClick={toggleMenu} to="/login">Login</NavLink>
         </div>
       </nav>
+      <div className={styles.hgt}></div>
     </>
   );
 };
