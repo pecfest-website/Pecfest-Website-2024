@@ -1,161 +1,263 @@
 .profileBackground {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Cyber Chunk Font';
-  }
-  
-  /* Navbar at the top */
-  .navbarContainer {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    top: 0;
-    z-index: 10;
-    background-color: black;
-  }
-  
-  /* Main Grid Container */
-  .mainContainer {
-    display: grid;
-    grid-template-columns: 200px 1.5fr; /* Increased right side width */
-    grid-gap: 15px; /* Gap between the profile/events and main content */
-    width: 90%;
-    margin-top: 60px; /* Increased space between navbar and content */
-    align-items: start; /* Align items to the start (top) */
-  }
-  
-  /* Left Side: Profile Picture and Event Reminder */
-  .leftSide {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* This will align the profile picture and reminder box vertically */
-    gap: 15px; /* Reduced gap between profile picture and events */
-  }
-  
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Cyber Chunk Font';
+}
+
+/* Navbar at the top */
+.navbarContainer {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  z-index: 10;
+  background-color: black;
+}
+
+/* Main Grid Container */
+.mainContainer {
+  display: grid;
+  grid-template-columns: 200px 1.5fr; /* Left side and right side grid layout */
+  grid-gap: 15px; /* Gap between the profile/events and main content */
+  width: 90%;
+  margin-top: 60px; /* Space between navbar and content */
+  align-items: start;
+  min-height: calc(100vh - 60px); /* Ensure the container takes full height minus navbar */
+  padding-bottom: 20px; /* Add padding at the bottom for some breathing room */
+}
+
+/* Left Side: Profile Picture and Event Reminder */
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Gap between profile picture and events */
+}
+
+.profilePicture {
+  width: 150px;
+  height: 150px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.eventsContainer {
+  width: 150px;
+  background-color: rgba(0, 0, 0, 0.68);
+  box-shadow: 0 0 15px 2px rgba(192, 35, 207, 0.75);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.eventsContainer h2 {
+  font-size: 1rem;
+  color: #fbff00;
+}
+
+.eventList {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.9rem;
+  font-family: "Silkscreen", sans-serif;
+  color: #fbff00;
+}
+
+.eventList li {
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
+}
+
+/* Glow effect for event links */
+.eventLink {
+  color: #fbff00;
+  text-decoration: none;
+  font-family: "Silkscreen", sans-serif;
+  text-shadow: 0 0 10px rgba(251, 255, 0, 0.75); /* Initial glow */
+  transition: text-shadow 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.eventLink:hover {
+  color: rgb(84, 211, 253); /* Change color on hover */
+  text-shadow: 0 0 20px rgba(84, 211, 253, 0.75), 0 0 30px rgba(84, 211, 253, 0.75); /* Stronger glow on hover */
+}
+
+/* Right Side: Main Content with Tabs */
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.68);
+  padding: 20px;
+  border-radius: 10px;
+  height: 100%;
+  margin-bottom: 20px; /* Added margin at the bottom for spacing */
+}
+
+/* Tabs Styling */
+.tabContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px; /* Space between tabs and content */
+}
+
+.tabContainer button {
+  padding: 8px 16px;
+  color: #fbff00;
+  font-family: 'Cyber Chunk Font';
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0.1cm #fbff00;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabContainer button:hover {
+  color: rgb(84, 211, 253);
+  text-shadow: 0 0 10px rgba(84, 211, 253, 0.75);
+}
+
+.active {
+  color: rgb(192, 35, 207);
+  text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
+}
+
+/* Details Panel Styling */
+.detailsPanel {
+  width: 100%;
+  padding: 15px;
+  color: #fbff00;
+  font-family: "Silkscreen", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-top: 20px;
+  flex-grow: 1; /* Allows this panel to expand and fill available space */
+}
+
+.invitedItem {
+  display: flex;
+  justify-content: space-between; /* Align event details to the left and buttons to the right */
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 15px; /* Space between items */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Event details on the left */
+.eventDetails {
+  color: #fbff00;
+  font-family: "Silkscreen", sans-serif;
+  flex-grow: 1; /* Allow event details to take up available space */
+}
+
+/* Status text below event and team name */
+.status {
+  color: #fbff00;
+  margin-top: 10px; /* Space between the event details and status */
+  font-size: 14px;
+}
+
+/* Button container for alignment */
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Glow effect for the "Show Team Members" button */
+.toggleButton {
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #fbff00;
+  font-family: 'Cyber Chunk Font';
+  border: 2px solid #fbff00;
+  border-radius: 5px;
+  cursor: pointer;
+  text-shadow: 0 0 10px rgba(251, 255, 0, 0.75); /* Initial glow */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.toggleButton:hover {
+  background-color: rgba(84, 211, 253, 0.2); /* Add a background color on hover */
+  color: rgb(84, 211, 253); /* Change text color */
+  text-shadow: 0 0 20px rgba(84, 211, 253, 0.75), 0 0 30px rgba(84, 211, 253, 0.75); /* Stronger glow on hover */
+  box-shadow: 0 0 15px rgba(84, 211, 253, 0.75); /* Add box shadow glow */
+}
+
+/* Button Styling for Accept/Reject */
+.acceptButton, .rejectButton {
+  padding: 8px 16px; /* Adds padding for better appearance */
+  font-family: 'Cyber Chunk Font'; /* Keep consistent font */
+  font-size: 14px;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Accept Button Styling */
+.acceptButton {
+  background-color: #28a745; /* Green for accept */
+  color: white;
+}
+
+.acceptButton:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Reject Button Styling */
+.rejectButton {
+  background-color: #dc3545; /* Red for reject */
+  color: white;
+}
+
+.rejectButton:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 950px) {
   .profilePicture {
-    width: 150px;
-    height: 150px;
-    background-color: #ccc;
-    border-radius: 50%;
+    width: 100px;
+    height: 100px;
   }
-  
-  .eventsContainer {
-    width: 150px;
-    background-color: rgba(0, 0, 0, 0.68);
-    box-shadow: 0 0 15px 2px rgba(192, 35, 207, 0.75);
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
+
+  .mainContainer {
+    grid-template-columns: 1fr; /* Single-column layout for smaller screens */
+    grid-gap: 20px;
   }
-  
-  .eventsContainer h2 {
-    font-size: 1rem; /* Reduced font size */
-    color: #fbff00;
-  }
-  
-  .eventList {
-    list-style-type: none;
-    padding-left: 0;
-    font-size: 0.9rem; /* Reduced font size for event list */
-    font-family: "Silkscreen", sans-serif;
-    color: #fbff00;
-  }
-  
-  .eventList li {
-    margin-bottom: 5px; /* Reduced spacing between event items */
-    text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
-  }
-  
-  /* Right Side: Main Content with Tabs */
+
   .rightSide {
-    width: 100%; /* Set to full width of its grid column */
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.68);
-    padding: 20px; /* Slightly increased padding */
-    border-radius: 10px;
-  }
-  
-  .tabContainer {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.68);
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 15px; /* Increased margin between tabs and content */
-  }
-  
-  .tabContainer button {
-    padding: 8px 16px; /* Slightly increased padding for the buttons */
-    color: #fbff00;
-    font-family: 'Cyber Chunk Font';
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    text-shadow: 0.1cm #fbff00;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .tabContainer button:hover {
-    color: rgb(84, 211, 253);
-    text-shadow: 0 0 10px rgba(84, 211, 253, 0.75);
-  }
-  
-  .active {
-    color: rgb(192, 35, 207);
-    text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
-  }
-  
-  .detailsPanel {
     width: 100%;
-    padding: 15px; /* Slightly increased padding for more content space */
-    color: #fbff00;
-    font-family: "Silkscreen", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
   }
-  
-  @media (max-width: 950px) {
-    .profilePicture {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .mainContainer {
-      grid-template-columns: 1fr; /* On smaller screens, make it a single column */
-      grid-gap: 20px;
-    }
-  
-    .rightSide {
-      width: 100%;
-    }
-  
-    .eventsContainer {
-      width: 100%;
-    }
+
+  .eventsContainer {
+    width: 100%;
   }
-  
-  @media (max-width: 700px) {
-    .profilePicture {
-      width: 80px;
-      height: 80px;
-    }
-  
-    .tabContainer button {
-      font-size: 12px;
-    }
-  
-    .eventList li {
-      font-size: 1rem;
-    }
+}
+
+@media (max-width: 700px) {
+  .profilePicture {
+    width: 80px;
+    height: 80px;
   }
-  
+
+  .tabContainer button {
+    font-size: 12px;
+  }
+
+  .eventList li {
+    font-size: 1rem;
+  }
+}
