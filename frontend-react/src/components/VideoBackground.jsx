@@ -7,7 +7,8 @@ const VideoBackground = ({ url }) => {
                 <video 
                     autoPlay 
                     loop 
-                    muted  
+                    muted
+                    playsInline  
                     onContextMenu={(e) => e.preventDefault()}
                 >
                     <source src={url} type="video/mp4" />
