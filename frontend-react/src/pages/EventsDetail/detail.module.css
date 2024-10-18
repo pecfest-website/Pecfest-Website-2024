@@ -36,11 +36,13 @@
     justify-content: center;
     align-items: center;
     width: 40%;
+    margin-left: 10px;
+    margin-right: 10px;
     height: 70vh;
 }
 
 .path {
-    font-size: 1.8rem;
+    font-size: 2.3vw;
     font-family: 'Cyber Chunk Font';
     margin: 5px auto;
     display: flex;
@@ -127,6 +129,7 @@
 .description {
     font-size: 1.5rem;
     margin-top: 10px;
+    padding: 10px;
     width: 40vw;
 }
 
@@ -146,6 +149,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 40px;
+    cursor: pointer;
     color: black;
     background-color: #cc6b8f;
     gap: 3px;
@@ -160,6 +164,19 @@
     background-color: white;
     >svg {
         color: black;
+    }
+}
+.tickIcon {
+    width: min-content;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5px;
+    background-color: #28a745;
+    >svg {
+        color: white;
     }
 }
 .isNotActive {

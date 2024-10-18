@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Events.module.css";
 import VideoBackground from "../../components/VideoBackground";
 import { BACKGROUNDS } from "../../utils/backgrounds";
@@ -8,6 +8,7 @@ import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
 import EventCard from "../../components/EventCard/EventCard";
 import axios from "axios";
+import TransparentCard from "../../components/TransparentCard/TransparentCard";
 
 const defaultOptions = {
   loop: true,
@@ -19,13 +20,26 @@ const defaultOptions = {
 };
 
 const Events = ({ isJamming, setIsJamming }) => {
-
-  const [active, setIsActive] = useState("MEGASHOW");
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  const queryParams = new URLSearchParams(location.search);
+  const defaultEvent = queryParams.get('default') || 'MEGASHOW'; 
+  
+  const [active, setIsActive] = useState(defaultEvent);
+  
   const [events, setEvents] = useState({
     MEGASHOW: [],
     WORKSHOP: []
   });
-
+  
+  
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("default", active);
+    navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
+  }, [active, location.pathname, location.search, navigate]);
+  
   const getEvents = async () => {
     let data = [];
     const res = await axios.post(
@@ -41,7 +55,6 @@ const Events = ({ isJamming, setIsJamming }) => {
         },
       }
     );
-    // console.log(res);
     if (res.data.statusCode === 200) {
       data.MEGASHOW = res.data.data.events;
     }
@@ -56,7 +69,6 @@ const Events = ({ isJamming, setIsJamming }) => {
         },
       }
     );
-    console.log(res2);
     if (res2.data.statusCode === 200) {
       data.WORKSHOP = res2.data.data.events;
     }
@@ -65,6 +77,35 @@ const Events = ({ isJamming, setIsJamming }) => {
   useEffect(() => {
     getEvents();
   }, []);
+
+
+//   const dummy = {
+//     "adminId": 8,
+//     "description": "Lipping through situations when challenges are presented at you, navigating the mental maze, and discovering what is concealed beneath those captivating eyes, a personality smelling of perfection to judge ⭐️.\n\nThe renowned race for titles of grandeur is back at PECFEST.\n\nArtistic flair to bestow the eye, and a sharp intellect to be challenged. Take on several tasks to demonstrate your abilities and win the title of Mr. and Miss PECFEST. Participate right away if you believe you have what it takes to stand out from the diverse crowd and win this coveted championship.",
+//     "endDate": "2024-10-25",
+//     "endTime": "18:00",
+//     "eventType": "MEGASHOW",
+//     "haveRuleBook": true,
+//     "heads": [],
+//     "id": 29,
+//     "image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1729069127.8511097.jpg",
+//     "maxParticipants": 1,
+//     "minParticipants": 1,
+//     "name": "Mr. & Ms. PECFest",
+//     "participants": [],
+//     "participationType": "SINGLE",
+//     "paymentType": "PAID",
+//     "provideAccommodation": false,
+//     "registrationFee": 200,
+//     "ruleBookLink": "https://drive.google.com/file/d/12i5QAZUbgSda8XMFO_uUF8yRJe4IMqX4/view",
+//     "startDate": "2024-10-25",
+//     "startTime": "13:00",
+//     "tags": [
+//         "Dramatics",
+//         "Fun"
+//     ],
+//     "venue": "Auditorium, PEC"
+// };
 
   return (
     <>
@@ -152,18 +193,18 @@ const Events = ({ isJamming, setIsJamming }) => {
                 WORKSHOPS
               </NavLink>
             </div>
-            {console.log(events)}
             <div className={styles["event-content"]}>
               {events[`${active}`].map(
                 (event) =>
                   event.eventType === active && (
-                    <EventCard
-                      name={event.name}
-                      photo={event.image}
-                      tags={event.tags}
-                      key={event.id}
-                      id={event.id}
-                    />
+                    <TransparentCard event={event} />
+                    // <EventCard
+                    //   name={event.name}
+                    //   photo={event.image}
+                    //   tags={event.tags}
+                    //   key={event.id}
+                    //   id={event.id}
+                    // />
                   )
               )}
             </div>
