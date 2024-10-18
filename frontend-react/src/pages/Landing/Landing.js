@@ -9,7 +9,15 @@ import styled from 'styled-components';
 import styles from '../../components/VideoBackground.module.css';
 import { NavLink as BaseNavLink } from "react-router-dom";
 import button_img_1 from "../../utils/images/button1.png"
-import button_img2 from "../../utils/images/Asset 3-8_PNG.png"
+import button_img1 from "../../utils/images/login_resized.png"
+import button_img2 from "../../utils/images/events.png"
+import button_img3 from "../../utils/images/schedule.png"
+import button_img4 from "../../utils/images/aboutus.png"
+import button_img5 from "../../utils/images/sponsors.png"
+import button_img6 from "../../utils/images/contact.png"
+
+// ADD OR CHANGE LINKS SPONSOR AND SCHEDULE
+
 
 const Landing = () => {
   const [vidIndex, setVidIndex] = useState(0);
@@ -49,22 +57,24 @@ const Landing = () => {
           <InnerContainer2>
             <ButtonContainer>
               <ImageDiv>
-                <NavLink to="/AboutUs">
-                <ImgStyled src={button_img2}></ImgStyled>
+                <NavLink to="/Login">
+                <ImgStyled src={button_img1}></ImgStyled>
               </NavLink></ImageDiv>
               
             </ButtonContainer>
             <ButtonContainer2>
               <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/AboutUs">
-                <ImgStyled src={button_img_1}></ImgStyled>
+                <NavLink to="/Events">
+                
+                <ImgStyled src={button_img2}></ImgStyled>
               </NavLink></ImageDiv>
               </ImageOuterDiv>
               <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/AboutUs">
-                <ImgStyled src={button_img_1}></ImgStyled>
+
+                <NavLink to="/#schedule">
+                <ImgStyled src={button_img3}></ImgStyled>
               </NavLink></ImageDiv>
               </ImageOuterDiv>
             </ButtonContainer2>
@@ -72,21 +82,21 @@ const Landing = () => {
             <ImageOuterDiv>
               <ImageDiv>
                 <NavLink to="/AboutUs">
-                <ImgStyled src={button_img_1}></ImgStyled>
+                <ImgStyled src={button_img4}></ImgStyled>
               </NavLink></ImageDiv>
               </ImageOuterDiv>
               <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/AboutUs">
-                <ImgStyled src={button_img_1}></ImgStyled>
+                <NavLink to="/sponsor">
+                <ImgStyled src={button_img5}></ImgStyled>
               </NavLink></ImageDiv>
               </ImageOuterDiv>
             </ButtonContainer2>
             <ButtonContainer>
               <ImageDiv>
 
-                  <NavLink to="/AboutUs">
-                  <ImgStyled src={button_img_1}></ImgStyled>
+                  <NavLink to="/#contact">
+                  <ImgStyled src={button_img6}></ImgStyled>
                 </NavLink></ImageDiv>
             </ButtonContainer>
 
@@ -114,7 +124,7 @@ const InnerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 20vh;
+  height: 23vh;
   width: 100%;
   background-color:'transparent';
   
@@ -196,7 +206,8 @@ const NavLink = styled(BaseNavLink)`
 
 const ImgStyled = styled.img`
   flex-shrink: 0;
-  min-height: 100%
+  min-height: 100%;
+  overflow: auto;
 `
 
 export default Landing;
