@@ -5,7 +5,9 @@ const GlobalContext = React.createContext()
 export const GlobalProvider = ({children}) =>{
     const [homeload, setHomeLoad] = useState(false)
     const handleSetHomeLoad = () => {
+        // console.log(homeload);
         setHomeLoad(true);
+        
     };
     
     return(

@@ -3,6 +3,8 @@ import { useEffect, useState, useRef } from "react";
 import React from 'react'
 import vid1 from "../../utils/vid/land1.mp4";
 import vid2 from "../../utils/vid/land2.mp4";
+import load from "../../utils/vid/load.mp4";
+
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext'
 
@@ -19,32 +21,54 @@ import button_img4 from "../../utils/images/gallery.png"
 import button_img5 from "../../utils/images/teams.png"
 import button_img6 from "../../utils/images/sponsors.png"
 
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 // ADD OR CHANGE LINKS SPONSOR AND SCHEDULE
-
 
 const Landing = () => {
   const {handleSetHomeLoad, homeload} = useGlobalContext();
-  useEffect(()=>{
-    handleSetHomeLoad()
-  },[])
+
   const [vidIndex, setVidIndex] = useState(0);
   const ref = useRef(null);
   useEffect(() => {
+    
     if (vidIndex === 0 && ref.current) {
       ref.current.play();
     }
+    if(vidIndex === 1){
+      handleSetHomeLoad();
+      // console.log("called")
+    }
+    
+    // console.log(homeload)
+    // console.log(vidIndex)
   }, [ref, vidIndex]);
+  // useEffect(() => {
+    
+  // }, []);
   // BACKGROUNDS.Landing add later
+
+  const { height, width } = useWindowDimensions();
+  console.log(height, width)
   return (
     <>
       <div className={styles['video-background']}>
-      <video
-        style={{ display: vidIndex === 1 && homeload === false? "none" : "block" }}
+      {(homeload === false && vidIndex ===0) && <video
+        style={{ display: (vidIndex === 1)? "none" : "block" }}
+        // {...console.log(homeload)}
         src={vid1}
+        
         autoPlay
         muted
         onEnded={() => setVidIndex((idx) => idx + 1)}
-      />
+      />}
+      {(homeload === true && vidIndex===0) && <video
+        style={{ display: vidIndex === 1? "none" : "block" }}
+        // {...console.log("load")}
+        src={load}
+        autoPlay
+        muted
+        onEnded={() => setVidIndex((idx) => idx + 1)}
+      />}
       <video
         style={{ display: vidIndex === 0 ? "none" : "block" }}
         src={vid2}
@@ -72,36 +96,39 @@ const Landing = () => {
             <ButtonContainer2>
               <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/Events">
+                {height < width && <NavLink to="/Events">
                 
                 <ImgStyled src={button_img2}></ImgStyled>
-              </NavLink></ImageDiv>
+              </NavLink>}
+                </ImageDiv>
               </ImageOuterDiv>
               <ImageOuterDiv>
               <ImageDiv>
-
-                <NavLink to="/contact">
+                {height < width && <NavLink to="/contact">
                 <ImgStyled src={button_img3}></ImgStyled>
-              </NavLink></ImageDiv>
+              </NavLink>}
+                </ImageDiv>
               </ImageOuterDiv>
             </ButtonContainer2>
             <ButtonContainer2>
             <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/gallery">
+              {height < width && <NavLink to="/gallery">
                 <ImgStyled src={button_img4}></ImgStyled>
-              </NavLink></ImageDiv>
+              </NavLink>}
+                </ImageDiv>
               </ImageOuterDiv>
               <ImageOuterDiv>
               <ImageDiv>
-                <NavLink to="/team">
+              {height < width && <NavLink to="/team">
                 <ImgStyled src={button_img5}></ImgStyled>
-              </NavLink></ImageDiv>
+              </NavLink>}
+                </ImageDiv>
               </ImageOuterDiv>
             </ButtonContainer2>
             <ButtonContainer>
               <ImageDiv>
-
+                  
                   <NavLink to="/sponsor">
                   <ImgStyled src={button_img6}></ImgStyled>
                 </NavLink></ImageDiv>

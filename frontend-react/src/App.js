@@ -23,7 +23,7 @@ const music = new Audio(
 function App() {
     const [isJamming, setJamming]=useState(false);
     const global = useGlobalContext()
-    console.log(global)
+
 
     const setIsJamming =()=>{
     
