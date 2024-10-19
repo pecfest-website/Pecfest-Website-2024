@@ -28,7 +28,7 @@
 
 .event-content {
     margin-top: 100px;
-    overflow: scroll;
+    overflow: auto;
     /* display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -73,6 +73,32 @@
     opacity: 70%;
     text-shadow: 0;
     border: 0;
+}
+
+.filters {
+    width: 25%;
+    height: 100%;
+}
+
+.filter-heading {
+    color: #fbff00;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+.filter-content {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-filters {
+    padding: 10px;
 }
 
 /* --- Mobile Responsiveness --- */

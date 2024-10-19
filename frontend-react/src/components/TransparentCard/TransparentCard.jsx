@@ -30,7 +30,6 @@ const TransparentCard = ({ event }) => {
                             {event.tags?.slice(0, 2).map((category, index) => (
                                 <Chip
                                     key={index}
-                                    
                                     label={category}
                                     color={"secondary"}
                                     icon={<LoyaltyIcon />}

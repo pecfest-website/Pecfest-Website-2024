@@ -1,12 +1,13 @@
-import React from 'react'
-import TeamCard from '../../components/Card/TeamCard'
-import NavBar from '../../components/NavBar/Navbar'
-import VideoBackground from '../../components/VideoBackground'
-import { BACKGROUNDS } from '../../utils/backgrounds'
-import { coreTeam } from '../../utils/teamData'
-
-import Lottie from "react-lottie";
+import React, { Suspense } from 'react';
+import TeamCard from '../../components/Card/TeamCard';
+import NavBar from '../../components/NavBar/Navbar';
+import VideoBackground from '../../components/VideoBackground';
+import { BACKGROUNDS } from '../../utils/backgrounds';
+import { coreTeam } from '../../utils/teamData';
+import Lottie from 'react-lottie';
 import animationData from "../../utils/Transparent vivbing.json";
+import { InView } from 'react-intersection-observer'; // Import the Intersection Observer
+
 const defaultOptions = {
   loop: true,
   autoplay: true,
@@ -15,21 +16,32 @@ const defaultOptions = {
     preserveAspectRatio: "xMidYMid slice",
   },
 };
+
 function Team({ setIsJamming, isJamming }) {
   const renderTeamSection = (role) => {
     return coreTeam[role].map((member) => (
-      <TeamCard
-        key={member.Name}
-        name={member.Name}
-        committee={member.Committee}
-        instagram={member.Instagram}
-        linkedin={member.Linkedin}
-        photo={member.Photo}
-        email={member.Email}
-        contact={member.Contact}
-      />
+      <InView triggerOnce={true} rootMargin="100px" key={member.Name}>
+        {({ inView, ref }) => (
+          <div ref={ref} style={{ opacity: inView ? 1 : 0.3, transition: 'opacity 0.5s ease-in-out' }}>
+            {inView && (
+              <Suspense fallback={<div>Loading...</div>}>
+                <TeamCard
+                  name={member.Name}
+                  committee={member.Committee}
+                  instagram={member.Instagram}
+                  linkedin={member.Linkedin}
+                  photo={member.Photo}
+                  email={member.Email}
+                  contact={member.Contact}
+                />
+              </Suspense>
+            )}
+          </div>
+        )}
+      </InView>
     ));
   };
+
   return (
     <>
       <div>
@@ -38,7 +50,7 @@ function Team({ setIsJamming, isJamming }) {
 
         {/* Convenor Section */}
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <h1 style={{ color: 'white', fontSize: '4rem' }}>Convenors</h1>
+          <h1 style={styles.title}>Convenors</h1>
           <div style={styles.cardContainer}>
             {coreTeam.Convenor && renderTeamSection('Convenor')}
           </div>
@@ -46,7 +58,7 @@ function Team({ setIsJamming, isJamming }) {
 
         {/* Secretary Section */}
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <h1 style={{ color: 'white', fontSize: '4rem' }}>Secretaries</h1>
+          <h1 style={styles.title}>Secretaries</h1>
           <div style={styles.cardContainer}>
             {coreTeam.Secretary && renderTeamSection('Secretary')}
           </div>
@@ -54,7 +66,7 @@ function Team({ setIsJamming, isJamming }) {
 
         {/* Head Section */}
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <h1 style={{ color: 'white', fontSize: '4rem' }}>Heads</h1>
+          <h1 style={styles.title}>Heads</h1>
           <div style={styles.cardContainer}>
             {coreTeam.Head && renderTeamSection('Head')}
           </div>
@@ -71,12 +83,7 @@ function Team({ setIsJamming, isJamming }) {
         onClick={() => setIsJamming((prev) => !prev)}
       >
         {isJamming ? (
-          <Lottie
-            options={defaultOptions}
-            height={200}
-            width={200}
-          // Wrap in an arrow function
-          />
+          <Lottie options={defaultOptions} height={200} width={200} />
         ) : (
           <h2
             style={{
@@ -87,24 +94,28 @@ function Team({ setIsJamming, isJamming }) {
               fontFamily: "Cyber Chunk Font",
               fontSize: "1.2rem",
             }}
-          // Wrap in an arrow function
           >
             Jam?
           </h2>
         )}
       </div>
     </>
-
-  )
+  );
 }
+
 const styles = {
+  title: {
+    color: 'white',
+    fontSize: '3.5rem',
+    marginBottom: '40px', // Adjust this to add more space below the title
+  },
   cardContainer: {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: '20px', // Space between cards
+    gap: '100px', // Space between cards
     marginTop: '20px',
   },
 };
 
-export default Team
+export default Team;

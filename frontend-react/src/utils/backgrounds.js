@@ -10,7 +10,7 @@ export const BACKGROUNDS = {
     Signup: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4",
 
 
-    Team: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4"
-
+    Team: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4",
+    Contact: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4"
 
 }
