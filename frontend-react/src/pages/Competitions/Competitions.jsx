@@ -53,117 +53,7 @@ const Competitions = ({ isJamming, setIsJamming }) => {
     navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
   }, [active, location.pathname, location.search, navigate]);
   
-  
-  const tempData = {
-    MEGASHOW : [
-      {
-        "adminId": 8,
-        "description": "Lipping through situations when challenges are presented at you, navigating the mental maze, and discovering what is concealed beneath those captivating eyes, a personality smelling of perfection to judge ⭐️.\n\nThe renowned race for titles of grandeur is back at PECFEST.\n\nArtistic flair to bestow the eye, and a sharp intellect to be challenged. Take on several tasks to demonstrate your abilities and win the title of Mr. and Miss PECFEST. Participate right away if you believe you have what it takes to stand out from the diverse crowd and win this coveted championship.",
-        "endDate": "2024-10-25",
-        "endTime": "18:00",
-        "eventType": "MEGASHOW",
-        "haveRuleBook": true,
-        "heads": [],
-        "id": 29,
-        "image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1729069127.8511097.jpg",
-        "maxParticipants": 1,
-        "minParticipants": 1,
-        "name": "Mr. & Ms. PECFest",
-        "participants": [],
-        "participationType": "SINGLE",
-        "paymentType": "PAID",
-        "provideAccommodation": false,
-        "registrationFee": 200.0,
-        "ruleBookLink": "https://drive.google.com/file/d/12i5QAZUbgSda8XMFO_uUF8yRJe4IMqX4/view",
-        "startDate": "2024-10-25",
-        "startTime": "13:00",
-        "tags": [
-            "Coding",
-            "Fun"
-        ],
-        "venue": "Auditorium, PEC"
-    },{
-      "adminId": 8,
-      "description": "Lipping through situations when challenges are presented at you, navigating the mental maze, and discovering what is concealed beneath those captivating eyes, a personality smelling of perfection to judge ⭐️.\n\nThe renowned race for titles of grandeur is back at PECFEST.\n\nArtistic flair to bestow the eye, and a sharp intellect to be challenged. Take on several tasks to demonstrate your abilities and win the title of Mr. and Miss PECFEST. Participate right away if you believe you have what it takes to stand out from the diverse crowd and win this coveted championship.",
-      "endDate": "2024-10-25",
-      "endTime": "18:00",
-      "eventType": "MEGASHOW",
-      "haveRuleBook": true,
-      "heads": [],
-      "id": 29,
-      "image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1729069127.8511097.jpg",
-      "maxParticipants": 1,
-      "minParticipants": 1,
-      "name": "Mr. & Ms. PECFest",
-      "participants": [],
-      "participationType": "SINGLE",
-      "paymentType": "PAID",
-      "provideAccommodation": false,
-      "registrationFee": 200.0,
-      "ruleBookLink": "https://drive.google.com/file/d/12i5QAZUbgSda8XMFO_uUF8yRJe4IMqX4/view",
-      "startDate": "2024-10-25",
-      "startTime": "13:00",
-      "tags": [
-          "Dramatics",
-          "Fun"
-      ],
-      "venue": "Auditorium, PEC"
-  },{
-    "adminId": 8,
-    "description": "Lipping through situations when challenges are presented at you, navigating the mental maze, and discovering what is concealed beneath those captivating eyes, a personality smelling of perfection to judge ⭐️.\n\nThe renowned race for titles of grandeur is back at PECFEST.\n\nArtistic flair to bestow the eye, and a sharp intellect to be challenged. Take on several tasks to demonstrate your abilities and win the title of Mr. and Miss PECFEST. Participate right away if you believe you have what it takes to stand out from the diverse crowd and win this coveted championship.",
-    "endDate": "2024-10-25",
-    "endTime": "18:00",
-    "eventType": "MEGASHOW",
-    "haveRuleBook": true,
-    "heads": [],
-    "id": 29,
-    "image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1729069127.8511097.jpg",
-    "maxParticipants": 1,
-    "minParticipants": 1,
-    "name": "Mr. & Ms. PECFest",
-    "participants": [],
-    "participationType": "SINGLE",
-    "paymentType": "PAID",
-    "provideAccommodation": false,
-    "registrationFee": 200.0,
-    "ruleBookLink": "https://drive.google.com/file/d/12i5QAZUbgSda8XMFO_uUF8yRJe4IMqX4/view",
-    "startDate": "2024-10-25",
-    "startTime": "13:00",
-    "tags": [
-        "Dramatics",
-        "Fun"
-    ],
-    "venue": "Auditorium, PEC"
-},
-{
-  "adminId": 8,
-  "description": "Lipping through situations when challenges are presented at you, navigating the mental maze, and discovering what is concealed beneath those captivating eyes, a personality smelling of perfection to judge ⭐️.\n\nThe renowned race for titles of grandeur is back at PECFEST.\n\nArtistic flair to bestow the eye, and a sharp intellect to be challenged. Take on several tasks to demonstrate your abilities and win the title of Mr. and Miss PECFEST. Participate right away if you believe you have what it takes to stand out from the diverse crowd and win this coveted championship.",
-  "endDate": "2024-10-25",
-  "endTime": "18:00",
-  "eventType": "MEGASHOW",
-  "haveRuleBook": true,
-  "heads": [],
-  "id": 29,
-  "image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1729069127.8511097.jpg",
-  "maxParticipants": 1,
-  "minParticipants": 1,
-  "name": "Mr. & Ms. PECFest",
-  "participants": [],
-  "participationType": "SINGLE",
-  "paymentType": "PAID",
-  "provideAccommodation": false,
-  "registrationFee": 200.0,
-  "ruleBookLink": "https://drive.google.com/file/d/12i5QAZUbgSda8XMFO_uUF8yRJe4IMqX4/view",
-  "startDate": "2024-10-25",
-  "startTime": "13:00",
-  "tags": [
-      "Coding",
-      "Fun"
-  ],
-  "venue": "Auditorium, PEC"
-}
-    ], WORKSHOP: []
-  }
+
   
   
   const getEvents = async () => {
@@ -199,7 +89,7 @@ const Competitions = ({ isJamming, setIsJamming }) => {
       data.WORKSHOP = res2.data.data.events;
     }
     console.log(data);
-    setEvents(tempData);
+    setEvents(data);
   };
   useEffect(() => {
     getEvents();
