@@ -9,7 +9,7 @@
   border-radius: 15px;
   padding: 10px 0;
   transition: backdrop-filter 0.3s ease;
-  z-index: 1;
+  z-index: 50;
   margin: 15px 7px;
   font-family: "Cyber Chunk Font", "Silkscreen", sans-serif;
   font-weight: 400;

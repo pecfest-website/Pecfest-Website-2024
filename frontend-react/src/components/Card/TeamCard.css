@@ -1,0 +1,98 @@
+.box {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  color: #fff;
+  background: #151320;
+  font: 700 2rem 'Montserrat';
+  line-height: 400px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 50%; /* Makes the box circular */
+  z-index: 1; /* Ensures the box is above the frame */
+  transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+  transform-style: preserve-3d; /* For 3D effect */
+  will-change: transform; /* Optimizes the transformation */
+/* Prevent overflow for cleaner look */
+}
+
+/* Glowing border effect using ::before and ::after */
+.box::before,
+.box::after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+  top: -15px;
+  left: -15px;
+  border-radius: 50%; /* Matches the circular shape of the box */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 80%);
+  background-size: 300%;
+  animation: borderMove 6s linear infinite;
+  box-shadow: 0 0 30px 20px rgba(128, 0, 255, 0.8); /* Purple glow effect */
+}
+
+.box::after {
+  filter: blur(50px); /* Blurred glow effect */
+}
+
+/* Overlay that covers the box */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50%; /* Keeps the overlay circular */
+  line-height: 1.2; /* Reduce the line height to reduce vertical gaps */
+}
+
+.overlay div {
+  margin: 5px 0; /* Controls the space between the divs */
+  font-size: 1.2rem; /* Adjust font size if needed */
+}
+
+/* Show the overlay on hover */
+.box:hover .overlay {
+  opacity: 1; /* Make the overlay visible */
+  pointer-events: all; /* Enable interaction when hovered */
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+/* Keyframe for the glowing border animation */
+@keyframes borderMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {  
+    background-position: 300%;
+  }
+}
+@media (prefers-reduced-motion) {
+  .box {
+      transform: none !important;
+  }
+}
