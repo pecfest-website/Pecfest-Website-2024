@@ -32,6 +32,16 @@ export const developers = {
             "Contact": "7417345233",
         },
         {
+            "Name": "Ribhav Aggarwal",
+            Instagram: "NA",
+            Linkedin: "NA",
+            "Photo": "/team/Ribhav.jpg",
+            "Email": "NA",
+            "Contact": "NA"
+
+            
+        },
+        {
             "Name": "Lakshya Verma",
             Instagram: "NA",
             Linkedin: "NA",

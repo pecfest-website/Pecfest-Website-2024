@@ -38,15 +38,8 @@ const Landing = () => {
       handleSetHomeLoad();
       // console.log("called")
     }
-    
-    // console.log(homeload)
-    // console.log(vidIndex)
   }, [ref, vidIndex]);
-  // useEffect(() => {
-    
-  // }, []);
   // BACKGROUNDS.Landing add later
-
   const { height, width } = useWindowDimensions();
   console.log(height, width)
   return (
@@ -97,7 +90,6 @@ const Landing = () => {
               <ImageOuterDiv>
               <ImageDiv>
                 {height < width && <NavLink to="/Events">
-                
                 <ImgStyled src={button_img2}></ImgStyled>
               </NavLink>}
                 </ImageDiv>
