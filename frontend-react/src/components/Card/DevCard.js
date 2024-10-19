@@ -1,7 +1,8 @@
 import React from 'react'
 import { FaInstagram, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 
-function TeamCard({ name, committee, instagram, linkedin, photo, email, contact }) {
+function DevCard({ name, instagram, linkedin, photo, email, contact }) {
+  
   return (
     <div style={{ width: 322, height: 322, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
       <div style={{ width: 322, height: 322, position: 'relative' }}>
@@ -124,7 +125,7 @@ margin-left: 10px;
             }}>
 
               <span className="name-text" style={{ fontWeight: 'bold', marginTop: '10px' }}>{name}</span> {/* Name */}
-              <span className="committee-text" style={{ fontSize: '0.8rem', marginBottom: '10px' }}>{committee}</span> {/* Committee */}
+              {/* <span className="committee-text" style={{ fontSize: '0.8rem', marginBottom: '10px' }}>{committee}</span>  */}
             </div>
             <div className="social-icons" style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
               {/* Social Icons */}
@@ -309,4 +310,4 @@ transform: scale(1.05) translate(-50%, -50%); /* Slight zoom on hover for image 
   )
 }
 
-export default TeamCard
+export default DevCard

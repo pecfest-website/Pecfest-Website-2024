@@ -185,7 +185,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
         <NavBar />
       <>
     
-        <div>
+        <div style={{ marginTop: "30px" }}>
           <VideoBackground url={BACKGROUNDS.Gallery} />
           <div className={styles.events}>
             <div className={styles["shadow-region"]}>
