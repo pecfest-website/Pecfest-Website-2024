@@ -40,6 +40,7 @@ const Events = ({ isJamming, setIsJamming }) => {
     navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
   }, [active, location.pathname, location.search, navigate]);
   
+  
   const getEvents = async () => {
     let data = [];
     const res = await axios.post(
@@ -78,40 +79,10 @@ const Events = ({ isJamming, setIsJamming }) => {
     getEvents();
   }, []);
 
-
-//   const dummy = {
-//     "adminId": 8,
-//     "description": "Lipping through situations when challenges are presented at you, navigating the mental maze, and discovering what is concealed beneath those captivating eyes, a personality smelling of perfection to judge ⭐️.\n\nThe renowned race for titles of grandeur is back at PECFEST.\n\nArtistic flair to bestow the eye, and a sharp intellect to be challenged. Take on several tasks to demonstrate your abilities and win the title of Mr. and Miss PECFEST. Participate right away if you believe you have what it takes to stand out from the diverse crowd and win this coveted championship.",
-//     "endDate": "2024-10-25",
-//     "endTime": "18:00",
-//     "eventType": "MEGASHOW",
-//     "haveRuleBook": true,
-//     "heads": [],
-//     "id": 29,
-//     "image": "https://storage.googleapis.com/pecfest/website2024/event/MEGASHOW/1729069127.8511097.jpg",
-//     "maxParticipants": 1,
-//     "minParticipants": 1,
-//     "name": "Mr. & Ms. PECFest",
-//     "participants": [],
-//     "participationType": "SINGLE",
-//     "paymentType": "PAID",
-//     "provideAccommodation": false,
-//     "registrationFee": 200,
-//     "ruleBookLink": "https://drive.google.com/file/d/12i5QAZUbgSda8XMFO_uUF8yRJe4IMqX4/view",
-//     "startDate": "2024-10-25",
-//     "startTime": "13:00",
-//     "tags": [
-//         "Dramatics",
-//         "Fun"
-//     ],
-//     "venue": "Auditorium, PEC"
-// };
-
   return (
     <>
       <Navbar />
-      <div>
-
+      <div style={{ marginTop: "30px" }}>
         <VideoBackground url={BACKGROUNDS.Events} />
         <div className={styles.events}>
           <svg
@@ -165,12 +136,11 @@ const Events = ({ isJamming, setIsJamming }) => {
             <path d="M43.2626 90.8855C41.6746 90.8855 40.3927 89.5241 40.3927 87.8375C40.3927 59.7756 30.0992 48.8434 3.67675 48.8434C2.08872 48.8434 0.806824 47.482 0.806824 45.7954C0.806824 44.1088 2.08872 42.7474 3.67675 42.7474C30.0992 42.7474 40.3927 31.8152 40.3927 3.75332C40.3927 2.06676 41.6746 0.705322 43.2626 0.705322C44.8506 0.705322 46.1325 2.06676 46.1325 3.75332C46.1325 31.8152 56.426 42.7474 82.8485 42.7474C84.4365 42.7474 85.7184 44.1088 85.7184 45.7954C85.7184 47.482 84.4365 48.8434 82.8485 48.8434C56.426 48.8434 46.1325 59.7756 46.1325 87.8375C46.1325 89.5241 44.8506 90.8855 43.2626 90.8855ZM24.1489 45.7751C33.7345 49.2701 39.9526 55.8944 43.2626 66.0747C46.5535 55.8944 52.7908 49.2904 62.3764 45.7751C52.7908 42.28 46.5726 35.6557 43.2626 25.4754C39.9526 35.6557 33.7345 42.2597 24.1489 45.7751Z" fill="white" />
           </svg>
 
-
-
           <div className={styles["shadow-region"]}>
             <div className={styles["glow-border-blue"]} />
             <div className={styles["event-heading"]}>EVENTS</div>
             <div className={styles["glow-border-pink"]} />
+            
             <div>
               <NavLink
                 className={`${styles["event-sub-heading"]} ${active !== "MEGASHOW" ? styles["isNotActive"] : ""
@@ -193,18 +163,12 @@ const Events = ({ isJamming, setIsJamming }) => {
                 WORKSHOPS
               </NavLink>
             </div>
+            
             <div className={styles["event-content"]}>
               {events[`${active}`].map(
                 (event) =>
                   event.eventType === active && (
                     <TransparentCard event={event} />
-                    // <EventCard
-                    //   name={event.name}
-                    //   photo={event.image}
-                    //   tags={event.tags}
-                    //   key={event.id}
-                    //   id={event.id}
-                    // />
                   )
               )}
             </div>

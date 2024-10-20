@@ -3,14 +3,13 @@ export const developers = {
         {
             "Name": "Ayush Kansal",
             "Committee": "Websiite Management",
-            Instagram: "NA",
-            Linkedin: "NA",
+            Instagram:"https://www.instagram.com/ayush.03.16/",
+            Linkedin:"https://www.linkedin.com/in/ayush-kansal-a6b788279/",
             "Photo": "/team/Ayush_Kansal.png",
-            "Email": "ayushkansal.bt21ece@pec.edu.in",
+            "Email": "ayushkansal777@gmail.com",
             "Contact": "9463741383",
             "Type": "Head"
-        },
-
+          },
         {
             "Name": "Prranav Babbar",
             "Committee": "Website Management",
@@ -30,6 +29,16 @@ export const developers = {
             "Photo": "/team/PrasukJain.jpg",
             "Email": "prasukjain0703@gmail.com",
             "Contact": "7417345233",
+        },
+        {
+            "Name": "Ribhav Aggarwal",
+            Instagram: "NA",
+            Linkedin: "NA",
+            "Photo": "/team/Ribhav.jpg",
+            "Email": "NA",
+            "Contact": "NA"
+
+            
         },
         {
             "Name": "Lakshya Verma",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
+import brochure from "../../utils/brochure/brochure.pdf";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,12 +15,19 @@ const NavBar = () => {
     navigate('/');
   };
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = brochure;  // Replace with your PDF file URL
+    link.download = 'brochure.pdf';  // Set the downloaded file name
+    link.click();
+  };
+
   return (
     <>
       <nav className={styles.nav}>
         <NavLink to="/AboutUs">About</NavLink>
+        <NavLink to="/competitions">Competitions</NavLink>
         <NavLink to="/developers">Developers</NavLink>
-        <NavLink to="#competitions">Competitions</NavLink>
         <NavLink to="/events">Events</NavLink>
         <NavLink to="/sponsor">Sponsors</NavLink>
         <img className={styles.logo}
@@ -30,7 +38,7 @@ const NavBar = () => {
         <NavLink to="/schedule">Schedule</NavLink>
         <NavLink to="/team">Team</NavLink>
         <NavLink to="/gallery">Gallery</NavLink>
-        <NavLink to="#brochure">Brochure</NavLink>
+        <button onClick={handleDownload}>Brochure</button>
         <NavLink to="/contact">Contact</NavLink>
         <NavLink to="/login">Login</NavLink>
       </nav>
@@ -58,7 +66,7 @@ const NavBar = () => {
           <NavLink onClick={toggleMenu} to="#schedule">Schedule</NavLink>
           <NavLink onClick={toggleMenu} to="/team">Team</NavLink>
           <NavLink onClick={toggleMenu} to="/gallery">Gallery</NavLink>
-          <NavLink onClick={toggleMenu} to="#brochure">Brochure</NavLink>
+          <NavLink onClick={handleDownload} to="">Brochure</NavLink>
           <NavLink onClick={toggleMenu} to="/contact">Contact</NavLink>
           <NavLink onClick={toggleMenu} to="/login">Login</NavLink>
         </div>

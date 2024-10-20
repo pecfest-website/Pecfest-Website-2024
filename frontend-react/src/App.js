@@ -11,8 +11,13 @@ import { useState } from 'react';
 import { Signup } from './pages/Signup/Signup';
 import EventRegistrationForm from './pages/RegistrationForm/RegistrationForm';
 import Sponsor from './pages/Sponsors/Sponsor';
+import Competitions from './pages/Competitions/Competitions';
 import Contact from './pages/Contact/Contact';
 import Developers from './pages/Developers/Developers';
+// import Loading from './compoments/Loading';
+import Landing from './pages/Landing/Landing';
+import { useGlobalContext } from './Context/globalContext';
+
 import Schedule from './pages/Schedule/Schedule';
 
 const music = new Audio(
@@ -21,6 +26,8 @@ const music = new Audio(
 
 function App() {
     const [isJamming, setJamming]=useState(false);
+    const global = useGlobalContext()
+
 
     const setIsJamming =()=>{
     
@@ -40,10 +47,10 @@ function App() {
             <Router>
                 <Routes>
 
-                    <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } />
+                    <Route path="/" element={<Landing/> } />
+                    {/* <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } /> */}
                     {/* <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
-                    {/* <Route path="/events?default=:option" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} /> */}
                     <Route path="/events/:id" element={<EventDetail  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/AboutUs" element={<AboutUs  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/sponsor" element={<Sponsor  isJamming={isJamming} setIsJamming={setIsJamming}/>} />
@@ -52,6 +59,7 @@ function App() {
                     <Route path="/login" element={<Login isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/signup" element={<Signup isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events/register/:id" element={<EventRegistrationForm isJamming={isJamming} setIsJamming={setIsJamming} />} />
+                    <Route path="/competitions" element={<Competitions isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/contact" element={<Contact/>} />
                     <Route path="/schedule" element={<Schedule isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     
