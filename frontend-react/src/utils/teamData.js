@@ -54,10 +54,10 @@ export const coreTeam ={
       {
         "Name": "Ayush Kansal",
         "Committee": "Websiite Management",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/AyushKansal.webp",
-        "Email": "ayushkansal.bt21ece@pec.edu.in",
+        Instagram:"https://www.instagram.com/ayush.03.16/",
+        Linkedin:"https://www.linkedin.com/in/ayush-kansal-a6b788279/",
+        "Photo": "/team/Ayush_Kansal.png",
+        "Email": "ayushkansal777@gmail.com",
         "Contact": "9463741383",
         "Type": "Head"
       },
@@ -460,10 +460,10 @@ export const coreTeam ={
     fullStack:[{
       "Name": "Ayush Kansal",
       "Committee": "Websiite Management",
-      Instagram:"NA",
-      Linkedin:"NA",
-      "Photo": "/team/AyushKansal.webp",
-      "Email": "ayushkansal.bt21ece@pec.edu.in",
+      Instagram:"https://www.instagram.com/ayush.03.16/",
+      Linkedin:"https://www.linkedin.com/in/ayush-kansal-a6b788279/",
+      "Photo": "/team/Ayush_Kansal.png",
+      "Email": "ayushkansal777@gmail.com",
       "Contact": "9463741383",
       "Type": "Head"
     },
