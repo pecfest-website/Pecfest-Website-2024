@@ -49,7 +49,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
 
     const headers = {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
+      ...(token && { token: `Bearer ${token}` }),
     };
 
     try {
