@@ -18,7 +18,7 @@ import button_img1 from "../../utils/images/aboutus.png"
 import button_img2 from "../../utils/images/events.png"
 import button_img3 from "../../utils/images/contact.png"
 import button_img4 from "../../utils/images/gallery.png"
-import button_img5 from "../../utils/images/teams.png"
+import button_img5 from "../../utils/images/teams_final.png"
 import button_img6 from "../../utils/images/sponsors.png"
 
 import useWindowDimensions from '../../hooks/useWindowDimensions';
