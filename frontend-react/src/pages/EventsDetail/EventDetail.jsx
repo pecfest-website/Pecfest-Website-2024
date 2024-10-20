@@ -271,7 +271,8 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
                         )}
                       </>) : 
                       (<>
-                      <p className={styles.description} >{event.description}</p>
+                        <p className={styles.description} dangerouslySetInnerHTML={{ __html: event.description }}></p>
+                      {/* <p className={styles.description} >{event.description}</p> */}
                       </>)
                     }
                     {
