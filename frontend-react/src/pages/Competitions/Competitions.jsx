@@ -38,13 +38,13 @@ const Competitions = ({ isJamming, setIsJamming }) => {
   const [filters, setFilters] = useState(initialFilters);
   
   const queryParams = new URLSearchParams(location.search);
-  const defaultEvent = queryParams.get('default') || 'MEGASHOW'; 
+  const defaultEvent = queryParams.get('default') || 'CULTURAL'; 
   
   const [active, setIsActive] = useState(defaultEvent);
   
   const [events, setEvents] = useState({
-    MEGASHOW: [],
-    WORKSHOP: []
+    CULTURAL: [],
+    TECHNICAL: []
   });
   
   useEffect(() => {
@@ -62,7 +62,7 @@ const Competitions = ({ isJamming, setIsJamming }) => {
       "https://api.pecfest.org/event/list",
       {
         filters: {
-          eventType: "MEGASHOW",
+          eventType: "CULTURAL",
         },
       },
       {
@@ -72,12 +72,12 @@ const Competitions = ({ isJamming, setIsJamming }) => {
       }
     );
     if (res.data.statusCode === 200) {
-      data.MEGASHOW = res.data.data.events;
+      data.CULTURAL = res.data.data.events;
     }
     const res2 = await axios.post(
       "https://api.pecfest.org/event/list",
       {
-        filters: { eventType: "WORKSHOP" },
+        filters: { eventType: "TECHNICAL" },
       },
       {
         headers: {
@@ -86,7 +86,7 @@ const Competitions = ({ isJamming, setIsJamming }) => {
       }
     );
     if (res2.data.statusCode === 200) {
-      data.WORKSHOP = res2.data.data.events;
+      data.TECHNICAL = res2.data.data.events;
     }
     console.log(data);
     setEvents(data);
@@ -186,24 +186,24 @@ const Competitions = ({ isJamming, setIsJamming }) => {
               <div>
                 <div>
                   <NavLink
-                    className={`${styles["event-sub-heading"]} ${active !== "MEGASHOW" ? styles["isNotActive"] : ""
+                    className={`${styles["event-sub-heading"]} ${active !== "CULTURAL" ? styles["isNotActive"] : ""
                       }`}
                     to="#"
                     onClick={() => {
-                      setIsActive("MEGASHOW");
+                      setIsActive("CULTURAL");
                     }}
                   >
-                    MEGA SHOWS
+                    CULTURAL
                   </NavLink>
                   <NavLink
-                    className={`${styles["event-sub-heading"]} ${active !== "WORKSHOP" ? styles["isNotActive"] : ""
+                    className={`${styles["event-sub-heading"]} ${active !== "TECHNICAL" ? styles["isNotActive"] : ""
                       }`}
                     onClick={() => {
-                      setIsActive("WORKSHOP");
+                      setIsActive("TECHNICAL");
                     }}
                     to="#"
                   >
-                    WORKSHOPS
+                    TECHNICAL
                   </NavLink>
                 </div>
                 <div className={styles["event-content"]}>
