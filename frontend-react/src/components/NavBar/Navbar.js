@@ -27,7 +27,7 @@ const NavBar = () => {
           style={{ cursor: 'pointer' }} 
           src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" 
            />
-        <NavLink to="#schedule">Schedule</NavLink>
+        <NavLink to="/schedule">Schedule</NavLink>
         <NavLink to="/team">Team</NavLink>
         <NavLink to="/gallery">Gallery</NavLink>
         <NavLink to="#brochure">Brochure</NavLink>
