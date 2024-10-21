@@ -411,7 +411,7 @@ export const coreTeam ={
         "Committee": "Creative, Public Relations & Media, Publicity, and Website Management",
         Instagram:"https://www.instagram.com/lakshayybatra?igsh=MXNjaXBzMXFnOXJsNQ==",
         Linkedin:"NA",
-        "Photo": "/team/Lakshay Batra_Secretary for Public Relations & Media, Online Publicity & Website Management, Publicity (Offline & Branding), Creative (Designing and Decoration)_9041806513_1_11zon.webp",
+        "Photo": "/team/batra.jpg",
         "Email": "lakshaybatra.bt21ele@pec.edu.in",
         "Contact": "9041806513",
         "Type": "Secretary"
