@@ -1,5 +1,3 @@
-
-
 import Lightbox from 'yet-another-react-lightbox';
 import  'yet-another-react-lightbox/styles.css';
 import { RowsPhotoAlbum } from 'react-photo-album';

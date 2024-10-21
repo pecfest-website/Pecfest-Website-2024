@@ -49,7 +49,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
 
     const headers = {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
+      ...(token && { token: `Bearer ${token}` }),
     };
 
     try {
@@ -185,7 +185,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
         <NavBar />
       <>
     
-        <div>
+        <div style={{ marginTop: "30px" }}>
           <VideoBackground url={BACKGROUNDS.Gallery} />
           <div className={styles.events}>
             <div className={styles["shadow-region"]}>
@@ -271,7 +271,8 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
                         )}
                       </>) : 
                       (<>
-                      <p className={styles.description} >{event.description}</p>
+                        <p className={styles.description} dangerouslySetInnerHTML={{ __html: event.description }}></p>
+                      {/* <p className={styles.description} >{event.description}</p> */}
                       </>)
                     }
                     {
