@@ -1,6 +1,147 @@
 export const coreTeam ={
     "Head": [
       {
+        "Name": "Ayush Kansal",
+        "Committee": "Website Management",
+        Instagram:"https://www.instagram.com/ayush.03.16/",
+        Linkedin:"https://www.linkedin.com/in/ayush-kansal-a6b788279/",
+        "Photo": "/team/Ayush_Kansal.png",
+        "Email": "ayushkansal777@gmail.com",
+        "Contact": "9463741383",
+        "Type": "Head"
+      },
+     
+      {
+        "Name": "Prranav Babbar",
+        "Committee": "Website Management",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/PrranavBabbar_13_11zon.webp",
+        "Email": "prranavbabbar2317@gmail.com",
+        "Contact": "6284691173",
+        "Type": "Head"
+      },
+      {
+        "Name": "Namit Kulshrestha",
+        "Committee": "Marketing",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/namit.jpg",
+        "Email": "namitkulshrestha.bt21ece@pec.edu.in",
+        "Contact": "8950089578",
+        "Type": "Head"
+      },
+      {
+        "Name": "Arpit Singhal",
+        "Committee": "Marketing",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Arpit Singhal_Marketing Head_7404061338.webp",
+        "Email": "arpitsinghal.bt21ece@pec.edu.in",
+        "Contact": "7404061338",
+        "Type": "Head"
+      },
+      {
+        "Name": "Akshat Mittal",
+        "Committee": "Marketing",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/AkshatMittal.webp",
+        "Email": "akshatmittal.bt21civil@pec.edu.in",
+        "Contact": "9877760265",
+        "Type": "Head"
+      },
+      {
+        "Name": "Harmanpreet Singh",
+        "Committee": "Finance",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Harmanpreet Singh_Finance Head_7814069698.jpeg",
+        "Email": "harmanpreetsingh.bt21ece@pec.edu.in",
+        "Contact": "7814069698",
+        "Type": "Head"
+      },
+      {
+        "Name": "Keshav Singla",
+        "Committee": "Finance",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Keshav_Singla_Finance_Head_9888084015_2_11zon.webp",
+        "Email": "keshavsingla.bt21cse@pec.edu.in",
+        "Contact": "9888084015",
+        "Type": "Head"
+      },
+      {
+        "Name": "Sarthak Kalia",
+        "Committee": "Hospitality & Logistics",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/SarthakKalia_hospitalitylogisticshead_8427299866_14_11zon.webp",
+        "Email": "sarthakkalia.bt21ece@pec.edu.in",
+        "Contact": "8427299866",
+        "Type": "Head"
+      },
+      {
+        "Name": "Shailesh Swaroop",
+        "Committee": "Hospitality & Logistics",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Shailesh Swaroop _Hospitality and Logistics Head_8955941982_15_11zon.webp",
+        "Email": "shaileshswaroop.bt21meta@pec.edu.in",
+        "Contact": "8955941982",
+        "Type": "Head"
+      },
+      {
+        "Name": "Dipak Jana",
+        "Committee": "Creative",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Dipak Jana_Creative Head_9878934535.webp",
+        "Email": "dipakjana.bt21aero@pec.edu.in",
+        "Contact": "9878934535",
+        "Type": "Head"
+      },
+      {
+        "Name": "Aryaveer Singh",
+        "Committee": "Creative",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Aryaveer Singh_Creative Head_9622790365.webp",
+        "Email": "aryaveersingh.bt21cse@pec.edu.in",
+        "Contact": "9622790365",
+        "Type": "Head"
+      },
+      {
+        "Name": "Priyanshu",
+        "Committee": "Creative",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Priyanshu_creativehead_7814610757_12_11zon.webp",
+        "Email": "priyanshu.bt21ece@pec.edu.in",
+        "Contact": "7814610757",
+        "Type": "Head"
+      },
+      {
+        "Name": "Avi Garg",
+        "Committee": "Coverage",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Avi Garg_Coverage Head_8264572631.webp",
+        "Email": "avigarg.bt21ece@pec.edu.in",
+        "Contact": "8264572631",
+        "Type": "Head"
+      },
+      {
+        "Name": "Abhineet Mishra",
+        "Committee": "Coverage",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/AbhineetMishra.webp",
+        "Email": "abhineetmishra.bt21civil@pec.edu.in",
+        "Contact": "9431305942",
+        "Type": "Head"
+      },
+      {
         "Name": "Kopal Sharma",
         "Committee": "Mega Shows",
         Instagram:"NA",
@@ -20,58 +161,7 @@ export const coreTeam ={
         "Contact": "6239304320",
         "Type": "Head"
       },
-      {
-        "Name": "Arpit Singhal",
-        "Committee": "Marketing",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Arpit Singhal_Marketing Head_7404061338.webp",
-        "Email": "arpitsinghal.bt21ece@pec.edu.in",
-        "Contact": "7404061338",
-        "Type": "Head"
-      },
-  
-      {
-        "Name": "Namit Kulshrestha",
-        "Committee": "Marketing",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Namit Kulshrestha_Marketing Head_8950089578_9_11zon.webp",
-        "Email": "namitkulshrestha.bt21ece@pec.edu.in",
-        "Contact": "8950089578",
-        "Type": "Head"
-      },
-      {
-        "Name": "Akshat Mittal",
-        "Committee": "Marketing",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Akshat Mittal_Marketing Head_9877760265.webp",
-        "Email": "akshatmittal.bt21civil@pec.edu.in",
-        "Contact": "9877760265",
-        "Type": "Head"
-      },
-      {
-        "Name": "Ayush Kansal",
-        "Committee": "Websiite Management",
-        Instagram:"https://www.instagram.com/ayush.03.16/",
-        Linkedin:"https://www.linkedin.com/in/ayush-kansal-a6b788279/",
-        "Photo": "/team/Ayush_Kansal.png",
-        "Email": "ayushkansal777@gmail.com",
-        "Contact": "9463741383",
-        "Type": "Head"
-      },
-     
-      {
-        "Name": "Prranav Babbar",
-        "Committee": "Website Management",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/PrranavBabbar_13_11zon.webp",
-        "Email": "prranavbabbar2317@gmail.com",
-        "Contact": "6284691173",
-        "Type": "Head"
-      },
+
       {
         "Name": "Harshita Upadhyay",
         "Committee": "Alumni & Industrial Relations",
@@ -145,26 +235,7 @@ export const coreTeam ={
       },
      
      
-      {
-        "Name": "Lalit Kumar",
-        "Committee": "Event Coord (Technical)",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Lalit Kumar_Technical Head_9872437401_2_11zon.webp",
-        "Email": "lalitkumar.bt21mech@pec.edu.in",
-        "Contact": "9872437401",
-        "Type": "Head"
-      },
-      {
-        "Name": "Kriti Jain",
-        "Committee": "Event Coord (Technical)",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/kriti-jain-technical-event-coord-head-9646288900-66ec6f343b1c8.webp",
-        "Email": "kritijain.bt21civil@pec.edu.in",
-        "Contact": "9646288900",
-        "Type": "Head"
-      },
+
      
       
       
@@ -191,101 +262,6 @@ export const coreTeam ={
         "Contact": "6239487275",
         "Type": "Head"
       },
-     
-      {
-        "Name": "Dipak Jana",
-        "Committee": "Creative",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Dipak Jana_Creative Head_9878934535.webp",
-        "Email": "dipakjana.bt21aero@pec.edu.in",
-        "Contact": "9878934535",
-        "Type": "Head"
-      },
-      {
-        "Name": "Aryaveer Singh",
-        "Committee": "Creative",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Aryaveer Singh_Creative Head_9622790365.webp",
-        "Email": "aryaveersingh.bt21cse@pec.edu.in",
-        "Contact": "9622790365",
-        "Type": "Head"
-      },
-      {
-        "Name": "Priyanshu",
-        "Committee": "Creative",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Priyanshu_creativehead_7814610757_12_11zon.webp",
-        "Email": "priyanshu.bt21ece@pec.edu.in",
-        "Contact": "7814610757",
-        "Type": "Head"
-      },
-      {
-        "Name": "Avi Garg",
-        "Committee": "Coverage",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Avi Garg_Coverage Head_8264572631.webp",
-        "Email": "avigarg.bt21ece@pec.edu.in",
-        "Contact": "8264572631",
-        "Type": "Head"
-      },
-      {
-        "Name": "Abhineet Mishra",
-        "Committee": "Coverage",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/AbhineetMishra.webp",
-        "Email": "abhineetmishra.bt21civil@pec.edu.in",
-        "Contact": "9431305942",
-        "Type": "Head"
-      },
-     
-     
-      
-      {
-        "Name": "Harmanpreet Singh",
-        "Committee": "Finance",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Harmanpreet Singh_Finance Head_7814069698.jpeg",
-        "Email": "harmanpreetsingh.bt21ece@pec.edu.in",
-        "Contact": "7814069698",
-        "Type": "Head"
-      },
-      
-      {
-        "Name": "Keshav Singla",
-        "Committee": "Finance",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Keshav_Singla_Finance_Head_9888084015_2_11zon.webp",
-        "Email": "keshavsingla.bt21cse@pec.edu.in",
-        "Contact": "9888084015",
-        "Type": "Head"
-      },
-      {
-        "Name": "Chirag Gupta",
-        "Committee": "Publicity",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/chiraggupta.webp",
-        "Email": "guptachirag.bt21ece@pec.edu.in",
-        "Contact": "8427709189",
-        "Type": "Head"
-      },
-      {
-        "Name": "Ansar",
-        "Committee": "Publicity",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Ansar_Publicity Head_ 9041014448.webp",
-        "Email": "syedansarulhaque.bt21mech@pec.edu.in",
-        "Contact": "+919041014448",
-        "Type": "Head"
-      },
       {
         "Name": "Harshvardhan",
         "Committee": "Publicity",
@@ -297,6 +273,16 @@ export const coreTeam ={
         "Type": "Head"
       }, 
       {
+        "Name": "Chirag Gupta",
+        "Committee": "Publicity",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/chiraggupta.webp",
+        "Email": "guptachirag.bt21ece@pec.edu.in",
+        "Contact": "8427709189",
+        "Type": "Head"
+      },
+      {
         "Name": "Chirag",
         "Committee": "Publicity",
         Instagram:"NA",
@@ -304,6 +290,16 @@ export const coreTeam ={
         "Photo": "/team/ChiragGuptaPub.webp",
         "Email": "chiraggupta.bt21ece@pec.edu.in",
         "Contact": "9115680241",
+        "Type": "Head"
+      },
+      {
+        "Name": "Ansar",
+        "Committee": "Publicity",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Ansar_Publicity Head_ 9041014448.webp",
+        "Email": "syedansarulhaque.bt21mech@pec.edu.in",
+        "Contact": "+919041014448",
         "Type": "Head"
       },
       {
@@ -338,26 +334,6 @@ export const coreTeam ={
         "Type": "Head"
       },
       {
-        "Name": "Sarthak Kalia",
-        "Committee": "Hospitality & Logistics",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/SarthakKalia_hospitalitylogisticshead_8427299866_14_11zon.webp",
-        "Email": "sarthakkalia.bt21ece@pec.edu.in",
-        "Contact": "8427299866",
-        "Type": "Head"
-      },
-      {
-        "Name": "Shailesh Swaroop",
-        "Committee": "Hospitality & Logistics",
-        Instagram:"NA",
-        Linkedin:"NA",
-        "Photo": "/team/Shailesh Swaroop _Hospitality and Logistics Head_8955941982_15_11zon.webp",
-        "Email": "shaileshswaroop.bt21meta@pec.edu.in",
-        "Contact": "8955941982",
-        "Type": "Head"
-      },
-      {
         "Name": "Kuvam Singh",
         "Committee": "Security & Discipline",
         Instagram:"NA",
@@ -385,6 +361,26 @@ export const coreTeam ={
         "Photo": "/team/Anish_Partap_Discipline_Head_9872270445.webp",
         "Email": "anishpartapsingh.bt21prod@pec.edu.in",
         "Contact": "9872270445",
+        "Type": "Head"
+      },
+      {
+        "Name": "Lalit Kumar",
+        "Committee": "Event Coord (Technical)",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/Lalit Kumar_Technical Head_9872437401_2_11zon.webp",
+        "Email": "lalitkumar.bt21mech@pec.edu.in",
+        "Contact": "9872437401",
+        "Type": "Head"
+      },
+      {
+        "Name": "Kriti Jain",
+        "Committee": "Event Coord (Technical)",
+        Instagram:"NA",
+        Linkedin:"NA",
+        "Photo": "/team/kriti-jain-technical-event-coord-head-9646288900-66ec6f343b1c8.webp",
+        "Email": "kritijain.bt21civil@pec.edu.in",
+        "Contact": "9646288900",
         "Type": "Head"
       },
     ],
