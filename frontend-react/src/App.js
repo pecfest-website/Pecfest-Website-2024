@@ -51,7 +51,7 @@ function App() {
                     <Route path="/login" element={<Login isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/signup" element={<Signup isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events/register/:id" element={<EventRegistrationForm isJamming={isJamming} setIsJamming={setIsJamming} />} />
-                    
+                    <Route path="/competitions" element={<Competitions isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     
                 </Routes>
             </Router>
