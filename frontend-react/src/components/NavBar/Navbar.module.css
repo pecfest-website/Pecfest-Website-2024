@@ -37,6 +37,10 @@
   position: relative;
 }
 
+.nav .activeLink{
+  color:#fbff00
+}
+
 .nav a::after,button::after {
   content: '';
   position: absolute;
@@ -57,6 +61,7 @@
   transform: scaleX(1);
 }
 
+
 @media (max-width: 1240px) {
   .nav a,button {
     font-size: 16px;
@@ -75,7 +80,9 @@
     display: none;
   }
 }
-
+.activeLink{
+  color:#fbff00;
+}
 .links {
   display: flex;
   flex-direction: column;
@@ -88,44 +95,12 @@
   position: fixed;
   height: 100vh;
   top: 0;
-  padding: 60px 0 60px 0;
   right: -70vw;
-  width: 70vw;
+  padding: 60px 0 60px 0;
+  width: 0vw;
   border-bottom-left-radius: 50px;
   border-top-left-radius: 50px;
   font-size: x-large;
-  transition: right 0.3s ease-in;
-}
-
-.miniNav {
-  position: relative;
-  margin-bottom: 10px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  height: 60px;
-  transition: backdrop-filter 0.3s ease;
-  z-index: 1;
-  font-family: "Cyber Chunk Font", "Silkscreen", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  padding-right: 15px;
-}
-
-.img {
-  height: 60px;
-  width: 60px;
-  margin: 0 20px;
-}
-
-.hamburger {
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
 }
 
 .active {
@@ -148,10 +123,42 @@
   font-size: x-large;
   transition: right 0.5s ease-in;
 }
+.miniNav {
+  position: fixed;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  height: 75px;
+  transition: backdrop-filter 0.3s ease;
+  z-index: 1;
+  font-family: "Cyber Chunk Font", "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-right: 15px;
+}
 
 .mini {
-  width: 0;
+  height: 0px;
 }
+
+.img {
+  height: 60px;
+  width: 60px;
+  margin-top: 10px;
+}
+
+.hamburger {
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
 
 .hamburg {
   font-size: 40px;

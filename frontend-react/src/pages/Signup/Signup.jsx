@@ -99,135 +99,18 @@ export const Signup = ({ isJamming, setIsJamming }) => {
                 <VideoBackground url={BACKGROUNDS.Signup} />
                 <ToastContainer />
                 <Navbar />
-                {/* <div className="relative flex flex-col justify-center items-center h-full backdrop-blur-sm z-10 overflow-hidden">
-                    <div className="absolute top-[13vh] w-[70vw] md:w-[60%] lg:w-[60%] h-[63vh] bg-black/40 border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"></div>
-
-                    <div className="absolute top-[5vh] w-[70%] md:w-[60%] lg:w-[60%] h-[39px] bg-black/40 border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"></div>
-
-                    <div className="absolute top-[9.5vh] flex justify-center items-center h-[70%] w-[90%] md:w-[90%] lg:w-[90%] bg-black/40 border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
-
-                        <div className="relative z-20 w-[80%] flex flex-col items-center top-0">
-                            <div className="text-[#FBFF00] text-[36px] md:text-[42px] lg:text-[36px] font-normal leading-none shadow-sm translate-y-[-18px]">
-                                SIGNUP
-                            </div>
-                            <div className="w-full max-w-[400px] mt-3 translate-y-[-20px]">
-                                <input
-                                    type="text"
-                                    onChange={(e) => handleChange(e, 'name')}
-                                    value={input.name}
-                                    placeholder="Enter your name"
-                                    className="w-full h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-600"
-                                />
-                            </div>
-
-                            <div className="w-full max-w-[400px] mt-3 translate-y-[-20px]">
-                                <input
-                                    type="text"
-                                    onChange={(e) => handleChange(e, 'username')}
-                                    value={input.username}
-                                    placeholder="Enter your username"
-                                    className="w-full h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-600"
-                                />
-                            </div>
-                            <div className="w-full max-w-[400px] mt-3 translate-y-[-20px]">
-                                <input
-                                    type="email"
-                                    onChange={(e) => handleChange(e, 'email')}
-                                    value={input.email}
-                                    placeholder="Enter your email"
-                                    className="w-full h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-600"
-                                />
-                            </div>
-                            <div className="w-full max-w-[400px] mt-3 translate-y-[-20px]">
-                                <input
-                                    type="password"
-                                    onChange={(e) => handleChange(e, 'password')}
-                                    value={input.password}
-                                    placeholder="Enter your password"
-                                    className="w-full h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-600"
-                                />
-                            </div>
-                            <div className="w-full max-w-[400px] mt-3 translate-y-[-20px]">
-                                <input
-                                    type="text"
-                                    onChange={(e) => handleChange(e, 'college')}
-                                    value={input.college}
-                                    placeholder="Enter your college name"
-                                    className="w-full h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-600"
-                                />
-                            </div>
-                            <div className="w-full max-w-[400px] mt-3 translate-y-[-20px]">
-                                <input
-                                    type="text"
-                                    onChange={(e) => handleChange(e, 'sid')}
-                                    value={input.sid}
-                                    placeholder="Enter your student id"
-                                    className="w-full h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-600"
-                                />
-                            </div>
-                            <div className="w-full max-w-[400px] mt-3 translate-y-[-20px]">
-                                <input
-                                    type="number"
-                                    onChange={(e) => handleChange(e, 'contact')}
-                                    placeholder="Enter your contact number"
-                                    value={input.contact}
-                                    className="w-full h-[30px] p-4 text-black bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 placeholder-gray-600"
-                                />
-                            </div>
-
-                            <div className="mt-0 mb-0">
-                                <button
-                                    className="w-[200px] h-[40px] hover:scale-110 text-gray-600 bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                                    onClick={() => handleSubmit()}
-                                >
-                                    Signup
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="absolute z-10 top-[12.5vh] w-[70%] md:w-[60%] lg:w-[65%] h-[64%] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] bg-transparent"></div>
-                    <div className="absolute z-20 top-[20%] left-[11%] h-[60%] hidden xl:block">
-                        <div
-                            className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]"
-                            style={{ top: '20%', right: '35%', position: 'absolute' }}
-                        />
-                        <div
-                            className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]"
-                            style={{ top: '37.5%', right: '35%', position: 'absolute' }}
-                        />
-                        <div
-                            className="h-[35px] w-[35px] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]"
-                            style={{ top: '55%', right: '35%', position: 'absolute' }}
-                        />
-                    </div>
-                    <div className="absolute z-20 top-[20%] left-[15%] h-[60%] hidden xl:block">
-                        <div
-                            className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"
-                            style={{ top: '20%', right: '32%', position: 'absolute' }}
-                        />
-                        <div
-                            className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"
-                            style={{ top: '37.5%', right: '32%', position: 'absolute' }}
-                        />
-                        <div
-                            className="h-[35px] w-[35px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]"
-                            style={{ top: '55%', right: '32%', position: 'absolute' }}
-                        />
-                    </div>
-                    <div className="hidden xl:block absolute z-20 right-[6.5%] top-[35%] h-[140px] w-[140px] rounded-full border-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] "></div>
-                </div>
-            </div> */}
+                
             <div className="fixed w-full h-screen overflow-hidden">
             <div className="flex flex-col justify-center items-center backdrop-blur-sm">
                
                 <div className="absolute flex justify-center items-center z-10 h-[60vh] w-[85vw] backdrop-blur-sm bg-black/40 top-[15vh] border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
                 </div>
-                <div className=" backdrop-blur-sm bg-black/40 absolute z-10 top-[7vh] h-[8vh] w-[52vw] border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]  flex flex-col items-center justify-center">
+                <div className=" backdrop-blur-sm bg-black/40 absolute z-10 top-[7vh] h-[8vh]  w-[62vw] lg:w-[52vw] border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]  flex flex-col items-center justify-center">
                     <div className="text-[rgb(251,255,0)] text-justify text-[32px] md:text-[40px] lg:text-[52px] font-normal leading-none ">
                         <p style={{ fontFamily: 'Cyber Chunk Font' }}>SIGN UP</p>
                     </div>
                 </div>
-                <div className=" backdrop-blur-sm bg-black/30 absolute z-20 top-[20.5vh] h-[49vh] w-[52vw] border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] pt-5 flex flex-col items-center">
+                <div className=" backdrop-blur-sm bg-black/30 absolute z-20 top-[20.5vh] h-[49vh]  w-[62vw] lg:w-[52vw] border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] flex flex-col items-center">
                     <div className="hidden xl:block" style={{ width: '100%', height: '100%', position: 'absolute', zIndex: "40" }}>
                         <img style={{ width: 150, height: 30, left: 20, top: 10, position: 'absolute' }} src={circles} />
                     </div>
@@ -240,9 +123,9 @@ export const Signup = ({ isJamming, setIsJamming }) => {
                     <div className="hidden xl:block" style={{ width: '100%', height: '100%', position: 'absolute', zIndex: "40" }}>
                         <img style={{ width: 150, height: 60, right: -20, top: 10, position: 'absolute' }} src={star} />
                     </div>
-                    <div className="overflow-scroll z-50 w-[80%] flex flex-col items-center top-[3vh]">
+                    <div className="overflow-scroll z-50 w-[80%] flex flex-col items-center ">
                             
-                            <div className="w-full max-w-[400px] mt-[3vh] translate-y-[-20px]">
+                            <div className="w-full max-w-[400px] mt-[4vh] translate-y-[-20px]">
                                 <input
                                     type="text"
                                     onChange={(e) => handleChange(e, 'name')}
@@ -308,19 +191,21 @@ export const Signup = ({ isJamming, setIsJamming }) => {
                             </div>
 
                             <div className="mt-0 mb-0">
-                                <button
-                                    className="w-[200px] h-[38px] hover:scale-110 text-gray-600 bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                                    onClick={() => handleSubmit()}
-                                >
-                                    Signup
-                                </button>
+                                
+                                <div className="text-gray-200 px-[60px] tracking-wide text-lg">
+                                <p
+                                   className="cursor-pointer w-[18vw] h-[4vh] mb-2 text-center hover:scale-110 hover:bg-gray-600 hover:text-gray-400 text-gray-600 bg-gray-400 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent z-30 items-center transition-all duration-300 ease-in-out"
+                                   onClick={() => handleSubmit()}
+                                   
+                                >Signup</p>
+                            </div>
                             </div>
                         </div>
 
                 </div>
-                <div className="absolute z-10 top-[20vh] h-[50vh] w-[58vw] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-2">
+                <div className="absolute z-10 top-[20vh] h-[50vh] w-[70vw] lg:w-[58vw] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-2">
 
-                </div>
+                    </div>
                 <div className="absolute z-20 hidden xl:block">
                     <div className="h-[5vh] w-[5vh] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '32vh', right: '32vw', position: 'absolute' }} />
                     <div className="h-[5vh] w-[5vh] rounded-full border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)]" style={{ top: '43vh', right: '32vw', position: 'absolute' }} />

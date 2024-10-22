@@ -24,24 +24,76 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className={styles.nav}>
-        <NavLink to="/AboutUs">About</NavLink>
-        <NavLink to="/competitions">Competitions</NavLink>
-        <NavLink to="/developers">Developers</NavLink>
-        <NavLink to="/events">Events</NavLink>
-        <NavLink to="/sponsor">Sponsors</NavLink>
-        <img className={styles.logo}
-          onClick={handleLogoClick}
-          style={{ cursor: 'pointer' }} 
-          src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" 
-           />
-        <NavLink to="/schedule">Schedule</NavLink>
-        <NavLink to="/team">Team</NavLink>
-        <NavLink to="/gallery">Gallery</NavLink>
-        <button onClick={handleDownload}>Brochure</button>
-        <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/login">Login</NavLink>
-      </nav>
+     <nav className={styles.nav}>
+      <NavLink 
+        to="/AboutUs" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        About
+      </NavLink>
+      <NavLink 
+        to="/competitions" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Competitions
+      </NavLink>
+      <NavLink 
+        to="/developers" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Developers
+      </NavLink>
+      <NavLink 
+        to="/events" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Events
+      </NavLink>
+      <NavLink 
+        to="/sponsor" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Sponsors
+      </NavLink>
+      <img 
+        className={styles.logo}
+        onClick={handleLogoClick}
+        style={{ cursor: 'pointer' }} 
+        src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" 
+        alt="Logo" 
+      />
+      <NavLink 
+        to="/schedule" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Schedule
+      </NavLink>
+      <NavLink 
+        to="/team" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Team
+      </NavLink>
+      <NavLink 
+        to="/gallery" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Gallery
+      </NavLink>
+      <button onClick={handleDownload}>Brochure</button>
+      <NavLink 
+        to="/contact" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Contact
+      </NavLink>
+      <NavLink 
+        to="/login" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Login
+      </NavLink>
+    </nav>
 
       <nav className={`${isOpen ? styles.mini : styles.miniNav}`}>
         <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.img} onClick={handleLogoClick}
@@ -49,26 +101,26 @@ const NavBar = () => {
         {isOpen ? (
           <></>
         ) : (
-          <button onClick={toggleMenu} className={styles.hamburger}>
+          <p onClick={toggleMenu} className={styles.hamburger}>
             ☰
-          </button>
+          </p>
         )}
 
         <div className={`${isOpen ? styles.active : styles.links}`}>
-          <button onClick={toggleMenu} className={styles.hamburg}>
+          <p onClick={toggleMenu} className={styles.hamburg}>
             ×
-          </button>
-          <NavLink onClick={toggleMenu} to="/AboutUs">About</NavLink>
-          <NavLink onClick={toggleMenu} to="#about">Developers</NavLink>
-          <NavLink onClick={toggleMenu} to="#competitions">Competitions</NavLink>
-          <NavLink onClick={toggleMenu} to="/events">Events</NavLink>
-          <NavLink onClick={toggleMenu} to="/sponsor">Sponsors</NavLink>
-          <NavLink onClick={toggleMenu} to="#schedule">Schedule</NavLink>
-          <NavLink onClick={toggleMenu} to="/team">Team</NavLink>
-          <NavLink onClick={toggleMenu} to="/gallery">Gallery</NavLink>
+          </p>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/AboutUs">About</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/developers">Developers</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/competitions">Competitions</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/events">Events</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/sponsor">Sponsors</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/schedule">Schedule</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/team">Team</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/gallery">Gallery</NavLink>
           <NavLink onClick={handleDownload} to="">Brochure</NavLink>
-          <NavLink onClick={toggleMenu} to="/contact">Contact</NavLink>
-          <NavLink onClick={toggleMenu} to="/login">Login</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/contact">Contact</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/login">Login</NavLink>
         </div>
       </nav>
       <div className={styles.hgt}></div>
