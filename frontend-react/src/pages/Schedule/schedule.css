@@ -1,0 +1,293 @@
+.schedule-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100vh; /* Full viewport height */
+}
+
+.long-rectangle {
+    width: 80%;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.3); /* Darker background for inactive tabs */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 12px;
+    margin-bottom: 10px; /* Space between elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: calc(25% - 5px) calc(75% - 5px); /* Maintain grid structure */
+    gap: 10px; /* Adjust gap between columns */
+    width: 80%; /* Matches the width of the top rectangle */
+    margin-bottom: 20px;
+}
+
+.column-25 {
+    background: rgba(255, 255, 255, 0.3); /* Glass background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    height: 800px; /* Increased height */
+    border-radius: 12px;
+}
+
+.column-75 {
+    background: rgba(255, 255, 255, 0.3); /* Glass background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    height: 800px; /* Increased height */
+    border-radius: 12px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+/* Event Schedule Big Heading */
+.big-heading {
+    position: absolute;
+    bottom: 10%; /* Position it towards the bottom */
+    left: 5%; /* Align it to the left */
+    font-size: 6rem; /* Large font size */
+    font-weight: bold;
+    color: white;
+    z-index: 2; /* Ensure it’s on top of other elements */
+}
+
+/* Dates in the top-right corner */
+.dates-container {
+    position: absolute;
+    top: 10%; /* Position it towards the top */
+    right: 5%; /* Align it to the right */
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+    z-index: 2; /* Ensure it’s on top of other elements */
+}
+
+.tab-button {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid white; /* Added border */
+    padding: 25px 40px; /* Increase the padding to make the button bigger */
+    border-radius: 8px; /* Make the corners rounder */
+    cursor: pointer;
+    color: white;
+    margin: 0 10px; /* Adds gap between the buttons */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    font-size: 14px; /* Adjust the font size */
+    font-weight: normal; /* Set to normal for inactive tabs */
+    opacity: 0.7; /* Make inactive tabs a bit transparent */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: center;
+    min-width: 120px; /* Minimum width to prevent text wrapping */
+}
+
+.tab-button:hover {
+    opacity: 1; /* Fully visible on hover */
+}
+
+.tab-button.active {
+    background: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    border: 2px solid #ffd700; /* Active tab border color (golden) */
+    font-size: 20px; /* Bigger font size for active tabs */
+    opacity: 1; /* Full opacity for active tabs */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: center;
+    min-width: 150px; /* Ensure active tab is wider */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: calc(25% - 5px) calc(75% - 5px);
+    gap: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.column-25, .column-75 {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.tab-content {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    opacity: 1;
+}
+
+.glass-container {
+    background: rgba(185, 200, 255, 0.5); /* Light blue glass effect */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 8px;
+    padding: 10px 20px; /* Increase padding for better spacing */
+    margin: 10px 0; /* Space between rows */
+    text-align: center; /* Center the text */
+    color: white; /* Make all font white */
+    font-size: 23px; /* Font size adjustment */
+    font-weight: 100; /* Keep font bold */
+    letter-spacing: 2px; /* Adds more space between letters */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+}
+
+.column-25, .column-75 {
+    background: rgba(0, 0, 0, 0.5); /* Darker glass effect (closer to black) */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 12px;
+    padding: 20px;
+    color: white; /* Make all font white */
+}
+
+/* Tabs styling */
+.tab-button {
+    background: rgba(0, 0, 0, 0.3); /* Darker background for inactive tabs */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border: 2px solid white; /* Added border */
+    padding: 25px 30px; /* Increase the padding to make the button bigger */
+    border-radius: 8px; /* Make the corners rounder */
+    cursor: pointer;
+    color: white; /* Make the text white */
+    margin: 0 10px; /* Adds gap between the buttons */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    font-size: 14px; /* Adjust the font size */
+    font-weight: normal; /* Set to normal for inactive tabs */
+    opacity: 0.7; /* Make inactive tabs a bit transparent */
+}
+
+.tab-button:hover {
+    opacity: 1; /* Fully visible on hover */
+}
+
+.tab-button.active {
+    background: rgba(0, 0, 0, 0.5); /* Darker background for active tabs */
+    font-weight: bold;
+    border: 2px solid #ffd700; /* Active tab border color (golden) */
+    font-size: 30px; /* Bigger font size for active tabs */
+    opacity: 1; /* Full opacity for active tabs */
+    color: white; /* Make the text white */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: calc(25% - 5px) calc(75% - 5px);
+    gap: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+    color: white; /* Ensure all text within the grid is white */
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .long-rectangle {
+        height: auto;
+        padding: 10px;
+        width: 90%; /* Reduce width for smaller screens */
+    }
+
+    .tabs {
+        flex-wrap: wrap; /* Allow tabs to wrap for smaller screens */
+        justify-content: center; /* Center tabs on small screens */
+    }
+
+    .tab-button {
+        padding: 15px 25px; /* Adjust padding for smaller screens */
+        font-size: 16px; /* Increase readability */
+        min-width: 100px; /* Reduce minimum width for smaller screens */
+    }
+
+    .big-heading {
+        font-size: 3rem; /* Reduce heading size for smaller screens */
+    }
+
+    .dates-container {
+        top: 5%; /* Adjust positioning for smaller screens */
+        right: 5%;
+    }
+
+    .grid-container {
+        width: 90%; /* Full width on mobile */
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+    }
+
+    .column-25, .column-75 {
+        height: auto; /* Allow columns to adjust height based on content */
+        padding: 10px;
+    }
+
+    .glass-container {
+        font-size: 16px; /* Reduce font size for better readability */
+    }
+}
+
+/* Tabs Container */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+    width: 100%; /* Full width on larger screens */
+}
+
+.tab-button {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid white; /* Added border */
+    padding: 25px 40px; /* Padding for desktop */
+    border-radius: 8px; /* Make the corners rounder */
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    font-size: 14px; /* Adjust the font size */
+    font-weight: normal; /* Set to normal for inactive tabs */
+    opacity: 0.7; /* Make inactive tabs a bit transparent */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: center;
+    min-width: 120px; /* Minimum width to prevent text wrapping */
+    flex: 1; /* Stretch equally across the width */
+}
+
+.tab-button.active {
+    background: rgba(255, 255, 255, 0.5);
+    font-weight: 100;
+    letter-spacing: 2px;
+    border: 2px solid #ffd700; /* Active tab border color (golden) */
+    font-size: 25px; /* Bigger font size for active tabs */
+    opacity: 1; /* Full opacity for active tabs */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.tab-button:hover {
+    opacity: 1; /* Fully visible on hover */
+}
+
+/* Mobile view - Stack tabs vertically */
+/* Mobile view - Stack tabs vertically and make them 100% width */
+@media screen and (max-width: 768px) {
+    .tabs {
+        flex-direction: column; /* Stack tabs vertically */
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Ensure the container takes full width */
+    }
+
+    .tab-button {
+        width: 100%; /* Full width for mobile */
+        padding: 15px 20px; /* Adjust padding for mobile */
+        font-size: 16px; /* Slightly larger font size */
+        margin-bottom: 10px; /* Space between stacked buttons */
+        box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    }
+}
