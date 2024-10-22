@@ -59,12 +59,12 @@ export default function Sponsor({ isJamming, setIsJamming }) {
                         <div className="absolute flex justify-center items-center z-10 h-[60vh] w-[85vw] backdrop-blur-sm bg-black/40 top-[15vh] border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
                         </div>
                        
-                        <div className=" backdrop-blur-sm bg-black/40 absolute z-10 top-[7vh] h-[8vh] w-[52vw] border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]  flex flex-col items-center justify-center">
+                        <div className=" backdrop-blur-sm bg-black/40 absolute z-10 top-[7vh] h-[8vh]  w-[62vw] lg:w-[52vw] border-x-4 border-t-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)]  flex flex-col items-center justify-center">
                             <div className="text-[rgb(251,255,0)] text-justify text-[32px] md:text-[40px] lg:text-[52px] font-normal leading-none ">
                                 <p style={{ fontFamily: 'Cyber Chunk Font' }}>SPONSORS</p>
                             </div>
                         </div>
-                        <div className=" backdrop-blur-sm bg-black/30 absolute z-20 top-[20.5vh] h-[49vh] w-[52vw] border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] p-4 flex flex-col items-center">
+                        <div className=" backdrop-blur-sm bg-black/30 absolute z-20 top-[20.5vh] h-[49vh]  w-[62vw] lg:w-[52vw] border-x-4 border-yellow-200 shadow-[0_0_15px_rgba(255,255,0,0.7)] p-4 flex flex-col items-center">
                             <div className="hidden xl:block" style={{ width: '100%', height: '100%', position: 'absolute', zIndex: "40" }}>
                                 <img style={{ width: 150, height: 30, left: 20, top: 10, position: 'absolute' }} src={circles} />
                             </div>
@@ -90,7 +90,7 @@ export default function Sponsor({ isJamming, setIsJamming }) {
 
                         </div>
                 
-                        <div className="absolute z-10 top-[20vh] h-[50vh] w-[58vw] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-2">
+                        <div className="absolute z-10 top-[20vh] h-[50vh]  w-[70vw] lg:w-[58vw] border-4 border-pink-300 shadow-[0_0_20px_5px_rgba(300,105,180,0.7)] p-2">
 
                         </div>
                       
