@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./TransparentCard.module.css";
 import { useNavigate } from "react-router-dom";
-// import Image from "next/image";
 import { Chip } from "@mui/material";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
 
@@ -11,7 +10,7 @@ const TransparentCard = ({ event }) => {
         <div>
             <div
                 className={styles.eventCardContainer}
-                onClick={() => {navigate(`${event.id}`)}}
+                onClick={() => {navigate(`/events/${event.id}`)}}
             >
                 <div className={styles.eventCardGlossContainer}></div>
 
@@ -31,7 +30,6 @@ const TransparentCard = ({ event }) => {
                             {event.tags?.slice(0, 2).map((category, index) => (
                                 <Chip
                                     key={index}
-                                    
                                     label={category}
                                     color={"secondary"}
                                     icon={<LoyaltyIcon />}

@@ -23,8 +23,7 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
   const navigate = useNavigate();
   const params = useParams();
   let eventId= params.id;
-  console.log(params);
-  const [eventDetails, setEventDetails] = useState(null);
+  const [eventDetails, setEventDetails] = useState({});
   const [accommodation, setAccommodation] = useState(false);
   const [teamName, setTeamName] = useState("");
   const [teamSize, setTeamSize] = useState(1);
@@ -32,7 +31,7 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
   const [paymentId, setPaymentId] = useState("");
   const [billAddress, setBillAddress] = useState("");
   const [paymentProof, setPaymentProof] = useState(null);
-  console.log(eventDetails);
+
   let token = localStorage.getItem("token");
   if(!token){
     navigate("/login");
@@ -41,27 +40,18 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        console.log("Fetching event details...");
 
         // POST request with empty body
-        const response = await axios.post('https://api.pecfest.org/event/list', {});
+        const response = await axios.post('https://api.pecfest.org/event/detail', {"eventId": eventId});
         console.log("API response received:", response);
 
-        const events = response.data.data.events;
-        console.log("Events array:", events); // Log the events array to check the structure
-
-        // Convert eventId to a number (in case it's a string)
-        const numericEventId = Number(eventId);
-
-        // Check if the event ID exists in the response
-        const event = events.find(e => e.id === numericEventId);
+        const event = response.data.data;
         console.log("Event found:", event);
 
         if (event) {
           setEventDetails(event);
-          setAccommodation(event.provideAccommodation);  // Set initial accommodation state
           if (event.participationType === "TEAM") {
-            setTeamSize(event.minParticipants);  // Set minimum team size
+            setTeamSize(event.minParticipants);  
             setMembers(new Array(event.minParticipants-1).fill({ username: "" }));
           }
         } else {
@@ -113,28 +103,50 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
       paymentProof,
     });
 
+    const usernames = members.map(member => member.username);
+
     const response = await axios.post("https://api.pecfest.org/event/register",{
       eventId,  
       accomodation: accommodation==true?1:0,
       teamName,
       teamSize,
-      members,
+      members: usernames,
       paymentId,
       billAddress,
       paymentProof
-    },{
+  },{
       headers:{
         "Token":`Bearer ${token}`
       }
     })
-    console.log(response);
-    
-  };
+    const data = response?.data;
 
-  // Show loading or error state if the event details are not loaded
-  if (!eventDetails) {
-    return <div>Loading event details...</div>;
-  }
+    if (data?.statusCode === 200){
+      toast.success(data?.message ?? "Successfully registered");
+      navigate(-1);
+    }else if (data?.statusCode === 501){
+      toast.error(data?.message, {
+        position: "top-right", // You can change the position
+        autoClose: 5000, // Toast disappears after 5 seconds
+        hideProgressBar: false, // Show or hide the progress bar
+        closeOnClick: true, // Close the toast when clicked
+        pauseOnHover: true, // Pause toast dismissal when hovered
+        draggable: true, // Allow dragging the toast to dismiss it
+        progress: undefined, // Progress bar visibility
+      });
+      navigate('/login');
+    }else{
+      toast.error(data?.message, {
+        position: "top-right", // You can change the position
+        autoClose: 5000, // Toast disappears after 5 seconds
+        hideProgressBar: false, // Show or hide the progress bar
+        closeOnClick: true, // Close the toast when clicked
+        pauseOnHover: true, // Pause toast dismissal when hovered
+        draggable: true, // Allow dragging the toast to dismiss it
+        progress: undefined, // Progress bar visibility
+      });
+    }
+  };
 
   return (
     <>
@@ -147,20 +159,22 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
       {/* Form Container */}
       <div className={styles["form-container"]}>
         <div className={styles["shadow-region"]}>
-          <h2 className={styles["form-heading"]}>{eventDetails.name} Registration</h2>
+          <h2 className={styles["form-heading"]}>{eventDetails?.name} Registration</h2>
 
           <form onSubmit={handleFormSubmit} className={styles["form-content"]}>
-            <div className={styles["checkbox-container"]}>
-              <> 
+            {!!eventDetails.provideAccommodation && (
+              <div className={styles["checkbox-container"]}>
                 <input
                   type="checkbox"
                   checked={accommodation}
                   onChange={(e) => setAccommodation(e.target.checked)}
                   className="form-checkbox"
                 />
-                <label className={styles["checkbox-label"]}>Accommodation required?</label>
-              </>
-            </div>
+                <label className={styles["checkbox-label"]}>
+                  Accommodation required?
+                </label>
+              </div>
+            )}
 
             {/* If the event is a team event, render team-related fields */}
             {eventDetails.participationType === "TEAM" && (
