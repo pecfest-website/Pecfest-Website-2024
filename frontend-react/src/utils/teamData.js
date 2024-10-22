@@ -265,7 +265,7 @@ export const coreTeam ={
       {
         "Name": "Harshvardhan",
         "Committee": "Publicity",
-        Instagram:"NA",
+        Instagram:"https://www.instagram.com/harshvardhan_chawla/",
         Linkedin:"NA",
         "Photo": "/team/harshvardhan-publicity-head-9417787665-66ec6f218658b.webp",
         "Email": "harshvardhan.bt21mech@pec.edu.in",
