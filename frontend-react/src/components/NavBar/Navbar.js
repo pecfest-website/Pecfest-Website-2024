@@ -24,7 +24,7 @@ const NavBar = () => {
 
   return (
     <>
-     <nav className={styles.nav}>
+     <nav className={styles.nav1}>
       <NavLink 
         to="/AboutUs" 
         className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
@@ -80,7 +80,7 @@ const NavBar = () => {
       >
         Gallery
       </NavLink>
-      <button onClick={handleDownload}>Brochure</button>
+      <button className={styles.down} onClick={handleDownload}>Brochure</button>
       <NavLink 
         to="/contact" 
         className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}

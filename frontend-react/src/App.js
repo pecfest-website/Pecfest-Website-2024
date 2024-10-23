@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Gallery from './pages/Gallery/Gallery';
+import {Gallery} from './pages/Gallery/Gallery';
 import Homepage from './pages/HomePage/Homepage'
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
