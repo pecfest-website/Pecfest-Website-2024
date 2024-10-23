@@ -46,7 +46,7 @@ const Landing = () => {
   console.log(height, width)
   return (
     <>
-      {/* {height > width && <NavBar></NavBar>} */}
+      
       <div className={styles['video-background']}>
       {(homeload === false && vidIndex ===0) && <video
         style={{ display: (vidIndex === 1)? "none" : "block" }}
@@ -134,6 +134,7 @@ const Landing = () => {
       }
       {(vidIndex === 1 && height >= width) &&   
         <Container_mobile>
+          {height > width && <NavBar></NavBar>}
           <InnerContainer></InnerContainer>
           <InnerContainer2>
             <ButtonContainer>
@@ -208,8 +209,10 @@ const Container = styled.div`
 const Container_mobile = styled.div`
   display: flex;
   flex-direction: column;
-  height: ${props => props.height}px;
-  width: ${props => props.width}px;
+  /* height: ${props => props.height}px;
+  width: ${props => props.width}px; */
+  height: 100vh;
+  width: 100vw;
   animation: fade-in 10s forwards;
   transition: all 0.4s ease-in-out;
 `;
