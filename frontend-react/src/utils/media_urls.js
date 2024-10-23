@@ -1,10 +1,10 @@
 export const media =[
-  {
-    "id":1,
-    "type": "image",
-    "src": "/team/PrasukJain.jpg",
-    "thumb": "/team/PrasukJain.jpg"
-  },
+  // {
+  //   "id":1,
+  //   "type": "image",
+  //   "src": "/team/PrasukJain.jpg",
+  //   "thumb": "/team/PrasukJain.jpg"
+  // },
   {
     video: {
       source: [
@@ -33,10 +33,10 @@ export const media =[
     "type": "image",
     "src": "https://res.cloudinary.com/dfjuxpxff/image/upload/v1728749146/J7403353_paptlf.webp"
   },
-  {
-    "type": "image",
-    "src": "/team/Dipak Jana_Creative Head_9878934535.webp"
-  },
+  // {
+  //   "type": "image",
+  //   "src": "/team/Dipak Jana_Creative Head_9878934535.webp"
+  // },
   {
     "type": "image",
     "src": "https://res.cloudinary.com/dfjuxpxff/image/upload/v1728749146/PEN04132_nzxipg.webp"
