@@ -1,13 +1,13 @@
 import LightGallery from 'lightgallery/react';
 import styled from 'styled-components';
 // import styles
-// import 'lightgallery/css/lightgallery.css';
-// import 'lightgallery/css/lg-zoom.css';
-// import 'lightgallery/css/lg-thumbnail.css';
-// import 'lightgallery/css/lg-autoplay.css';
-// import 'lightgallery/css/lg-fullscreen.css';
-// import 'lightgallery/css/lg-share.css';
-// import 'lightgallery/css/lg-rotate.css';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import 'lightgallery/css/lg-autoplay.css';
+import 'lightgallery/css/lg-fullscreen.css';
+import 'lightgallery/css/lg-share.css';
+import 'lightgallery/css/lg-rotate.css';
 
 
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
