@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BACKGROUNDS } from "../../utils/backgrounds";
 import NavBar from "../../components/NavBar/Navbar";
 import styles from "./ProfilePage.module.css";
 import VideoBackground from "../../components/VideoBackground";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Blinker = () => {
   return <span className={styles.blinker}> |</span>;
@@ -11,74 +13,61 @@ const Blinker = () => {
 
 const ProfilePage = () => {
   const [tab, setTab] = useState("personalDetails");
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [userData, setUserData] = useState({});
   const [displayText, setDisplayText] = useState("");
   const [index, setIndex] = useState(0);
 
   const [invitationStatus, setInvitationStatus] = useState({});
   const [showTeamMembers, setShowTeamMembers] = useState({});
+  const token = localStorage.getItem("token");
 
-  const sampleResponse = {
-    user: {
-      userId: 1,
-      name: "John Doe",
-      email: "johndoe@example.com",
-      uuid: "123e4567-e89b-12d3-a456-426614174000",
-    },
-    invitedTeams: [
-      {
-        teamName: "Tech Wizards",
-        eventName: "Hackathon",
-        eventId: 101,
-      },
-    ],
-    acceptedAndParticipantEvents: [
-      {
-        eventName: "Coding Contest",
-        teamName: "Code Masters",
-        eventType: "TEAM",
-        teamSize: 4,
-        acceptedMembers: [
-          {
-            name: "Charlie Brown",
-            email: "charlie@example.com",
-            contact: "7654321098",
-          },
-          {
-            name: "Dave Wilson",
-            email: "dave@example.com",
-            contact: "6543210987",
-          },
-        ],
-        eventId: 102,
-      },
-      {
-        eventName: "Solo Singing Competition",
-        eventType: "SINGLE",
-        eventId: 103,
-      },
-    ],
-  };
+  const navigate = useNavigate();
+
+  const fetchDetails = async () => {
+    const res = await axios.post(
+      "https://api.pecfest.org/user/info",
+      {  },
+      { headers: { "Content-Type": "application/json",
+        "token": "Bearer "+ token
+      } }
+    )
+    const data = res.data;
+    if (data?.statusCode === 200){
+      const sampleResponse = data?.data;
+      const initialDropdownState = {};
+      sampleResponse.acceptedAndParticipantEvents.forEach((event) => {
+        if (event.eventType === "TEAM") {
+          initialDropdownState[event.eventId] = false;
+        }
+      });
+
+      const initialInvitationStatus = sampleResponse.invitedTeams.reduce((acc, team) => {
+        acc[team.teamName] = "pending";
+        return acc;
+      }, {});
+
+      setShowTeamMembers(initialDropdownState);
+      setUserData(sampleResponse);
+      setInvitationStatus(initialInvitationStatus);
+    }else{
+      toast.error(data?.message, {
+        position: "top-right", // You can change the position
+        autoClose: 5000, // Toast disappears after 5 seconds
+        hideProgressBar: false, // Show or hide the progress bar
+        closeOnClick: true, // Close the toast when clicked
+        pauseOnHover: true, // Pause toast dismissal when hovered
+        draggable: true, // Allow dragging the toast to dismiss it
+        progress: undefined, // Progress bar visibility
+      });
+    }
+  }
 
   useEffect(() => {
-    const initialDropdownState = {};
-    sampleResponse.acceptedAndParticipantEvents.forEach((event) => {
-      if (event.eventType === "TEAM") {
-        initialDropdownState[event.eventId] = false;
-      }
-    });
-
-    const initialInvitationStatus = sampleResponse.invitedTeams.reduce((acc, team) => {
-      acc[team.teamName] = "pending";
-      return acc;
-    }, {});
-
-    setShowTeamMembers(initialDropdownState);
-    setUserData(sampleResponse);
-    setInvitationStatus(initialInvitationStatus);
-    setLoading(false);
+    if (!token){
+      navigate("/login")
+    } else {
+      fetchDetails();
+    }
   }, []);
 
   const toggleTeamMembers = (eventId) => {
@@ -128,23 +117,15 @@ const ProfilePage = () => {
     }));
   };
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
   return (
     <div className={styles.profileBackground}>
       <VideoBackground url={BACKGROUNDS.Homepage} />
-      <div className={styles.navbarContainer}>
-        <NavBar />
-      </div>
+    <NavBar />
+      {/* <div className={styles.navbarContainer}>
+      </div> */}
 
       <div className={styles.mainContainer}>
-        <div className={styles.leftSide}>
+        {/* <div className={styles.leftSide}>
           <div className={styles.profilePicture}></div>
 
           <div className={styles.eventsContainer}>
@@ -159,7 +140,7 @@ const ProfilePage = () => {
               ))}
             </ul>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.rightSide}>
           <div className={styles.tabContainer}>
@@ -194,14 +175,20 @@ const ProfilePage = () => {
             {tab === "personalDetails" && (
               <div>
                 <p>
-                  <strong>Name:</strong> {sampleResponse.user.name}
+                  <strong>Name:</strong> {userData.user?.name}
                 </p>
                 <p>
-                  <strong>Email:</strong> {sampleResponse.user.email}
+                  <strong>Email:</strong> {userData.user?.email}
                 </p>
                 <p>
-                  <strong>User ID:</strong> {sampleResponse.user.userId}
+                  <strong>User ID:</strong> {userData.user?.userId}
                 </p>
+                <button onClick={() => {
+                  localStorage.removeItem("token");
+                  navigate("/");
+                }}>
+                  Logout
+                </button>
               </div>
             )}
 
@@ -216,7 +203,7 @@ const ProfilePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {sampleResponse.acceptedAndParticipantEvents.map((event, index) => (
+                    {userData.acceptedAndParticipantEvents?.map((event, index) => (
                       <tr key={index}>
                         <td>
                           <Link to={`/events/${event.eventId}`} className={styles.eventLink}>
@@ -257,7 +244,7 @@ const ProfilePage = () => {
 
             {tab === "invited" && (
               <div>
-                {sampleResponse.invitedTeams.map((team, index) => (
+                {userData.invitedTeams?.map((team, index) => (
                   <div key={index} className={styles.invitedItem}>
                     <div className={styles.eventDetails}>
                       <p>

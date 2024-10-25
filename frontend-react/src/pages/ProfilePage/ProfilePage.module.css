@@ -22,13 +22,14 @@
 
 /* Main Grid Container */
 .mainContainer {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-gap: 15px;
+  /* display: grid; */
+  /* grid-template-columns: 200px 1fr; */
+  /* grid-gap: 15px; */
   width: 90%;
+  /* height: 100vh; */
   margin-top: 60px;
   align-items: start;
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
   padding-bottom: 20px;
 }
 
@@ -96,6 +97,7 @@
   padding: 20px;
   border-radius: 10px;
   height: 100%;
+  width: 100%;
   margin-bottom: 20px;
 }
 

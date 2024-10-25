@@ -5,6 +5,7 @@ import brochure from "../../utils/brochure/brochure.pdf";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const token = localStorage.getItem("token");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -87,12 +88,18 @@ const NavBar = () => {
       >
         Contact
       </NavLink>
-      <NavLink 
+      {token ? <NavLink 
+        to="/profile" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Profile
+      </NavLink> :<NavLink 
         to="/login" 
         className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
       >
         Login
       </NavLink>
+      }
     </nav>
 
       <nav className={`${isOpen ? styles.mini : styles.miniNav}`}>
