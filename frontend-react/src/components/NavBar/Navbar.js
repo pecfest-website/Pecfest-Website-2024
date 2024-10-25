@@ -127,7 +127,9 @@ const NavBar = () => {
           <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/gallery">Gallery</NavLink>
           <NavLink onClick={handleDownload} to="">Brochure</NavLink>
           <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/contact">Contact</NavLink>
-          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/login">Login</NavLink>
+          {token ? 
+            <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/profile">Profile</NavLink>:
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/login">Login</NavLink>}
         </div>
       </nav>
       <div className={styles.hgt}></div>

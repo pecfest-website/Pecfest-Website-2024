@@ -32,6 +32,7 @@ const ProfilePage = () => {
       } }
     )
     const data = res.data;
+    console.log(data);
     if (data?.statusCode === 200){
       const sampleResponse = data?.data;
       const initialDropdownState = {};
@@ -49,6 +50,8 @@ const ProfilePage = () => {
       setShowTeamMembers(initialDropdownState);
       setUserData(sampleResponse);
       setInvitationStatus(initialInvitationStatus);
+    }else if (data?.statusCode === 501){
+      navigate("/login");
     }else{
       toast.error(data?.message, {
         position: "top-right", // You can change the position
@@ -125,23 +128,6 @@ const ProfilePage = () => {
       </div> */}
 
       <div className={styles.mainContainer}>
-        {/* <div className={styles.leftSide}>
-          <div className={styles.profilePicture}></div>
-
-          <div className={styles.eventsContainer}>
-            <h2>Upcoming Events</h2>
-            <ul className={styles.eventList}>
-              {sampleResponse.acceptedAndParticipantEvents.map((event, index) => (
-                <li key={index}>
-                  <Link to={`/events/${event.eventId}`} className={styles.eventLink}>
-                    {event.eventName}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div> */}
-
         <div className={styles.rightSide}>
           <div className={styles.tabContainer}>
             <button
@@ -183,7 +169,7 @@ const ProfilePage = () => {
                 <p>
                   <strong>User ID:</strong> {userData.user?.userId}
                 </p>
-                <button onClick={() => {
+                <button className={styles.rejectButton} onClick={() => {
                   localStorage.removeItem("token");
                   navigate("/");
                 }}>

@@ -108,6 +108,7 @@
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
 .tabContainer button {
@@ -287,5 +288,9 @@
   .registrationsTable th, .registrationsTable td {
     font-size: 12px;
     padding: 8px;
+  }
+
+  .tabContainer {
+    flex-direction: row;
   }
 }

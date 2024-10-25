@@ -98,11 +98,15 @@ export const AboutUs = ({ isJamming, setIsJamming }) => {
       <div className={styles.aboutBoxes}>
         {data.map((item, index) => (
           <div className={`${styles.aboutBox} glassmorphism`} key={index}>
-            <img
-              src={item.src} alt="Not available" />
-            <div className={styles.aboutNum}>{item.num}</div>
-            <div className={styles.aboutTitle}>
-              {item.title}
+            <div>
+              <img className={styles.img}
+                src={item.src} alt="Not available" />
+            </div>
+            <div className={styles.txt}>
+              <div className={styles.aboutNum}>{item.num}</div>
+              <div className={styles.aboutTitle}>
+                {item.title}
+              </div>
             </div>
           </div>
         ))}

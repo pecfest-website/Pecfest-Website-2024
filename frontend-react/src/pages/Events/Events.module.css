@@ -29,15 +29,16 @@
 .event-content {
     margin-top: 100px;
     overflow: scroll;
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 60px;
     gap: 80px;
+    background-color: black;
 }
 
 .glow-border-blue {
