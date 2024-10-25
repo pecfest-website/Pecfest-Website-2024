@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import VideoBackground from "../../components/VideoBackground";
@@ -42,6 +42,12 @@ export const Signup = ({ isJamming, setIsJamming }) => {
             [key]: val
         }));
     }
+
+    useEffect(()=>{
+        if (localStorage.getItem("token")){
+            navigate("/profile");
+        }
+    })
 
     const showToastAndWait = (message) => {
         return new Promise((resolve) => {
