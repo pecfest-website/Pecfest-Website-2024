@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Navbar.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import brochure from "../../utils/brochure/brochure.pdf";
-import bleepSound from './sound.wav'; // Add your sound file path
+import bleepSound from './sound.mp3'; // Add your sound file path
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false); // State to check if sound can be played
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const audioRef = useRef(null); // UseRef to prevent multiple audio instances
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  const navigate = useNavigate();
 
   const handleLogoClick = () => {
     navigate('/');
@@ -20,36 +21,37 @@ const NavBar = () => {
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = brochure;  // Replace with your PDF file URL
-    link.download = 'brochure.pdf';  // Set the downloaded file name
+    link.href = brochure;
+    link.download = 'brochure.pdf';
     link.click();
   };
 
   const playBleepSound = () => {
-    if (soundEnabled) {  // Only play sound if user has interacted with the page
-      const audio = new Audio(bleepSound);
-      audio.play().catch(error => {
-        console.log('Error playing sound:', error);
-      });
+    if (soundEnabled && audioRef.current) { // Play only if enabled and not already playing
+      if (audioRef.current.paused) {
+        audioRef.current.play().catch(error => {
+          console.error('Error playing sound:', error);
+        });
+      }
     }
   };
 
   useEffect(() => {
-    // Listen for the first user interaction on the page
+    // Initialize the audio element
+    audioRef.current = new Audio(bleepSound);
+
+    // Enable sound on first user interaction
     const enableSound = () => {
-      setSoundEnabled(true);  // Enable sound after user interaction
-      window.removeEventListener('click', enableSound);  // Remove listener after interaction
+      setSoundEnabled(true);
+      window.removeEventListener('click', enableSound); // Remove listener after first interaction
     };
 
-    // Add event listener for user interaction
     window.addEventListener('click', enableSound);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('click', enableSound);
     };
   }, []);
-
   return (
     <>
      <nav className={styles.nav1}>
