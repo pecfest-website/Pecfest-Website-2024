@@ -28,7 +28,7 @@ export const Login = ({ isJamming, setIsJamming }) => {
         if (localStorage.getItem("token")){
             navigate("/profile");
         }
-    })
+})
 
     const navigate = useNavigate();
 

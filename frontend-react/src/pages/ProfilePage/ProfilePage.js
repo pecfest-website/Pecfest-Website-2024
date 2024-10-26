@@ -19,19 +19,23 @@ const ProfilePage = () => {
 
   const [invitationStatus, setInvitationStatus] = useState({});
   const [showTeamMembers, setShowTeamMembers] = useState({});
-  const token = localStorage.getItem("token");
 
   const navigate = useNavigate();
 
   const fetchDetails = async () => {
-    const res = await axios.post(
-      "https://api.pecfest.org/user/info",
-      {  },
-      { headers: { "Content-Type": "application/json",
-        "token": "Bearer "+ token
-      } }
-    )
-    const data = res.data;
+    let data = null;
+    try {
+      const res = await axios.post(
+        "https://api.pecfest.org/user/info",
+        {  },
+        { headers: { "Content-Type": "application/json",
+          "token": "Bearer "+ localStorage.getItem("token")
+        } }
+      )
+      data = res.data;
+    } catch (error) {
+      toast.error("Some error occured")
+    }
     console.log(data);
     if (data?.statusCode === 200){
       const sampleResponse = data?.data;
@@ -51,6 +55,7 @@ const ProfilePage = () => {
       setUserData(sampleResponse);
       setInvitationStatus(initialInvitationStatus);
     }else if (data?.statusCode === 501){
+      localStorage.removeItem("token");
       navigate("/login");
     }else{
       toast.error(data?.message, {
@@ -66,11 +71,13 @@ const ProfilePage = () => {
   }
 
   useEffect(() => {
-    if (!token){
+    const t = localStorage.getItem("token");
+    console.log(t);
+    if (!t){
       navigate("/login")
     } else {
       fetchDetails();
-    }
+  }
   }, []);
 
   const toggleTeamMembers = (eventId) => {

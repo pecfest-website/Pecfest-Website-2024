@@ -28,9 +28,9 @@ const NavBar = () => {
   const playBleepSound = () => {
     if (soundEnabled) {  // Only play sound if user has interacted with the page
       const audio = new Audio(bleepSound);
-      audio.play().catch(error => {
-        console.log('Error playing sound:', error);
-      });
+      // audio.play().catch(error => {
+      //   console.log('Error playing sound:', error);
+      // });
     }
   };
 
