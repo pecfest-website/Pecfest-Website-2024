@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import brochure from "../../utils/brochure/brochure.pdf";
-import bleepSound from './sound.wav '; // Import the sound file
+import bleepSound from './sound.wav'; // Import the sound file
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
