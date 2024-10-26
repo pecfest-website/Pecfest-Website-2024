@@ -24,6 +24,12 @@ export const Login = ({ isJamming, setIsJamming }) => {
     const [username, setusername] = useState("");
     const [password, setPassword] = useState("");
 
+    useEffect(()=>{
+        if (localStorage.getItem("token")){
+            navigate("/profile");
+        }
+    })
+
     const navigate = useNavigate();
 
     const handleLogin = async () => {

@@ -2,16 +2,16 @@ import NavBar from "../../components/NavBar/Navbar";
 import VideoBackground from "../../components/VideoBackground";
 import { BACKGROUNDS } from "../../utils/backgrounds";
 import styles from "./about.module.css";
-import Events from "../../utils/images/Layer 4.png";
-import Prizes from "../../utils/images/Layer 5.png";
-import Participants from "../../utils/images/Layer 7.png";
-import Instagram from "../../utils/images/Layer 8.png";
-import Facebook from "../../utils/images/Layer 6.png";
-import Youtube from "../../utils/images/Layer 2.png";
-import Anchor from "../../utils/images/Layer 3.png";
+import Events from "../../utils/svgs/radio.svg";
+import Prizes from "../../utils/svgs/website.svg";
+import Instagram from "../../utils/svgs/insta.svg";
+import Facebook from "../../utils/svgs/facebook.svg";
+import Youtube from "../../utils/svgs/u tube.svg";
+import Anchor from "../../utils/svgs/head phone.svg";
 import circles from '../../utils/svgs/circles.svg';
 import plus from '../../utils/svgs/plus.svg';
 import star from '../../utils/svgs/star.svg';
+import game from '../../utils/svgs/vedio game.svg'
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
 const defaultOptions = {
@@ -25,13 +25,13 @@ const defaultOptions = {
 export const AboutUs = ({ isJamming, setIsJamming }) => {
 
   const data = [
-    { src: Events, num: "50k+", title: "Footfall" },
-    { src: Instagram, num: "52k+", title: "Instagram Impressions" },
+    { src: Events, num: "70k+", title: "Footfall" },
+    { src: Instagram, num: "1.7M+", title: "Instagram Impressions" },
     { src: Facebook, num: "43k+", title: "Facebook Followers" },
     { src: Youtube, num: "13k+", title: "Youtube Impressions" },
-    { src: Anchor, num: "1.8k+", title: "Youtube Subscribers" },
-    { src: Prizes, num: "6k+", title: "APP INSTALLS" },
-    { src: Participants, num: "8k+", title: "PARTICIPANTS" },
+    { src: Anchor, num: "230k+", title: "Reel Audience Reach" },
+    { src: Prizes, num: "21k+", title: "Website Impressions" },
+    { src: game, num: "8k+", title: "PARTICIPANTS" },
   ];
 
   return (
@@ -98,11 +98,15 @@ export const AboutUs = ({ isJamming, setIsJamming }) => {
       <div className={styles.aboutBoxes}>
         {data.map((item, index) => (
           <div className={`${styles.aboutBox} glassmorphism`} key={index}>
-            <img
-              src={item.src} alt="Not available" />
-            <div className={styles.aboutNum}>{item.num}</div>
-            <div className={styles.aboutTitle}>
-              {item.title}
+            <div>
+              <img className={styles.img}
+                src={item.src} alt="Not available" />
+            </div>
+            <div className={styles.txt}>
+              <div className={styles.aboutNum}>{item.num}</div>
+              <div className={styles.aboutTitle}>
+                {item.title}
+              </div>
             </div>
           </div>
         ))}

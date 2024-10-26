@@ -6,7 +6,6 @@ import bleepSound from './sound.wav'; // Import the sound file
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [bleep] = useState(new Audio(bleepSound)); // Create the Audio instance once
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -44,86 +43,76 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className={styles.nav}>
-        <NavLink 
-          to="/AboutUs" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          About
-        </NavLink>
-        <NavLink 
-          to="/competitions" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Competitions
-        </NavLink>
-        <NavLink 
-          to="/developers" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Developers
-        </NavLink>
-        <NavLink 
-          to="/events" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Events
-        </NavLink>
-        <NavLink 
-          to="/sponsor" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Sponsors
-        </NavLink>
-        <img 
-          className={styles.logo}
-          onClick={handleLogoClick}
-          style={{ cursor: 'pointer' }} 
-          src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" 
-          alt="Logo" 
-        />
-        <NavLink 
-          to="/schedule" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Schedule
-        </NavLink>
-        <NavLink 
-          to="/team" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Team
-        </NavLink>
-        <NavLink 
-          to="/gallery" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Gallery
-        </NavLink>
-        <button onClick={handleDownload}>Brochure</button>
-        <NavLink 
-          to="/contact" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Contact
-        </NavLink>
-        <NavLink 
-          to="/login" 
-          className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
-          onMouseEnter={playBleep} // Play sound on hover
-        >
-          Login
-        </NavLink>
-      </nav>
+     <nav className={styles.nav}>
+      <NavLink 
+        to="/AboutUs" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        About
+      </NavLink>
+      <NavLink 
+        to="/competitions" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Competitions
+      </NavLink>
+      <NavLink 
+        to="/developers" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Developers
+      </NavLink>
+      <NavLink 
+        to="/events" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Events
+      </NavLink>
+      <NavLink 
+        to="/sponsor" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Sponsors
+      </NavLink>
+      <img 
+        className={styles.logo}
+        onClick={handleLogoClick}
+        style={{ cursor: 'pointer' }} 
+        src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" 
+        alt="Logo" 
+      />
+      <NavLink 
+        to="/schedule" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Schedule
+      </NavLink>
+      <NavLink 
+        to="/team" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Team
+      </NavLink>
+      <NavLink 
+        to="/gallery" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Gallery
+      </NavLink>
+      <button onClick={handleDownload}>Brochure</button>
+      <NavLink 
+        to="/contact" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Contact
+      </NavLink>
+      <NavLink 
+        to="/login" 
+        className={({ isActive }) => isActive ? `${styles.activeLink}` : ''}
+      >
+        Login
+      </NavLink>
+    </nav>
 
       {/* Mobile Navigation */}
       <nav className={`${isOpen ? styles.mini : styles.miniNav}`}>
@@ -145,8 +134,8 @@ const NavBar = () => {
           <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/team" onMouseEnter={playBleep}>Team</NavLink>
           <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/gallery" onMouseEnter={playBleep}>Gallery</NavLink>
           <NavLink onClick={handleDownload} to="">Brochure</NavLink>
-          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/contact" onMouseEnter={playBleep}>Contact</NavLink>
-          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/login" onMouseEnter={playBleep}>Login</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/contact">Contact</NavLink>
+          <NavLink onClick={toggleMenu} className={({ isActive }) => isActive ? `${styles.activeLink}` : ''} to="/login">Login</NavLink>
         </div>
       </nav>
       <div className={styles.hgt}></div>

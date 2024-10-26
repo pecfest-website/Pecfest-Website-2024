@@ -7,6 +7,7 @@ import load from "../../utils/vid/load.mp4";
 
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext'
+import NavBar from '../../components/NavBar/Navbar';
 
 //replace with links in backgrounds.landing1 2
 // const videoIntro = "https://www.w3schools.com/tags/movie.mp4";
@@ -22,6 +23,7 @@ import button_img5 from "../../utils/images/teams_final.png"
 import button_img6 from "../../utils/images/sponsors.png"
 
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { LightboxPropsProvider } from "yet-another-react-lightbox";
 // ADD OR CHANGE LINKS SPONSOR AND SCHEDULE
 
 const Landing = () => {
@@ -44,6 +46,7 @@ const Landing = () => {
   console.log(height, width)
   return (
     <>
+      
       <div className={styles['video-background']}>
       {(homeload === false && vidIndex ===0) && <video
         style={{ display: (vidIndex === 1)? "none" : "block" }}
@@ -75,7 +78,7 @@ const Landing = () => {
         onClick={(e) => e.preventDefault()} // Prevent click actions
       ></div>
       {/* <NavBar />*/}
-      {vidIndex === 1 &&
+      {(vidIndex === 1 && height < width) &&   
         <Container>
           <InnerContainer></InnerContainer>
           <InnerContainer2>
@@ -129,6 +132,62 @@ const Landing = () => {
           </InnerContainer2>
         </Container>
       }
+      {(vidIndex === 1 && height >= width) &&   
+        <Container_mobile>
+          {height > width && <NavBar></NavBar>}
+          <InnerContainer></InnerContainer>
+          <InnerContainer2>
+            <ButtonContainer>
+              <ImageDiv>
+                <NavLink to="/AboutUs">
+                <ImgStyled src={button_img1}></ImgStyled>
+              </NavLink></ImageDiv>
+              
+            </ButtonContainer>
+            <ButtonContainer2>
+              <ImageOuterDiv>
+              <ImageDiv>
+                {height < width && <NavLink to="/Events">
+                <ImgStyled src={button_img2}></ImgStyled>
+              </NavLink>}
+                </ImageDiv>
+              </ImageOuterDiv>
+              <ImageOuterDiv>
+              <ImageDiv>
+                {height < width && <NavLink to="/contact">
+                <ImgStyled src={button_img3}></ImgStyled>
+              </NavLink>}
+                </ImageDiv>
+              </ImageOuterDiv>
+            </ButtonContainer2>
+            <ButtonContainer2>
+            <ImageOuterDiv>
+              <ImageDiv>
+              {height < width && <NavLink to="/gallery">
+                <ImgStyled src={button_img4}></ImgStyled>
+              </NavLink>}
+                </ImageDiv>
+              </ImageOuterDiv>
+              <ImageOuterDiv>
+              <ImageDiv>
+              {height < width && <NavLink to="/team">
+                <ImgStyled src={button_img5}></ImgStyled>
+              </NavLink>}
+                </ImageDiv>
+              </ImageOuterDiv>
+            </ButtonContainer2>
+            <ButtonContainer>
+              <ImageDiv>
+                  
+                  <NavLink to="/sponsor">
+                  <ImgStyled src={button_img6}></ImgStyled>
+                </NavLink></ImageDiv>
+            </ButtonContainer>
+
+          </InnerContainer2>
+        </Container_mobile>
+      }
+      
       
     </>
   );
@@ -139,6 +198,19 @@ const Landing = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  animation: fade-in 10s forwards;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+`;
+
+
+const Container_mobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* height: ${props => props.height}px;
+  width: ${props => props.width}px; */
   height: 100vh;
   width: 100vw;
   animation: fade-in 10s forwards;
@@ -161,7 +233,7 @@ const InnerContainer2 = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100%; 
   width: 100%;
   background-color:rgba(255,0,0,0);
 `;

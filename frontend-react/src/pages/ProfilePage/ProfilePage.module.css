@@ -1,0 +1,296 @@
+/* Profile Background */
+.profileBackground {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Cyber Chunk Font';
+}
+
+/* Navbar at the top */
+.navbarContainer {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  z-index: 10;
+  background-color: black;
+}
+
+/* Main Grid Container */
+.mainContainer {
+  /* display: grid; */
+  /* grid-template-columns: 200px 1fr; */
+  /* grid-gap: 15px; */
+  width: 90%;
+  /* height: 100vh; */
+  margin-top: 60px;
+  align-items: start;
+  height: calc(100vh - 60px);
+  padding-bottom: 20px;
+}
+
+/* Left Side: Profile Picture and Event Reminder */
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profilePicture {
+  width: 150px;
+  height: 150px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.eventsContainer {
+  width: 150px;
+  background-color: rgba(0, 0, 0, 0.68);
+  box-shadow: 0 0 15px 2px rgba(192, 35, 207, 0.75);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.eventsContainer h2 {
+  font-size: 1rem;
+  color: #fbff00;
+}
+
+.eventList {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.9rem;
+  font-family: "Silkscreen", sans-serif;
+  color: #fbff00;
+}
+
+.eventList li {
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
+}
+
+/* Glow effect for event links */
+.eventLink {
+  color: #fbff00;
+  text-decoration: none;
+  font-family: "Silkscreen", sans-serif;
+  text-shadow: 0 0 10px rgba(251, 255, 0, 0.75);
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.eventLink:hover {
+  color: rgb(84, 211, 253);
+  text-shadow: 0 0 20px rgba(84, 211, 253, 0.75), 0 0 30px rgba(84, 211, 253, 0.75);
+}
+
+/* Right Side: Main Content with Tabs */
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.68);
+  padding: 20px;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Tabs Styling */
+.tabContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.tabContainer button {
+  padding: 8px 16px;
+  color: #fbff00;
+  font-family: 'Cyber Chunk Font';
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0.1cm #fbff00;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabContainer button:hover {
+  color: rgb(84, 211, 253);
+  text-shadow: 0 0 10px rgba(84, 211, 253, 0.75);
+}
+
+.active {
+  color: rgb(192, 35, 207);
+  text-shadow: 0 0 10px rgba(192, 35, 207, 0.75);
+}
+
+/* Details Panel Styling */
+.detailsPanel {
+  width: 100%;
+  padding: 15px;
+  color: #fbff00;
+  font-family: "Silkscreen", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-top: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Table Wrapper */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Registrations Table Styling */
+.registrationsTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+.registrationsTable th, .registrationsTable td {
+  border: 1px solid #fbff00;
+  padding: 10px;
+  color: #fbff00;
+  font-family: 'Silkscreen', sans-serif;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.registrationsTable th {
+  background-color: rgba(192, 35, 207, 0.75);
+}
+
+.registrationsTable td {
+  vertical-align: top;
+}
+
+/* Team Details Container */
+.teamDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Show Team Button */
+.showTeamButton {
+  background-color: #fbff00;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+  align-self: flex-start;
+}
+
+/* Team List */
+.teamList {
+  list-style-type: none;
+  padding-left: 0;
+  color: #fbff00;
+  margin-top: 10px;
+}
+
+.teamList li {
+  margin-bottom: 5px;
+}
+
+/* Invited Item Styling */
+.invitedItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Event Details */
+.eventDetails {
+  color: #fbff00;
+  font-family: "Silkscreen", sans-serif;
+  flex-grow: 1;
+}
+
+/* Status Text */
+.status {
+  color: #fbff00;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Button Container */
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Accept/Reject Button Styling */
+.acceptButton, .rejectButton {
+  padding: 8px 16px;
+  font-family: 'Cyber Chunk Font';
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.acceptButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.acceptButton:hover {
+  background-color: #218838;
+}
+
+.rejectButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.rejectButton:hover {
+  background-color: #c82333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .mainContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .leftSide,
+  .rightSide {
+    width: 100%;
+  }
+
+  .registrationsTable th, .registrationsTable td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .tabContainer {
+    flex-direction: row;
+  }
+}

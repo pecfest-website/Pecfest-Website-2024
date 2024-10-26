@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Gallery from './pages/Gallery/Gallery';
+import {Gallery} from './pages/Gallery/Gallery';
 import Homepage from './pages/HomePage/Homepage'
 import Events from './pages/Events/Events';
 import { AboutUs } from './pages/Aboutus/AboutUs';
@@ -19,6 +19,7 @@ import Landing from './pages/Landing/Landing';
 import { useGlobalContext } from './Context/globalContext';
 
 import Schedule from './pages/Schedule/Schedule';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 const music = new Audio(
     "https://firebasestorage.googleapis.com/v0/b/react-trial-cef8c.appspot.com/o/Heuse%20%26%20Zeus%20x%20Crona%20-%20Pill%20(feat.%20Emma%20Sameth)%20%5BNCS%20Release%5D.mp3?alt=media&token=6385b144-d0e9-4438-bf47-456c671265a0"
@@ -62,8 +63,7 @@ function App() {
                     <Route path="/competitions" element={<Competitions isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/contact" element={<Contact/>} />
                     <Route path="/schedule" element={<Schedule isJamming={isJamming} setIsJamming={setIsJamming} />} />
-                    
-                    
+                    <Route path="/profile" element={<ProfilePage />} />
                 </Routes>
             </Router>
             

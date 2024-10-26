@@ -1,4 +1,4 @@
-.nav {
+.nav1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -27,7 +27,7 @@
   scale: 2;
 }
 
-.nav a,button {
+.nav1 a,.down {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
   padding: 15px 0;
@@ -37,11 +37,11 @@
   position: relative;
 }
 
-.nav .activeLink{
+.nav1 .activeLink{
   color:#fbff00
 }
 
-.nav a::after,button::after {
+.nav1 a::after,.down::after {
   content: '';
   position: absolute;
   left: 0;
@@ -53,17 +53,17 @@
   transition: transform 0.3s ease;
 }
 
-.nav a:hover,button:hover {
+.nav1 a:hover,.down:hover {
   color: #fbff00;
 }
 
-.nav a:hover::after,button:hover::after {
+.nav1 a:hover::after,.down:hover::after {
   transform: scaleX(1);
 }
 
 
 @media (max-width: 1240px) {
-  .nav a,button {
+  .nav1 a,.down {
     font-size: 16px;
   }
 
@@ -74,7 +74,7 @@
 }
 
 @media (max-width: 950px) {
-  .nav {
+  .nav1 {
     /* display: none; */
     position: absolute;
     display: none;
@@ -169,11 +169,11 @@
   top: 10px;
 }
 
-.active a:hover,button:hover {
+.active a:hover,.down:hover {
   color: #fbff00;
 }
 
-.active a:hover::after,button:hover::after {
+.active a:hover::after,.down:hover::after {
   transform: scaleX(1);
 }
 
