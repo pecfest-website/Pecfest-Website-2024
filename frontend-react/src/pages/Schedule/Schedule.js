@@ -221,6 +221,7 @@ function Schedule({ setIsJamming, isJamming }) {
               ref={videoRef} // Attach reference to the video element
               autoPlay
               muted
+              playsInline
               style={styles.loaderVideo}
             >
               <source src={loaderVideo} type="video/mp4" />
