@@ -1,5 +1,5 @@
 .events {
-    position: relative;
+    position: fixed;
     width: 100%;
     height: calc(100vh - 70px);
     overflow: hidden;
@@ -25,20 +25,21 @@
     font-family: 'Cyber Chunk Font';
     margin: 5px;
 }
-
-.event-content {
-    margin-top: 100px;
+.event-con{
+    width: 99vw;
+    height: 60vh;
     overflow: scroll;
+    margin-top: 60px;
+    padding: 10px;
+}
+.event-content {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 60px;
     gap: 80px;
-    background-color: black;
+    
 }
 
 .glow-border-blue {

@@ -61,7 +61,7 @@ function App() {
                     <Route path="/signup" element={<Signup isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events/register/:id" element={<EventRegistrationForm isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/competitions" element={<Competitions isJamming={isJamming} setIsJamming={setIsJamming} />} />
-                    <Route path="/contact" element={<Contact/>} />
+                    <Route path="/contact" element={<Contact isJamming={isJamming} setIsJamming={setIsJamming}/>} />
                     <Route path="/schedule" element={<Schedule isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/profile" element={<ProfilePage />} />
                 </Routes>

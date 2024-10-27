@@ -6,11 +6,9 @@ import SponsorCard from "../../components/sponsorCard/SponsorCard";
 import circles from '../../utils/svgs/circles.svg';
 import plus from '../../utils/svgs/plus.svg';
 import star from '../../utils/svgs/star.svg';
-
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
-import zIndex from "@mui/material/styles/zIndex";
-import Console from "../../components/Console/Console";
+
 const defaultOptions = {
     loop: true,
     autoplay: true,

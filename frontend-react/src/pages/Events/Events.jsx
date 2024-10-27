@@ -164,13 +164,16 @@ const Events = ({ isJamming, setIsJamming }) => {
               </NavLink>
             </div>
             
-            <div className={styles["event-content"]}>
+            <div className={styles["event-con"]}>
+              <div className={styles["event-content"]}>
+
               {events[`${active}`].map(
                 (event) =>
                   event.eventType === active && (
                     <TransparentCard event={event} />
                   )
               )}
+              </div>
             </div>
           </div>
         </div>
