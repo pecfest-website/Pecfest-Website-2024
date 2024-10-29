@@ -115,13 +115,13 @@ export const developers = {
             "Committee": "Creative",
             Instagram:"NA",
             Linkedin:"NA",
-            "Photo": "/team/aryaman.jpg",
+            "Photo": "/team/aryaman.png",
             "Email": "aryamanvij16@gmail.com",
             "Contact": "8384848727",
             "Type": "Head"
           },
         {
-            "Name": "Aryaman Vij",
+            "Name": "Akash",
             "Committee": "Creative",
             Instagram:"NA",
             Linkedin:"NA",
