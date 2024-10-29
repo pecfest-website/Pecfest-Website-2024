@@ -50,8 +50,16 @@ export default function Sponsor({ isJamming, setIsJamming }) {
             <div>
                 <NavBar />
                 <VideoBackground url={BACKGROUNDS.Sponsors} />
+                    {Array.isArray(data?.sponsers) && data.sponsers.length > 0 ? (
+                                        data.sponsers.map((category, index) => (
+                                            <SponsorCard key={index} category={category} />
+                                        ))
+                                    ) : (
+                                        <p className="text-[rgb(251,255,0)]" >No sponsors available.</p>
+                                        
+                                    )}
               
-                <div className="fixed w-full h-screen overflow-hidden">
+                {/* <div className="fixed w-full h-screen overflow-hidden">
                     <div className="flex flex-col justify-center items-center backdrop-blur-sm">
                        
                         <div className="absolute flex justify-center items-center z-10 h-[60vh] w-[85vw] backdrop-blur-sm bg-black/40 top-[15vh] border-4 border-sky-200 shadow-[0_0_20px_5px_rgba(135,206,235,0.7)] p-4 rounded-[50px]">
@@ -76,14 +84,7 @@ export default function Sponsor({ isJamming, setIsJamming }) {
                                 <img style={{ width: 150, height: 60, right: -20, top: 10, position: 'absolute' }} src={star} />
                             </div>
                             <div className="overflow-auto w-full mt-[-2vh] flex flex-col items-center relative h-[25000vh] top-[0vh] z-50">
-                                {Array.isArray(data?.sponsers) && data.sponsers.length > 0 ? (
-                                    data.sponsers.map((category, index) => (
-                                        <SponsorCard key={index} category={category} />
-                                    ))
-                                ) : (
-                                    <p className="text-[rgb(251,255,0)]" >No sponsors available.</p>
-                                    
-                                )}
+                                
                             </div>
 
                         </div>
@@ -110,7 +111,7 @@ export default function Sponsor({ isJamming, setIsJamming }) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div

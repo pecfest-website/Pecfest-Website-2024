@@ -1,18 +1,50 @@
 .card{
     /* background-color: rgba(255, 255, 255, 0.2); */
     margin: 10px;
+    height: 80%;
+    margin-top: 29px;
 }
 .image-preview{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+    height: 10rem;
+    gap: 10px;
+    object-fit: contain;
 }
 .category-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+}
+
+.image-preview-container {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.name {
+    font-size: 20px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Labrada';
+    font-weight: 500;
+    word-wrap: break-word;
+    font-family:'Cyber Chunk Font';
+    position: sticky;
+}
+
+.title {
+    font-size: 15px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Labrada';
+    font-weight: 500;
+    word-wrap: break-word;
+    font-family:'Cyber Chunk Font';
+    position: sticky;
 }
 
 .category {

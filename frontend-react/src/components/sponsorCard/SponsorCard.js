@@ -18,12 +18,16 @@ export default function SponsorCard({ category }) {
                                 alt={`Sponsor for ${category.name}`}
                                 style={{
                                     objectFit: "contain",
-                                    margin: '5px',
-                                    height: "250px"
+                                    // margin: '5px',
+                                    height: "80%",
+                                    background: "rgba(255,255,255,0.4)",
+                                    borderRadius: "10px"
                                 }}
                                 height={200}
                                 width={200}
                             />
+                           <p className='name'>{sponsor.name}</p>
+                           <p className='title'>{sponsor.title ?? category.name}</p> 
                         </div>
                     ))
                 ) : (
