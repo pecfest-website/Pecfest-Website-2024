@@ -188,7 +188,7 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
                     className={styles["input-field"]}
                     required
                   />
-                </div>
+                </div> 
 
                 <div>
                   <label>Team Size</label>

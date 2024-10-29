@@ -72,12 +72,62 @@ export const developers = {
     UI: [
         {
             "Name": "Priyanshu",
-            "Committee": "Creative",
+            "Committee": "Creative Head",
             Instagram:"NA",
             Linkedin:"NA",
             "Photo": "/team/Priyanshu_creativehead_7814610757_12_11zon.webp",
             "Email": "priyanshu.bt21ece@pec.edu.in",
             "Contact": "7814610757",
+            "Type": "Head"
+          },
+        {
+            "Name": "Sristi",
+            "Committee": "Creative",
+            Instagram:"NA",
+            Linkedin:"NA",
+            "Photo": "/team/sristi.jpg",
+            "Email": "sristi.bt22ece@pec.edu.in",
+            "Contact": "7088425716",
+            "Type": "Head"
+          },
+          {
+              "Name": "Vikas Attri",
+              "Committee": "Creative",
+              Instagram:"NA",
+              Linkedin:"NA",
+              "Photo": "/team/vikas.jpg",
+              "Email": "vikasattri8285@gmail.com",
+              "Contact": "8383075442",
+              "Type": "Head"
+            },
+        {
+            "Name": "Daksh Bilkha",
+            "Committee": "Creative",
+            Instagram:"NA",
+            Linkedin:"NA",
+            "Photo": "/team/daksh.jpg",
+            "Email": "bilkhadaksh@gmail.com",
+            "Contact": "9636566881",
+            "Type": "Head"
+          },
+        {
+            "Name": "Aryaman Vij",
+            "Committee": "Creative",
+            Instagram:"NA",
+            Linkedin:"NA",
+            "Photo": "/team/aryaman.jpg",
+            "Email": "aryamanvij16@gmail.com",
+            "Contact": "8384848727",
+            "Type": "Head"
+          },
+        {
+            "Name": "Aryaman Vij",
+            "Committee": "Creative",
+            Instagram:"NA",
+            Linkedin:"NA",
+            "Photo": "/team/akash.jpg",
+            "Email": "akashanand032002@gmail.com",
+            "Contact": "8800049371",
             "Type": "Head"
           },
     ]
