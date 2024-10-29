@@ -24,7 +24,7 @@ export default function SponsorCard({ category }) {
                                     borderRadius: "10px"
                                 }}
                                 height={200}
-                                width={200}
+                            width={200}
                             />
                            <p className='name'>{sponsor.name}</p>
                            <p className='title'>{sponsor.title ?? category.name}</p> 

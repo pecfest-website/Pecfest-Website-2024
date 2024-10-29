@@ -84,7 +84,7 @@
   
   .form-content {
     margin-top: 20px;
-    font-family: "Silkscreen", sans-serif;
+    /* font-family: "Silkscreen", sans-serif; */
     color: #fbff00;
     text-align: center;
     display: flex;
