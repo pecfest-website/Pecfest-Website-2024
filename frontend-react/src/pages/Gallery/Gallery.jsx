@@ -21,7 +21,7 @@ import lgVideo from "lightgallery/plugins/video";
 
 
 import { media } from '../../utils/media_urls';
-import React, { useState, useRef, useCallback} from 'react';
+import React, { useState, useRef, useCallback, useEffect} from 'react';
 import VideoBackground from '../../components/VideoBackground';
 import {BACKGROUNDS} from '../../utils/backgrounds'; 
 import NavBar from '../../components/NavBar/Navbar';
@@ -29,6 +29,60 @@ import NavBar from '../../components/NavBar/Navbar';
 
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
+
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+
+const firebaseConfig = {
+	apiKey: process.env.REACT_APP_API_KEY,
+	authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+	projectId: process.env.REACT_APP_PROJECT_ID,
+	storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+	appId: process.env.REACT_APP_APP_ID,
+	// measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+};
+
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+const getMedia = () => {
+  console.log(process.env.REACT_APP_STORAGE_BUCKET)
+  initializeApp(firebaseConfig);
+  // Reference to the storage folder
+  const storage = getStorage();
+  const storageRef = ref(storage, 'pecfest');
+  // const childRef = storageRef.child('pecfest/');
+
+  // List files in the folder
+  listAll(storageRef)
+    .then((res) => {
+      const urls = [];
+
+      res.items.forEach((itemRef) => {
+        getDownloadURL(itemRef)
+          .then((url) => {
+            urls.push(url);
+          })
+          .catch((error) => {
+            console.error('Error getting download URL:', error);
+          });
+      });
+
+      // Once all URLs are fetched, you can use the 'urls' 
+      shuffleArray(urls);
+      console.log(urls);
+    })
+    .catch((error) => {
+      console.error('Error listing files:', error);
+    });
+}
+
+
+
 const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -120,6 +174,11 @@ export function Gallery({isJamming,setIsJamming}) {
           lightGallery.current = detail.instance;
         }
     }, []);
+
+    useEffect(() => {
+    
+      getMedia()
+    }, []);
     return (
         
         <StyledDiv className="App">
@@ -157,7 +216,7 @@ export function Gallery({isJamming,setIsJamming}) {
            
             <div
             style={{
-              position: "absolute",
+              position: "absolute !important",
               zIndex: 1,
               left: 0,
               bottom: 0,
