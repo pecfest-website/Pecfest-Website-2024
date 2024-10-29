@@ -9,6 +9,8 @@ export const GlobalProvider = ({children}) =>{
         setHomeLoad(true);
         
     };
+
+    
     
     return(
         <GlobalContext.Provider value = {{

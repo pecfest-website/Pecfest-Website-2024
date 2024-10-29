@@ -43,46 +43,6 @@ const firebaseConfig = {
 	// measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-const shuffleArray = (array) => {
-  for (let i = array.length - 1; i >= 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-const getMedia = () => {
-  console.log(process.env.REACT_APP_STORAGE_BUCKET)
-  initializeApp(firebaseConfig);
-  // Reference to the storage folder
-  const storage = getStorage();
-  const storageRef = ref(storage, 'pecfest');
-  // const childRef = storageRef.child('pecfest/');
-
-  // List files in the folder
-  listAll(storageRef)
-    .then((res) => {
-      const urls = [];
-
-      res.items.forEach((itemRef) => {
-        getDownloadURL(itemRef)
-          .then((url) => {
-            urls.push(url);
-          })
-          .catch((error) => {
-            console.error('Error getting download URL:', error);
-          });
-      });
-
-      // Once all URLs are fetched, you can use the 'urls' 
-      shuffleArray(urls);
-      console.log(urls);
-    })
-    .catch((error) => {
-      console.error('Error listing files:', error);
-    });
-}
-
-
-
 const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -165,9 +125,70 @@ export function Gallery({isJamming,setIsJamming}) {
                 </div>`,
         },
       ]);
+    const [urls, setUrls] = useState([])
+    const [media_urls, setMediaUrls] = useState(media)
+
+    const shuffleArray = (array) => {
+      for (let i = array.length - 1; i >= 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
+      setUrls(array);
+    }
+    const getMedia = () => {
+        console.log(process.env.REACT_APP_STORAGE_BUCKET)
+        initializeApp(firebaseConfig);
+        // Reference to the storage folder
+        const storage = getStorage();
+        const storageRef = ref(storage, 'pecfest');
+        // const childRef = storageRef.child('pecfest/');
+      
+        // List files in the folder
+        listAll(storageRef)
+          .then((res) => {
+            const urls1 = [];
+      
+            res.items.forEach((itemRef) => {
+              getDownloadURL(itemRef)
+                .then((url) => {
+                  if(url.toLowerCase().includes(".mp4")){
+                    urls1.push({
+                      video: {
+                        source: [
+                          {
+                            src: url,
+                            type: 'video/mp4',
+                          },
+                        ],
+                        attributes: { preload: false, controls: true },
+                      },
+                    });
+                  }
+                  else{
+                    urls1.push({
+                      "type": "image",
+                      "src": url
+                    });
+                  }
+                  
+                })
+                .catch((error) => {
+                  console.error('Error getting download URL:', error);
+                });
+            });
+            console.log(urls1);
+            setUrls(urls1);
+            // shuffleArray(urls1);
+            // Once all URLs are fetched, you can use the 'urls' 
+          })
+          .catch((error) => {
+            console.error('Error listing files:', error);
+          });
+    }
+
     const lightGallery = useRef(null);
-    const openGallery = useCallback(() => {
-        lightGallery.current.openGallery();
+    const openGallery = useCallback((inx) => {
+        lightGallery.current.openGallery(inx);
     }, []);
     const onInit = useCallback((detail) => {
         if (detail) {
@@ -176,9 +197,14 @@ export function Gallery({isJamming,setIsJamming}) {
     }, []);
 
     useEffect(() => {
-    
-      getMedia()
+      console.log(media_urls)
+      getMedia();
     }, []);
+    
+    useEffect(() => {
+      console.log(urls);
+      setMediaUrls(urls);
+    }, [urls]);
     return (
         
         <StyledDiv className="App">
@@ -198,11 +224,14 @@ export function Gallery({isJamming,setIsJamming}) {
 
               >
 
-                  {media.map((media, index) => {
+                  {media.slice(0,10).map((media, index) => {
                       return (
-                          <button onClick={openGallery} key={index}>
-                              {media.type === 'image' && <img alt={index} src={media.src} />}
-                              {media.type === 'video' && <video alt={index} src={media.src} />}
+                          
+                          <button onClick={() => openGallery(index)} key={index}>
+                            {/* {!media.hasOwnProperty("type") && console.log(media.video.source[0].src)} */}
+                            {!media.hasOwnProperty("type") && <video alt={index} src={media.video.source[0].src} />}
+                            {media.hasOwnProperty("type") && <img alt={index} src={media.src} />}
+                            {/* {console.log(media)} */}
                               
                               
                           </button>
@@ -256,17 +285,18 @@ const StyledDiv = styled.div`
   ::-webkit-scrollbar {
 	display: none !important; /* Hide scrollbar in Chrome, Safari, and Edge */
   }
+  scrollbar-width: none !important;
   /* @import url('https://cdn.jsdelivr.net/npm/lightgallery@2.3.0/css/lightgallery.css');
   @import url('https://cdn.jsdelivr.net/npm/lightgallery@2.3.0/css/lg-zoom.css');
   @import url('https://cdn.jsdelivr.net/npm/lightgallery@2.3.0/css/lg-video.css'); */
 
-  @font-face {
+  /* @font-face {
       font-family: 'lg';
       src: url("../../utils/fonts/lg.ttf?22t19m") format("truetype"), url("../../utils/fonts/lg.woff?22t19m") format("woff"), url("../../utils/fonts/lg.svg?22t19m#lg") format("svg");
       font-weight: normal;
       font-style: normal;
       font-display: block;
-    }
+    } */
 
   .lg-icon{
     .nav a::after,button::after {
@@ -322,6 +352,7 @@ const StyledDiv = styled.div`
       filter: opacity(.9);
       transform: scale(1.01);
   }
+  
 
 
 `
@@ -338,6 +369,19 @@ const GalleryDiv = styled.div`
     background-color: rgba(255, 255, 255,0) !important;  
     transform: scaleX(0);
     transition: transform 0.3s ease;
+  }
+
+  video {
+      max-width: 100%;
+      display: block;
+      padding: 5px 0px;
+      border-radius: 20px;
+      transition: transform 0.2s;
+  }
+
+  video:hover {
+      filter: opacity(.9);
+      transform: scale(1.01);
   }
 
   .nav a:hover,button:hover {

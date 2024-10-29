@@ -16,11 +16,11 @@ export const media =[
       attributes: { preload: false, controls: true },
     },
   },
-  {
-    "type": "video",
-    "src": "/land1.mp4",
+  // {
+  //   "type": "video",
+  //   "src": "/land1.mp4",
 
-  },
+  // },
   {
     "type": "image",
     "src": "https://res.cloudinary.com/dfjuxpxff/image/upload/v1728749146/J7403352_tw82y2.webp"

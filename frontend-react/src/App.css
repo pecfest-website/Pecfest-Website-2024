@@ -8,6 +8,7 @@ body {
 /* Hides scrollbar for the entire page */
 html, body {
 	overflow: auto;
+  scrollbar-width: none !important;
   }
   
   ::-webkit-scrollbar {
@@ -21,7 +22,7 @@ html, body {
     font-style: normal;
 }
 body {
-  	margin: 0; line-height: normal;
+  margin: 0; line-height: normal;
 	font-family: "Cyber Chunk Font","Silkscreen",sans-serif;
 }
 video::-webkit-media-controls {
