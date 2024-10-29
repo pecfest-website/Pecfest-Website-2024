@@ -210,7 +210,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
                   <div className={styles['path']}>
                     <div style={{ color: '#fbff00' }} className={styles.underline} onClick={() => navigate("/events")}>Events</div>
                     {">"}
-                    <div className={styles.underline} onClick={() => navigate(`/events?default=${event.eventType}`)}>{event.eventType}</div>
+                    <div className={styles.underline} onClick={() => navigate(`/`+ (event.eventType === "CULTURAL" || event.eventType === "TECHNICAL"?"competitions":"events") + `?default=${event.eventType}`)}>{event.eventType}</div>
                     {">"}
                     <div>{event.name}</div>
                   </div>
