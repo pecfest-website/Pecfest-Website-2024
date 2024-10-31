@@ -30,9 +30,13 @@ const Competitions = ({ isJamming, setIsJamming }) => {
     Coding: true,
     Fun: true,
     Hardware: true,
+    Art: true,
     Dramatics: true,
     Gaming: true,
+    Quiz: true,
+    Literary:true,
     Cinematography: true,
+    Photography: true
   };
 
   const [filters, setFilters] = useState(initialFilters);

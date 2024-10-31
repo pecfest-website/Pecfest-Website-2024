@@ -86,7 +86,7 @@ export const developers = {
             Instagram:"NA",
             Linkedin:"NA",
             "Photo": "/team/sristi.jpg",
-            "Email": "sristi.bt22ece@pec.edu.in",
+            "Email": "sristi282002@gmail.com",
             "Contact": "7088425716",
             "Type": "Head"
           },
@@ -95,7 +95,7 @@ export const developers = {
               "Committee": "Creative",
               Instagram:"NA",
               Linkedin:"NA",
-              "Photo": "/team/vikas.jpg",
+              "Photo": "/team/vikas.png",
               "Email": "vikasattri8285@gmail.com",
               "Contact": "8383075442",
               "Type": "Head"

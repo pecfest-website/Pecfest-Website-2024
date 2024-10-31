@@ -78,7 +78,7 @@
   color: #fbff00;
   text-align: center;
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   font-weight: bold;
   text-shadow: 0 0 10px rgba(251, 255, 0, 0.5);
 }
@@ -86,7 +86,7 @@
 .main-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 6px;
 }
 
 /* Competitions Section */
