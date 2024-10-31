@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react"
 
+
 const GlobalContext = React.createContext()
 
 export const GlobalProvider = ({children}) =>{
@@ -9,13 +10,11 @@ export const GlobalProvider = ({children}) =>{
         setHomeLoad(true);
         
     };
-
-    
     
     return(
         <GlobalContext.Provider value = {{
             handleSetHomeLoad,
-            homeload
+            homeload,
         }}>
             {children}
         </GlobalContext.Provider>

@@ -1,6 +1,10 @@
 import LightGallery from 'lightgallery/react';
 import styled from 'styled-components';
 // import styles
+
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+
 import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
@@ -21,7 +25,7 @@ import lgVideo from "lightgallery/plugins/video";
 
 
 import { media } from '../../utils/media_urls';
-import React, { useState, useRef, useCallback, useEffect} from 'react';
+import React, { useState, useRef, useCallback, useEffect, useMemo} from 'react';
 import VideoBackground from '../../components/VideoBackground';
 import {BACKGROUNDS} from '../../utils/backgrounds'; 
 import NavBar from '../../components/NavBar/Navbar';
@@ -30,18 +34,8 @@ import NavBar from '../../components/NavBar/Navbar';
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
 
-import { initializeApp } from "firebase/app";
-import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
-
-const firebaseConfig = {
-	apiKey: process.env.REACT_APP_API_KEY,
-	authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-	projectId: process.env.REACT_APP_PROJECT_ID,
-	storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-	messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-	appId: process.env.REACT_APP_APP_ID,
-	// measurementId: process.env.REACT_APP_MEASUREMENT_ID,
-};
+import styles from '../../components/VideoBackground.module.css';
+import load from "../../utils/vid/load.mp4";
 
 const defaultOptions = {
     loop: true,
@@ -51,140 +45,118 @@ const defaultOptions = {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
-export function Gallery({isJamming,setIsJamming}) {
-    // const onInit = () => {
-    //     console.log('lightGallery has been initialized');
-    // };
-    const [items, setItems] = useState([
-        {
-          id: '1',
-          size: '1400-933',
-          src: 'https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
-          thumb:
-            'https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80',
-          subHtml: `<div class="lightGallery-captions">
-                    <h4>Photo by <a href="https://unsplash.com/@dann">Dan</a></h4>
-                    <p>Published on November 13, 2018</p>
-                </div>`,
-        },
-        {
-          video: {
-            source: [
-              {
-                src: 'https://www.lightgalleryjs.com//videos/video1.mp4',
-                type: 'video/mp4',
-              },
-            ],
-            attributes: { preload: false, controls: true },
-          },
-          thumb:
-            'https://www.lightgalleryjs.com//images/demo/html5-video-poster.jpg',
-          subHtml: `<div class="lightGallery-captions">
-                          <h4>Photo by <a href="https://unsplash.com/@brookecagle">Brooke Cagle</a></h4>
-                          <p>Description of the slide 2</p>
-                      </div>`,
-        },
-        {
-          id: '2',
-          size: '1400-933',
-          src: 'https://images.unsplash.com/photo-1473876988266-ca0860a443b8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
-          thumb:
-            'https://images.unsplash.com/photo-1473876988266-ca0860a443b8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80',
-          subHtml: `<div class="lightGallery-captions">
-                    <h4>Photo by <a href="https://unsplash.com/@kylepyt">Kyle Peyton</a></h4>
-                    <p>Published on September 14, 2016</p>
-                </div>`,
-        },
-        {
-          id: '3',
-          size: '1400-932',
-          src: 'https://images.unsplash.com/photo-1588953936179-d2a4734c5490?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=80',
-          thumb:
-            'https://images.unsplash.com/photo-1588953936179-d2a4734c5490?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80',
-          subHtml: `<div class="lightGallery-captions">
-                    <h4>Photo by <a href="https://unsplash.com/@jxnsartstudio">Garrett Jackson</a></h4>
-                    <p>Published on May 8, 2020</p>
-                </div>`,
-        },
-        {
-          id: '4',
-          size: '1400-932',
-          src: 'https://www.lightgalleryjs.com/pdf/sample.pdf',
-          iframe: true,
-        },
-        {
-          id: '5',
-          size: '1400-932',
-          src: 'https://images.unsplash.com/photo-1588953936179-d2a4734c5490?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=80',
-          thumb:
-            'https://images.unsplash.com/photo-1588953936179-d2a4734c5490?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=240&q=80',
-          subHtml: `<div class="lightGallery-captions">
-                    <h4>Photo by <a href="https://unsplash.com/@jxnsartstudio">Garrett Jackson</a></h4>
-                    <p>Published on May 8, 2020</p>
-                </div>`,
-        },
-      ]);
-    const [urls, setUrls] = useState([])
-    const [media_urls, setMediaUrls] = useState(media)
-
-    const shuffleArray = (array) => {
-      for (let i = array.length - 1; i >= 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-      }
-      setUrls(array);
+const firebaseConfig = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
+    // measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+};
+const shuffleArray = (array) => {
+    for(let i = array.length - 1; i >= 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
-    const getMedia = () => {
-        console.log(process.env.REACT_APP_STORAGE_BUCKET)
+    return array;
+}
+export function Gallery({isJamming,setIsJamming}) {
+    const [vidIndex, setVidIndex] = useState(0);
+    const [urls, setUrls] = useState([]);
+    const [gallery_urls, setGalleryUrls] = useState([]);
+
+    useMemo(async() => {
         initializeApp(firebaseConfig);
-        // Reference to the storage folder
         const storage = getStorage();
         const storageRef = ref(storage, 'pecfest');
-        // const childRef = storageRef.child('pecfest/');
-      
-        // List files in the folder
-        listAll(storageRef)
-          .then((res) => {
-            const urls1 = [];
-      
-            res.items.forEach((itemRef) => {
-              getDownloadURL(itemRef)
-                .then((url) => {
-                  if(url.toLowerCase().includes(".mp4")){
-                    urls1.push({
-                      video: {
-                        source: [
-                          {
-                            src: url,
-                            type: 'video/mp4',
-                          },
-                        ],
-                        attributes: { preload: false, controls: true },
-                      },
-                    });
-                  }
-                  else{
-                    urls1.push({
-                      "type": "image",
-                      "src": url
-                    });
-                  }
-                  
-                })
-                .catch((error) => {
-                  console.error('Error getting download URL:', error);
-                });
+        const ref1 = await listAll(storageRef
+          
+        );
+        const temp = [];
+        ref1.items.forEach((item)=>{
+          temp.push(getDownloadURL(item));
+        })
+        let temp2 = await Promise.all(temp);
+        const temp3 = [];
+        const temp4 = await Promise.all(shuffleArray(temp2));
+        console.log(temp4);
+        await Promise.all(temp4.map(async(url)=>{
+          if(url.toLowerCase().includes(".mp4")){
+            temp3.push({
+              video: {
+                source: [
+                  {
+                    src: url,
+                    type: 'video/mp4',
+                  },
+                ],
+                attributes: { preload: false, controls: true },
+              },
             });
-            console.log(urls1);
-            setUrls(urls1);
-            // shuffleArray(urls1);
-            // Once all URLs are fetched, you can use the 'urls' 
-          })
-          .catch((error) => {
-            console.error('Error listing files:', error);
-          });
-    }
+          }
+          else{
+            temp3.push({
+              "type": "image",
+              "src": url
+            });
+          }
+        }));
+        // console.log(temp3);
+        // setUrls(temp2);
+        // await listAll(storageRef)
+        //   .then((res) => {
+        //     const urls1 = [];
+        //     res.items.forEach(async (itemRef) => {
+        //       await getDownloadURL(itemRef)
+        //         .then((url) => {
+        //           if(url.toLowerCase().includes(".mp4")){
+        //             urls1.push({
+        //               video: {
+        //                 source: [
+        //                   {
+        //                     src: url,
+        //                     type: 'video/mp4',
+        //                   },
+        //                 ],
+        //                 attributes: { preload: false, controls: true },
+        //               },
+        //             });
+        //           }
+        //           else{
+        //             urls1.push({
+        //               "type": "image",
+        //               "src": url
+        //             });
+        //           }
+                  
+        //         })
+        //         .catch((error) => {
+        //           console.error('Error getting download URL:', error);
+        //         });
+        //     });
+        //     console.log(urls1);
+        //     setUrls(urls1);
+        //     // shuffleArray(urls1);
+        //     // Once all URLs are fetched, you can use the 'gallery_urls' 
+        //   })
+        //   .catch((error) => {
+        //     console.error('Error listing files:', error);
+        //   });
+      // getMedia();
+      // console.log(1);
+      setUrls(temp3);  
+    }, []);
+    useMemo(() => {
+      setGalleryUrls(urls);
+      // console.log(2);
+      // if(urls!=[]) {console.log(50);}
+      // console.log(urls.length);
+    },[urls]);
+    // useMemo(()=>{
+    //   console.log(3);
+    //   console.log(urls.length);
+    // }, [urls,gallery_urls]);
 
     const lightGallery = useRef(null);
     const openGallery = useCallback((inx) => {
@@ -196,21 +168,32 @@ export function Gallery({isJamming,setIsJamming}) {
         }
     }, []);
 
-    useEffect(() => {
-      console.log(media_urls)
-      getMedia();
-    }, []);
     
-    useEffect(() => {
-      console.log(urls);
-      setMediaUrls(urls);
-    }, [urls]);
+    
+    // useEffect(() => {
+    //   console.log(urls);
+    //   setMediaUrls(urls);
+    // }, [urls]);
     return (
         
         <StyledDiv className="App">
+            {/* {console.log("return")} */}
             <NavBar/>
             <VideoBackground url ={BACKGROUNDS.Gallery}  />
+            <div className={styles['video-background']}>
+              {(vidIndex===0) && <video
+                style={{ display: vidIndex === 1? "none" : "block",
+                  
+                 }}
+                {...console.log(vidIndex)}
+                src={load}
+                autoPlay
+                muted
+                onEnded={() => setVidIndex((idx) => idx + 1)}
+              />}
+            </div>
             <GalleryDiv>
+              {(urls!=[] && vidIndex ===1) &&
               <LightGallery
                   // onInit={onInit}
                   // speed={500}
@@ -219,12 +202,14 @@ export function Gallery({isJamming,setIsJamming}) {
                   plugins={[lgVideo]}
                   elementClassNames="custom-classname"
                   dynamic
-                  dynamicEl={media}
+                  dynamicEl={gallery_urls}
                   onInit={onInit}
 
               >
+                  {/* {console.log("render")} */}
 
-                  {media.slice(0,10).map((media, index) => {
+                  {/* {console.log(gallery_urls)} */}
+                  {gallery_urls.map((media, index) => {
                       return (
                           
                           <button onClick={() => openGallery(index)} key={index}>
@@ -240,12 +225,13 @@ export function Gallery({isJamming,setIsJamming}) {
 
 
               </LightGallery>
+            }
             </GalleryDiv>
             
            
             <div
             style={{
-              position: "absolute !important",
+              position: "fixed !important",
               zIndex: 1,
               left: 0,
               bottom: 0,
@@ -258,19 +244,22 @@ export function Gallery({isJamming,setIsJamming}) {
                 options={defaultOptions}
                 height={200}
                 width={200}
-                // Wrap in an arrow function
+                style={{
+                  position: "fixed",
+                  bottom: "0",
+                  left: "0"
+                }}
               />
             ) : (
               <h2
                 style={{
                   color: "#fbff00",
-                  position: "absolute",
+                  position: "fixed",
                   bottom: "50px",
                   left: "50px",
                   fontFamily: "Cyber Chunk Font",
                   fontSize: "1.2rem",
                 }}
-          // Wrap in an arrow function
               >
                 Jam?
               </h2>
