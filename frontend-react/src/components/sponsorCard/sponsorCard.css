@@ -1,14 +1,16 @@
 .card{
     /* background-color: rgba(255, 255, 255, 0.2); */
     margin: 10px;
-    height: 80%;
+    /* height: 80%; */
+    display: flex;
+    flex-direction: column;
     margin-top: 29px;
 }
 .image-preview{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 10rem;
+    /* height: 10rem; */
     gap: 10px;
     object-fit: contain;
 }
@@ -20,7 +22,7 @@
 }
 
 .image-preview-container {
-    height: 100%;
+    height: 10rem;
     object-fit: contain;
     border-radius: 5px;
 }
