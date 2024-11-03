@@ -135,7 +135,7 @@ export default function Sponsor({ isJamming, setIsJamming }) {
                     <h2
                         style={{
                             color: "#fbff00",
-                            position: "absolute",
+                            position: "fixed",
                             bottom: "50px",
                             left: "50px",
                             fontFamily: "Cyber Chunk Font",
