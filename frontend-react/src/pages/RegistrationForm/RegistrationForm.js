@@ -67,7 +67,9 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
 
   const handleMemberChange = (index, value) => {
     const updatedMembers = [...members];
-    updatedMembers[index].username = value;
+    const username = {...updatedMembers[index]};
+    username["username"] = value;
+    updatedMembers[index] = username;
     setMembers(updatedMembers);
   };
 
@@ -103,48 +105,82 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
       paymentProof,
     });
 
+    const toBase64 = (file) =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+
     const usernames = members.map(member => member.username);
-
-    const response = await axios.post("https://api.pecfest.org/event/register",{
-      eventId,  
-      accomodation: accommodation==true?1:0,
-      teamName,
-      teamSize,
-      members: usernames,
-      paymentId,
-      billAddress,
-      paymentProof
-  },{
-      headers:{
-        "Token":`Bearer ${token}`
+    const payment = await toBase64(paymentProof);
+    try {
+      
+      const response = await axios.post("https://api.pecfest.org/event/register",{
+        eventId,  
+        accomodation: accommodation==true?1:0,
+        teamName,
+        teamSize,
+        members: usernames,
+        paymentId,
+        billAddress,
+        paymentProof: payment
+    },{
+        headers:{
+          "Token":`Bearer ${token}`
+        }
+      })
+      const data = response?.data;
+  
+      if (data?.statusCode === 200){
+        toast.success(data?.message ?? "Successfully registered");
+        navigate(-1);
+      }else if (data?.statusCode === 501){
+        toast.error(data?.message, {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
+        navigate('/login');
+      }else{
+        toast.error(data?.message, {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
       }
-    })
-    const data = response?.data;
-
-    if (data?.statusCode === 200){
-      toast.success(data?.message ?? "Successfully registered");
-      navigate(-1);
-    }else if (data?.statusCode === 501){
-      toast.error(data?.message, {
-        position: "top-right", // You can change the position
-        autoClose: 5000, // Toast disappears after 5 seconds
-        hideProgressBar: false, // Show or hide the progress bar
-        closeOnClick: true, // Close the toast when clicked
-        pauseOnHover: true, // Pause toast dismissal when hovered
-        draggable: true, // Allow dragging the toast to dismiss it
-        progress: undefined, // Progress bar visibility
-      });
-      navigate('/login');
-    }else{
-      toast.error(data?.message, {
-        position: "top-right", // You can change the position
-        autoClose: 5000, // Toast disappears after 5 seconds
-        hideProgressBar: false, // Show or hide the progress bar
-        closeOnClick: true, // Close the toast when clicked
-        pauseOnHover: true, // Pause toast dismissal when hovered
-        draggable: true, // Allow dragging the toast to dismiss it
-        progress: undefined, // Progress bar visibility
-      });
+    } catch (error) {
+      console.log(error);
+      if (error?.message === "Network Error"){
+        toast.error("Please reduce image size", {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
+      } else {
+        toast.error(error?.message, {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
+      }
     }
   };
 

@@ -8,7 +8,7 @@ export default function SponsorCard({ category }) {
     <div className='card'>
       <div className='category-container'>
             <span className='category'>{category.name}</span>
-            </div>
+        </div>
             <div className="image-preview">
                 {Array.isArray(category.sponsers) && category.sponsers.length > 0 ? (
                     category.sponsers.map((sponsor, sponsorIndex) => (
