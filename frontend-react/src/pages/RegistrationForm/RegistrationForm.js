@@ -160,6 +160,8 @@ const EventRegistrationForm = ({ isJamming, setIsJamming }) => {
           <div className={styles["payment-info"]}>
           <h2>Bank Details of Payment</h2>
           <div className={styles["bank-account"]}>
+          <span className= {styles["upi"]}>UPI ID: 40903415912@SBIN0002452.ifsc.npci</span>
+          <br/>
             <span>Account Number: 00000040903415912</span>
             <span>GSTIN: 04AABTP1179L1ZE</span>
             <span>IFSC Code: SBIN0002452</span>
