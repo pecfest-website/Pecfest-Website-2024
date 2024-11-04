@@ -114,7 +114,11 @@ const EventRegistrationForm = ({ isJamming, setIsJamming }) => {
       });
 
     const usernames = members.map(member => member.username);
-    const payment = await toBase64(paymentProof);
+    let payment;
+    if (eventDetails.paymentType == "PAID"){
+      payment = await toBase64(paymentProof);
+    }
+    
     try {
       
       const response = await axios.post("https://api.pecfest.org/event/register",{
