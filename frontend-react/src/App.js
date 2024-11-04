@@ -18,8 +18,10 @@ import Developers from './pages/Developers/Developers';
 import Landing from './pages/Landing/Landing';
 import { useGlobalContext } from './Context/globalContext';
 
+
 import Schedule from './pages/Schedule/Schedule';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import LandingIOS from './pages/Landing/LandingIOS';
 
 const music = new Audio(
     "https://firebasestorage.googleapis.com/v0/b/react-trial-cef8c.appspot.com/o/Heuse%20%26%20Zeus%20x%20Crona%20-%20Pill%20(feat.%20Emma%20Sameth)%20%5BNCS%20Release%5D.mp3?alt=media&token=6385b144-d0e9-4438-bf47-456c671265a0"
@@ -27,8 +29,10 @@ const music = new Audio(
 
 function App() {
     const [isJamming, setJamming]=useState(false);
-    const global = useGlobalContext()
+    const global = useGlobalContext();
+    const isiOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
+    
 
     const setIsJamming =()=>{
     
@@ -48,7 +52,12 @@ function App() {
             <Router>
                 <Routes>
 
-                    <Route path="/" element={<Landing/> } />
+                    <Route path="/landing" element={<Landing/> } />
+
+
+
+                    <Route path="/" element={isiOSDevice ? <LandingIOS/> : <Landing/> } />
+
                     {/* <Route path="/" element={<Homepage  isJamming={isJamming} setIsJamming={setIsJamming} /> } /> */}
                     <Route path="/gallery" element={<Gallery isJamming={isJamming} setIsJamming={setIsJamming} />} />
                     <Route path="/events" element={<Events isJamming={isJamming} setIsJamming={setIsJamming} />} />
