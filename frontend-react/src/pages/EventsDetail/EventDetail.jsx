@@ -262,6 +262,16 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
                           <FaUserFriends />
                           {participantText}
                         </div>
+                        {
+                          event?.paymentType !== "FREE" && (
+                            <div className={styles.eventInfo}>
+                              {" "}
+                              <CurrencyRupeeIcon />
+                              {event?.registrationFee + " per Team" }  
+                            </div>
+                          )
+          
+                        }
                         {event.haveRuleBook && (
                           <div className={styles.eventInfo}>
                             {" "}

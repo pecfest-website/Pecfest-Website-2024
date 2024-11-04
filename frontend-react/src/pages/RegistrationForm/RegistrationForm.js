@@ -18,11 +18,11 @@ const defaultOptions = {
     preserveAspectRatio: "xMidYMid slice",
   },
 };
-const EventRegistrationForm = ({isJamming,setIsJamming}) => {
+const EventRegistrationForm = ({ isJamming, setIsJamming }) => {
   // State to hold event details
   const navigate = useNavigate();
   const params = useParams();
-  let eventId= params.id;
+  let eventId = params.id;
   const [eventDetails, setEventDetails] = useState({});
   const [accommodation, setAccommodation] = useState(false);
   const [teamName, setTeamName] = useState("");
@@ -33,7 +33,7 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
   const [paymentProof, setPaymentProof] = useState(null);
 
   let token = localStorage.getItem("token");
-  if(!token){
+  if (!token) {
     navigate("/login");
   }
   // Fetch event data from the API when the component mounts
@@ -42,7 +42,7 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
       try {
 
         // POST request with empty body
-        const response = await axios.post('https://api.pecfest.org/event/detail', {"eventId": eventId});
+        const response = await axios.post('https://api.pecfest.org/event/detail', { "eventId": eventId });
         console.log("API response received:", response);
 
         const event = response.data.data;
@@ -51,8 +51,8 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
         if (event) {
           setEventDetails(event);
           if (event.participationType === "TEAM") {
-            setTeamSize(event.minParticipants);  
-            setMembers(new Array(event.minParticipants-1).fill({ username: "" }));
+            setTeamSize(event.minParticipants);
+            setMembers(new Array(event.minParticipants - 1).fill({ username: "" }));
           }
         } else {
           console.error(`Event not found for ID: ${eventId}. Check if the eventId exists in the API response.`);
@@ -67,7 +67,9 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
 
   const handleMemberChange = (index, value) => {
     const updatedMembers = [...members];
-    updatedMembers[index].username = value;
+    const username = {...updatedMembers[index]};
+    username["username"] = value;
+    updatedMembers[index] = username;
     setMembers(updatedMembers);
   };
 
@@ -90,11 +92,12 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
   };
 
   const handleFormSubmit = async (e) => {
+
     e.preventDefault();
     // Submit logic here
     console.log({
       eventId,
-      accommodation: accommodation==true?1:0,
+      accommodation: accommodation == true ? 1 : 0,
       teamName,
       teamSize,
       members,
@@ -103,177 +106,236 @@ const EventRegistrationForm = ({isJamming,setIsJamming}) => {
       paymentProof,
     });
 
+    const toBase64 = (file) =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+
     const usernames = members.map(member => member.username);
+    let payment;
+    if (eventDetails.paymentType == "PAID"){
+      payment = await toBase64(paymentProof);
+    }
 
-    const response = await axios.post("https://api.pecfest.org/event/register",{
-      eventId,  
-      accomodation: accommodation==true?1:0,
-      teamName,
-      teamSize,
-      members: usernames,
-      paymentId,
-      billAddress,
-      paymentProof
-  },{
-      headers:{
-        "Token":`Bearer ${token}`
+    try {
+      
+      const response = await axios.post("https://api.pecfest.org/event/register",{
+        eventId,  
+        accomodation: accommodation==true?1:0,
+        teamName,
+        teamSize,
+        members: usernames,
+        paymentId,
+        billAddress,
+        paymentProof: payment
+    },{
+        headers:{
+          "Token":`Bearer ${token}`
+        }
+      })
+      const data = response?.data;
+  
+      if (data?.statusCode === 200){
+        toast.success(data?.message ?? "Successfully registered");
+        navigate(-1);
+      }else if (data?.statusCode === 501){
+        toast.error(data?.message, {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
+        navigate('/login');
+      }else{
+        toast.error(data?.message, {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
       }
-    })
-    const data = response?.data;
-
-    if (data?.statusCode === 200){
-      toast.success(data?.message ?? "Successfully registered");
-      navigate(-1);
-    }else if (data?.statusCode === 501){
-      toast.error(data?.message, {
-        position: "top-right", // You can change the position
-        autoClose: 5000, // Toast disappears after 5 seconds
-        hideProgressBar: false, // Show or hide the progress bar
-        closeOnClick: true, // Close the toast when clicked
-        pauseOnHover: true, // Pause toast dismissal when hovered
-        draggable: true, // Allow dragging the toast to dismiss it
-        progress: undefined, // Progress bar visibility
-      });
-      navigate('/login');
-    }else{
-      toast.error(data?.message, {
-        position: "top-right", // You can change the position
-        autoClose: 5000, // Toast disappears after 5 seconds
-        hideProgressBar: false, // Show or hide the progress bar
-        closeOnClick: true, // Close the toast when clicked
-        pauseOnHover: true, // Pause toast dismissal when hovered
-        draggable: true, // Allow dragging the toast to dismiss it
-        progress: undefined, // Progress bar visibility
-      });
+    } catch (error) {
+      console.log(error);
+      if (error?.message === "Network Error"){
+        toast.error("Please reduce image size", {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
+      } else {
+        toast.error(error?.message, {
+          position: "top-right", // You can change the position
+          autoClose: 5000, // Toast disappears after 5 seconds
+          hideProgressBar: false, // Show or hide the progress bar
+          closeOnClick: true, // Close the toast when clicked
+          pauseOnHover: true, // Pause toast dismissal when hovered
+          draggable: true, // Allow dragging the toast to dismiss it
+          progress: undefined, // Progress bar visibility
+        });
+      }
     }
   };
 
   return (
     <>
-      {/* Adding the Video Background */}
       <VideoBackground url={BACKGROUNDS.Homepage} />
-
-      {/* Adding the NavBar with fixed positioning */}
       <NavBar />
-      <ToastContainer/>
+      <ToastContainer />
       {/* Form Container */}
-      <div className={styles["form-container"]}>
-        <div className={styles["shadow-region"]}>
-          <h2 className={styles["form-heading"]}>{eventDetails?.name} Registration</h2>
+      <div className={styles["main-container"]}>
+        
+        {eventDetails.paymentType === "PAID" && (
+          <div className={styles["payment-info"]}>
+          <h2>Bank Details of Payment</h2>
+          <div className={styles["bank-account"]}>
+          <span className= {styles["upi"]}>UPI ID: 40903415912@SBIN0002452.ifsc.npci</span>
+          <br/>
+            <span>Account Number: 00000040903415912</span>
+            <span>GSTIN: 04AABTP1179L1ZE</span>
+            <span>IFSC Code: SBIN0002452</span>
+            <span>Code of Bank: 160002008</span>
+            <span>Branch Code: 2452 MICR</span>
+            <span>Account Holder Name: PUNJAB ENGG COLLEGE (DEEMED TO BE UNIVERSITY)</span>
+          </div>
+        </div>
+        )}
+        <div className={styles["form-container"]}>
+          <div className={styles["shadow-region"]}>
+            <h2 className={styles["form-heading"]}>{eventDetails?.name} Registration</h2>
 
-          <form onSubmit={handleFormSubmit} className={styles["form-content"]}>
-            {!!eventDetails.provideAccommodation && (
-              <div className={styles["checkbox-container"]}>
-                <input
-                  type="checkbox"
-                  checked={accommodation}
-                  onChange={(e) => setAccommodation(e.target.checked)}
-                  className="form-checkbox"
-                />
-                <label className={styles["checkbox-label"]}>
-                  Accommodation required?
-                </label>
-              </div>
-            )}
-
-            {/* If the event is a team event, render team-related fields */}
-            {eventDetails.participationType === "TEAM" && (
-              <>
-                <div>
-                  <label>Team Name</label>
+            <form onSubmit={handleFormSubmit} className={styles["form-content"]}>
+              {!!eventDetails.provideAccommodation && (
+                <div className={styles["checkbox-container"]}>
                   <input
-                    type="text"
-                    value={teamName}
-                    onChange={(e) => setTeamName(e.target.value)}
-                    className={styles["input-field"]}
-                    required
+                    type="checkbox"
+                    checked={accommodation}
+                    onChange={(e) => setAccommodation(e.target.checked)}
+                    className="form-checkbox"
                   />
-                </div> 
-
-                <div>
-                  <label>Team Size</label>
-                  <input
-                    type="number"
-                    min={eventDetails.minParticipants}
-                    max={eventDetails.maxParticipants}
-                    value={teamSize}
-                    className={styles["input-field"]}
-                    readOnly
-                  />
+                  <label className={styles["checkbox-label"]}>
+                    Accommodation required?
+                  </label>
                 </div>
+              )}
 
-                {members.map((member, index) => (
-                  <div key={index} className={styles["member-row"]}>
+              {/* If the event is a team event, render team-related fields */}
+              {eventDetails.participationType === "TEAM" && (
+                <>
+                  <div>
+                    <label>Team Name</label>
                     <input
                       type="text"
-                      value={member.username}
-                      onChange={(e) => handleMemberChange(index, e.target.value)}
+                      value={teamName}
+                      onChange={(e) => setTeamName(e.target.value)}
                       className={styles["input-field"]}
-                      placeholder={`Member ${index + 1} Username`}
                       required
                     />
-                    <button
-                      type="button"
-                      className={styles["delete-button"]}
-                      onClick={() => deleteMember(index)}
-                    >
-                      Delete
-                    </button>
                   </div>
-                ))}
 
-                <button
-                  type="button"
-                  onClick={addMember}
-                  className={styles["submit-button"]}
-                >
-                  Add Member
-                </button>
-              </>
-            )}
+                  <div>
+                    <label>Team Size</label>
+                    <input
+                      type="number"
+                      min={eventDetails.minParticipants}
+                      max={eventDetails.maxParticipants}
+                      value={teamSize}
+                      className={styles["input-field"]}
+                      readOnly
+                    />
+                  </div>
 
-            {/* If the event is paid, render payment-related fields */}
-            {eventDetails.paymentType === "PAID" && (
-              <>
-                <div>
-                  <label>Payment ID</label>
-                  <input
-                    type="text"
-                    value={paymentId}
-                    onChange={(e) => setPaymentId(e.target.value)}
-                    className={styles["input-field"]}
-                    required
-                  />
-                </div>
+                  <div>
+                    <label>Your username will be taken automatically, just add your team members usernames below.</label>
+                  </div>
 
-                <div>
-                  <label>Billing Address</label>
-                  <input
-                    type="text"
-                    value={billAddress}
-                    onChange={(e) => setBillAddress(e.target.value)}
-                    className={styles["input-field"]}
-                    required
-                  />
-                </div>
+                  {members.map((member, index) => (
+                    <div key={index} className={styles["member-row"]}>
+                      <input
+                        type="text"
+                        value={member.username}
+                        onChange={(e) => handleMemberChange(index, e.target.value)}
+                        className={styles["input-field"]}
+                        placeholder={`Member ${index + 1} Username`}
+                        required
+                      />
+                      <button
+                        type="button"
+                        className={styles["delete-button"]}
+                        onClick={() => deleteMember(index)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  ))}
 
-                <div>
-                  <label>Payment Proof</label>
-                  <input
-                    type="file"
-                    onChange={(e) => setPaymentProof(e.target.files[0])}
-                    className={styles["input-field"]}
-                    required
-                  />
-                </div>
-              </>
-            )}
+                  <button
+                    type="button"
+                    onClick={addMember}
+                    className={styles["submit-button"]}
+                  >
+                    Add Member
+                  </button>
+                </>
+              )}
 
-            <button type="submit" className={styles["submit-button"]}>
-              Register
-            </button>
-          </form>
+              {/* If the event is paid, render payment-related fields */}
+              {eventDetails.paymentType === "PAID" && (
+                <>
+                  <div>
+                    <label>Payment ID</label>
+                    <input
+                      type="text"
+                      value={paymentId}
+                      onChange={(e) => setPaymentId(e.target.value)}
+                      className={styles["input-field"]}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label>Billing Address</label>
+                    <input
+                      type="text"
+                      value={billAddress}
+                      onChange={(e) => setBillAddress(e.target.value)}
+                      className={styles["input-field"]}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label>Payment Proof</label>
+                    <input
+                      type="file"
+                      onChange={(e) => setPaymentProof(e.target.files[0])}
+                      className={styles["input-field"]}
+                      required
+                    />
+                  </div>
+                </>
+              )}
+
+              <button type="submit" className={styles["submit-button"]}>
+                Register
+              </button>
+            </form>
+          </div>
         </div>
+
+
       </div>
       <div
         style={{

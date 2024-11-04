@@ -5,6 +5,8 @@ import vid1 from "../../utils/vid/land1.mp4";
 import vid2 from "../../utils/vid/land2.mp4";
 import load from "../../utils/vid/load.mp4";
 
+import { useNavigate } from "react-router-dom";
+
 import styled from 'styled-components';
 import { useGlobalContext } from '../../Context/globalContext'
 import NavBar from '../../components/NavBar/Navbar';
@@ -44,6 +46,20 @@ const Landing = () => {
   // BACKGROUNDS.Landing add later
   const { height, width } = useWindowDimensions();
   console.log(height, width)
+
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `https://cnergy.club/`; 
+    navigate(path);
+  }
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
+
+  const cnergy_url = 'https://cnergy.club/';
+  const sham_url = 'https://www.instagram.com/shamexoticgroup/';
+
   return (
     <>
       
@@ -130,6 +146,10 @@ const Landing = () => {
             </ButtonContainer>
 
           </InnerContainer2>
+          {/* <Cnergy_button onClick={() => window.location.href = url}></Cnergy_button> */}
+          <Cnergy_button onClick={()=>window.open(cnergy_url, "_blank")}></Cnergy_button>
+          <Sham_button onClick={()=>window.open(sham_url, "_blank")}></Sham_button>
+                
         </Container>
       }
       {(vidIndex === 1 && height >= width) &&   
@@ -139,7 +159,7 @@ const Landing = () => {
           <InnerContainer2>
             <ButtonContainer>
               <ImageDiv>
-                <NavLink to="/AboutUs">
+                <NavLink className="aboutus" to="/AboutUs">
                 <ImgStyled src={button_img1}></ImgStyled>
               </NavLink></ImageDiv>
               
@@ -185,6 +205,9 @@ const Landing = () => {
             </ButtonContainer>
 
           </InnerContainer2>
+          <Cnergy_button_mobile onClick={()=>window.open(cnergy_url, "_blank")}></Cnergy_button_mobile>
+          <Sham_button_mobile onClick={()=>window.open(sham_url, "_blank")}></Sham_button_mobile>
+
         </Container_mobile>
       }
       
@@ -207,8 +230,12 @@ const Container = styled.div`
 
 
 const Container_mobile = styled.div`
+  .aboutus{
+    padding-bottom: 10vh;
+  }
   display: flex;
   flex-direction: column;
+  position: fixed;
   /* height: ${props => props.height}px;
   width: ${props => props.width}px; */
   height: 100vh;
@@ -308,4 +335,45 @@ const ImgStyled = styled.img`
   overflow: auto;
 `
 
+const Cnergy_button = styled.button`
+position: fixed;
+background-color: rgba(255, 255, 255, 0) !important;
+z-index: 10;
+color: rgba(255, 255,255,0);
+top:73vh;
+left: 45vw;
+right: 45vw;
+bottom:15vh;
+`
+
+const Cnergy_button_mobile = styled.button`
+position: fixed;
+background-color: rgba(255, 255, 255, 0) !important;
+z-index: 10;
+color: rgba(255, 255,255,0);
+top:73vh;
+left: 40vw;
+right: 35vw;
+bottom:20vh;
+`
+
+const Sham_button = styled.button`
+position: fixed;
+background-color: rgba(255, 255, 255, 0) !important;
+z-index: 10;
+top:37.5vh;
+left: 46.5vw;
+right: 45vw;
+bottom:48vh;
+`
+
+const Sham_button_mobile = styled.button`
+position: fixed;
+background-color: rgba(255, 255, 255, 0 ) !important;
+z-index: 10;
+top:38vh;
+left: 40vw;
+right: 37vw;
+bottom:48vh;
+`
 export default Landing;

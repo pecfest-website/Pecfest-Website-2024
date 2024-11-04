@@ -33,8 +33,8 @@ export default function Contact({ isJamming, setIsJamming }) {
                             <FaPhone className="text-white text-2xl mr-0 md:mr-4 mb-2 md:mb-0" />
                             <div>
                                 <h3 className="text-base md:text-lg text-white">Call us directly at</h3>
-                                <p className="text-white text-sm">Ayush Kansal: 94637 41383</p>
-                                <p className="text-white text-sm">Prranav Babbar: 62846 91173</p>
+                                <p className="text-white text-sm">Naman Goyal: 7973719436</p>
+                                <p className="text-white text-sm">Ayush Goyal: 7087936478</p>
                             </div>
                         </div>
 

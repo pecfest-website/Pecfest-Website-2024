@@ -55,9 +55,8 @@ export default function Sponsor({ isJamming, setIsJamming }) {
                                             <SponsorCard key={index} category={category} />
                                         ))
                                     ) : (
-                                        <p className="text-[rgb(251,255,0)]" >No sponsors available.</p>
-                                        
-                                    )}
+                                        <p className="text-[rgb(251,255,0)]" >No sponsors available.</p>  
+                                )}
               
                 {/* <div className="fixed w-full h-screen overflow-hidden">
                     <div className="flex flex-col justify-center items-center backdrop-blur-sm">
@@ -136,7 +135,7 @@ export default function Sponsor({ isJamming, setIsJamming }) {
                     <h2
                         style={{
                             color: "#fbff00",
-                            position: "absolute",
+                            position: "fixed",
                             bottom: "50px",
                             left: "50px",
                             fontFamily: "Cyber Chunk Font",
