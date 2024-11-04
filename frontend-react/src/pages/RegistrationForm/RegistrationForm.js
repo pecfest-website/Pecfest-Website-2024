@@ -118,7 +118,7 @@ const EventRegistrationForm = ({ isJamming, setIsJamming }) => {
     if (eventDetails.paymentType == "PAID"){
       payment = await toBase64(paymentProof);
     }
-    
+
     try {
       
       const response = await axios.post("https://api.pecfest.org/event/register",{
@@ -254,6 +254,10 @@ const EventRegistrationForm = ({ isJamming, setIsJamming }) => {
                       className={styles["input-field"]}
                       readOnly
                     />
+                  </div>
+
+                  <div>
+                    <label>Your username will be taken automatically, just add your team members usernames below.</label>
                   </div>
 
                   {members.map((member, index) => (
