@@ -92,6 +92,7 @@ const EventRegistrationForm = ({ isJamming, setIsJamming }) => {
   };
 
   const handleFormSubmit = async (e) => {
+
     e.preventDefault();
     // Submit logic here
     console.log({
