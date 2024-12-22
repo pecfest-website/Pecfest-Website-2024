@@ -8,6 +8,7 @@ import plus from '../../utils/svgs/plus.svg';
 import star from '../../utils/svgs/star.svg';
 import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
+import { sponser } from "../../utils/sponsers";
 
 const defaultOptions = {
     loop: true,
@@ -22,15 +23,18 @@ export default function Sponsor({ isJamming, setIsJamming }) {
 
     const fetchSponsors = async () => {
         try {
-            const response = await fetch("https://api.pecfest.org/sponser/list", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({}),
-            });
+            // const response = await fetch("https://api.pecfest.org/sponser/list", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify({}),
+            // });
 
-            const result = await response.json();
+            const response = sponser;
+
+            // const result = await response.json();
+            const result = response;
             if (result?.statusCode === 200) {
                 setData(result.data);
                 console.log(data);

@@ -1,16 +1,17 @@
+import stars from "./BG/stars.mp4"
+import metro from "./BG/metro.mp4"
+import triangle from "./BG/triangle.mp4"
+import train from "./BG/train.mp4"
+
 export const BACKGROUNDS = {
-    Events: "https://res.cloudinary.com/deecew6ga/video/upload/q_auto,f_auto/v1728732370/-1ced-4d69-b61e-4609c6ac87a6_ygzqc4.mp4",
-    Gallery: "https://res.cloudinary.com/deecew6ga/video/upload/q_auto,f_auto/v1728732370/-1ced-4d69-b61e-4609c6ac87a6_ygzqc4.mp4",
-    Sponsors: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728751726/back_ymdle1.mp4",
-    AboutUs:"https://res.cloudinary.com/dfjuxpxff/video/upload/v1728751726/back_ymdle1.mp4",
+    Events: metro,
+    Gallery: triangle,
+    Sponsors: train,
+    AboutUs: triangle,
+    Homepage:metro,
+    Login: stars,
+    Signup: stars,
 
-    Homepage:"https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4",
-
-    Login: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4",
-    Signup: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4",
-
-
-    Team: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4",
-    Contact: "https://res.cloudinary.com/dfjuxpxff/video/upload/v1728834975/BackGround_fest_x789ks.mp4"
-
+    Team: stars,
+    Contact: triangle,
 }

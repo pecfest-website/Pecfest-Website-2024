@@ -3,6 +3,7 @@ import styles from "./TransparentCard.module.css";
 import { useNavigate } from "react-router-dom";
 import { Chip } from "@mui/material";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
+import logo from "../../utils/images/logo.png";
 
 const TransparentCard = ({ event }) => {
     const navigate = useNavigate();
@@ -20,6 +21,7 @@ const TransparentCard = ({ event }) => {
                         alt={event.name}
                         width={400}
                         height={400}
+                        onError={(e) => (e.target.src = logo)}
                     />
                 </div>
 

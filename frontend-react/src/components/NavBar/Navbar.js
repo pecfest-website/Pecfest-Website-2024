@@ -3,6 +3,7 @@ import styles from './Navbar.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import brochure from "../../utils/brochure/brochure.pdf";
 import bleepSound from './sound.wav'; // Add your sound file path
+import logo from "../../utils/images/logo.png";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -92,7 +93,7 @@ const NavBar = () => {
         className={styles.logo}
         onClick={handleLogoClick}
         style={{ cursor: 'pointer' }} 
-        src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" 
+        src={logo}
         alt="Logo" 
       />
       <NavLink 
@@ -142,7 +143,7 @@ const NavBar = () => {
 
     {/* Mobile Navigation */}
       <nav className={`${isOpen ? styles.mini : styles.miniNav}`}>
-        <img src="https://res.cloudinary.com/dfjuxpxff/image/upload/v1728933328/logo_mmk5y8.png" alt="Logo" className={styles.img} onClick={handleLogoClick}
+        <img src={logo} alt="Logo" className={styles.img} onClick={handleLogoClick}
           style={{ cursor: 'pointer' }} />
         {isOpen ? (
           <></>

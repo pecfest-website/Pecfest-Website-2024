@@ -18,6 +18,7 @@ import Lottie from "react-lottie";
 import animationData from "../../utils/Transparent vivbing.json";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdDoneAll } from "react-icons/md";
+import logo from "../../utils/images/logo.png";
 
 import {
   FaBook,
@@ -204,6 +205,7 @@ const EventDetail = ({ isJamming, setIsJamming }) => {
                     src={event.image}
                     alt="Event"
                     style={{ maxHeight: "calc(100vh - 320px)", width: "auto"}}
+                    onError={(e) => (e.target.src = logo)}
                   />
                 </div>
                 <div className={styles['event-details']}>

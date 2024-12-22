@@ -1,5 +1,6 @@
 import React from 'react';
 import './sponsorCard.css';
+import logo from "../../utils/images/logo.png"
 
 export default function SponsorCard({ category }) {
   const handleSponsorClick = (sponsorName) => {
@@ -26,9 +27,10 @@ export default function SponsorCard({ category }) {
                   background: "rgba(255,255,255,0.4)",
                   borderRadius: "10px"
                 }}
-                height={200}
+                height={800}
                 width={200}
                 onClick={() => handleSponsorClick(sponsor.name)} // Handle click for sponsor
+                onError={(e) => (e.target.src = logo)}
               />
               <p className='name'>{sponsor.name}</p>
               <p className='title'>{sponsor.title ?? category.name}</p>
